@@ -1,0 +1,63 @@
+=== E51 · la huella en grajillas, familia de estimadores ===
+
+=== k = 7; eventos con al menos 12 aves: 12; evaluables (≥ 3 iniciadores con ventana válida): 12 ===
+evento       aves ini  ampl.    T95   nulo  grupo  anch. cens  pico dur1,5
+transito 02    15   4    112   0.32   0.12   0.53   0.62   no  2.04   0.62
+transito 03    79  16    119   0.13   0.10   0.23   0.23   no  1.47   0.55
+transito 04   196  44    199   0.00   0.10   0.03   1.00   no  1.93   1.42
+transito 05    70  17    173   0.15   0.10   0.17   0.35   no  5.51   1.73
+transito 06    25   6     79   0.00   0.11   0.17   0.27   no  1.64   0.62
+transito 07    73  18     95   0.03   0.10   0.85   0.20   no  1.40   0.07
+transito 12    19   5    138   0.13   0.12   0.58   0.28   no  2.71   1.45
+transito 13    14   4    157   0.15   0.12   0.52   0.88   no  5.06   1.98
+mobbing 03     44  10     92   0.00   0.11   0.32   0.32   no  1.68   0.20
+mobbing 04     57  15    159   0.23   0.10   0.82   0.27   no  2.75   1.55
+mobbing 05     70  18    161   0.23   0.10   1.05   0.77   no  2.62   1.75
+mobbing 07     34   9    153   0.00   0.11   0.00   0.30   no  2.39   0.58
+T95: mediana 0.13 s, IC 95 % [0.0, 0.19169044494628906] (nulo medido 0.11 s); por ave: mediana 0.04 s, media 0.18 s, 166 iniciadoras; fracción de iniciadoras sobre el p95 del nulo de su evento: 0.07
+T95 de grupo: mediana 0.42 s, IC [0.16666531562805176, 0.7000827789306641]
+anchura a media altura: mediana 0.31 s, IC [0.2666950225830078, 0.6917438507080078]; censuradas por la ventana: 0 de 12
+curva agregada: pico 1.60 sigma; anchura 1.25 s (no censurada); operador anterior por umbral: 1.0 σ: 1.63 s, 1.1 σ: 1.55 s, 1.2 σ: 1.52 s, 1.3 σ: 1.20 s, 1.4 σ: 1.08 s, 1.5 σ: 1.03 s
+exploratorio (n = 12): {"n_cortos": 6, "n_largos": 6, "N": {"cortos_mediana": 39.0, "largos_mediana": 63.5, "spearman_con_dur15": -0.2556921609434964, "p": 0.4224811423333079}, "amplitud_deg": {"cortos_mediana": 103.65674941944235, "largos_mediana": 160.23339956957142, "spearman_con_dur15": 0.6853146853146854, "p": 0.013905968814362754}, "T95": {"cortos_mediana": 0.016666889190673828, "largos_mediana": 0.14999771118164062, "spearman_con_dur15": 0.5296602428422065, "p": 0.07654832163307172}, "fwhm": {"cortos_mediana": 0.28333091735839844, "largos_mediana": 0.5584125518798828, "spearman_con_dur15": 0.5804195804195805, "p": 0.04785597684206059}, "transito_en_cortos": 4, "transito_en_largos": 4, "T95_transito_vs_mobbing": {"transito": 0.133331298828125, "mobbing": 0.11669158935546875, "p_mann_whitney": 1.0}, "fwhm_transito_vs_mobbing": {"transito": 0.3166618347167969, "mobbing": 0.30832862854003906, "p_mann_whitney": 0.9333333333333333}}
+
+=== k = 7; eventos con al menos 8 aves: 14; evaluables (≥ 3 iniciadores con ventana válida): 12 ===
+evento       aves ini  ampl.    T95   nulo  grupo  anch. cens  pico dur1,5
+transito 01    11   2  no evaluable
+transito 02    15   4    112   0.32   0.12   0.53   0.62   no  2.04   0.62
+transito 03    79  16    119   0.13   0.10   0.23   0.23   no  1.47   0.55
+transito 04   196  44    199   0.00   0.10   0.03   1.00   no  1.93   1.42
+transito 05    70  17    173   0.15   0.10   0.17   0.35   no  5.51   1.73
+transito 06    25   6     79   0.00   0.11   0.17   0.27   no  1.64   0.62
+transito 07    73  18     95   0.03   0.10   0.85   0.20   no  1.40   0.07
+transito 09    11   2  no evaluable
+transito 12    19   5    138   0.13   0.12   0.58   0.28   no  2.71   1.45
+transito 13    14   4    157   0.15   0.12   0.52   0.88   no  5.06   1.98
+mobbing 03     44  10     92   0.00   0.11   0.32   0.32   no  1.68   0.20
+mobbing 04     57  15    159   0.23   0.10   0.82   0.27   no  2.75   1.55
+mobbing 05     70  18    161   0.23   0.10   1.05   0.77   no  2.62   1.75
+mobbing 07     34   9    153   0.00   0.11   0.00   0.30   no  2.39   0.58
+T95: mediana 0.13 s, IC 95 % [0.0, 0.19169044494628906] (nulo medido 0.11 s); por ave: mediana 0.04 s, media 0.18 s, 166 iniciadoras; fracción de iniciadoras sobre el p95 del nulo de su evento: 0.07
+T95 de grupo: mediana 0.42 s, IC [0.16666531562805176, 0.7000827789306641]
+anchura a media altura: mediana 0.31 s, IC [0.2666950225830078, 0.6917438507080078]; censuradas por la ventana: 0 de 12
+curva agregada: pico 1.60 sigma; anchura 1.25 s (no censurada); operador anterior por umbral: 1.0 σ: 1.63 s, 1.1 σ: 1.55 s, 1.2 σ: 1.52 s, 1.3 σ: 1.20 s, 1.4 σ: 1.08 s, 1.5 σ: 1.03 s
+
+=== k = 3; eventos con al menos 12 aves: 12; evaluables (≥ 3 iniciadores con ventana válida): 12 ===
+T95: mediana 0.07 s, IC 95 % [0.0, 0.15416431427001953] (nulo medido 0.11 s); por ave: mediana 0.08 s, media 0.17 s, 166 iniciadoras; fracción de iniciadoras sobre el p95 del nulo de su evento: 0.09
+T95 de grupo: mediana 0.28 s, IC [0.041666269302368164, 0.6250021457672119]
+anchura a media altura: mediana 0.53 s, IC [0.33333027362823486, 0.7833213806152344]; censuradas por la ventana: 1 de 12
+curva agregada: pico 1.86 sigma; anchura 0.68 s (no censurada); operador anterior por umbral: 1.0 σ: 1.50 s, 1.1 σ: 1.45 s, 1.2 σ: 1.18 s, 1.3 σ: 1.12 s, 1.4 σ: 1.07 s, 1.5 σ: 1.03 s
+
+=== k = 12; eventos con al menos 12 aves: 12; evaluables (≥ 3 iniciadores con ventana válida): 12 ===
+T95: mediana 0.12 s, IC 95 % [0.02499997615814209, 0.24169158935546875] (nulo medido 0.11 s); por ave: mediana 0.08 s, media 0.18 s, 166 iniciadoras; fracción de iniciadoras sobre el p95 del nulo de su evento: 0.11
+T95 de grupo: mediana 0.42 s, IC [0.25833070278167725, 0.7750003337860107]
+anchura a media altura: mediana 0.42 s, IC [0.24166297912597656, 0.6167221069335938]; censuradas por la ventana: 0 de 12
+curva agregada: pico 1.70 sigma; anchura 0.88 s (no censurada); operador anterior por umbral: 1.0 σ: 1.75 s, 1.1 σ: 1.48 s, 1.2 σ: 1.23 s, 1.3 σ: 1.22 s, 1.4 σ: 1.20 s, 1.5 σ: 1.15 s
+
+=== modelos, mismo estimador (N = 200, k = 12, 16 réplicas, giro de 115°) ===
+WiSt (gauss): T95 en 2 s 0.90 s [0.7000000000000001, 1.25]; en 5 s 1.15 s; nulo 0.15 s; umbral 1.45 σ; anchura 0.25 s [0.2, 0.3]; operador anterior 0.875 s; pico 3.47 σ; σ 0.358 rad/s
+CoLd (gauss): T95 en 2 s 1.27 s [1.2000000000000002, 1.35]; en 5 s 1.45 s; nulo 0.10 s; umbral 1.40 σ; anchura 0.57 s [0.45, 0.7000000000000002]; operador anterior 1.375 s; pico 5.89 σ; σ 0.358 rad/s
+CaSp (gauss): T95 en 2 s 0.05 s [0.0, 0.1]; en 5 s 0.08 s; nulo 0.07 s; umbral 1.51 σ; anchura 0.15 s [0.09999999999999998, 0.15000000000000002]; operador anterior 1.600 s; pico 1.60 σ; σ 0.841 rad/s
+WiSt (student): T95 en 2 s 1.00 s [0.8500000000000001, 1.1]; en 5 s 1.27 s; nulo 0.15 s; umbral 1.67 σ; anchura 0.33 s [0.25, 0.5]; operador anterior 0.925 s; pico 3.53 σ; σ 0.312 rad/s
+CoLd (student): T95 en 2 s 1.15 s [1.0750000000000002, 1.2000000000000002]; en 5 s 1.40 s; nulo 0.10 s; umbral 1.61 σ; anchura 0.53 s [0.4, 0.75]; operador anterior 1.300 s; pico 7.60 σ; σ 0.312 rad/s
+
+=== regla del plan === IC de T95 [0.00; 0.19] s: NO cabe entre 0,5 y 2 s; evaluable en la mayoría: sí

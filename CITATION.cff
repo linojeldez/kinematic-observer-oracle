@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite it as below."
+title: "What an observer of kinematics recovers of the oracle in models of collective leadership: code and results"
+type: software
+authors:
+  - family-names: "Jeldez Salinas"
+    given-names: "Lino"
+    orcid: "https://orcid.org/0009-0007-9862-0070"
+license: MIT
+repository-code: "https://github.com/linojeldez/kinematic-observer-oracle"
+keywords:
+  - collective motion
+  - leadership
+  - signal detection
+  - integration window
+  - flocking

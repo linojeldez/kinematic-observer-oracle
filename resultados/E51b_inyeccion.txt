@@ -1,0 +1,16 @@
+=== E51b · T95 de una huella del modelo inyectada en aves no iniciadoras ===
+evento       σ (rad/s)  WiSt T95  pico  CoLd T95  pico
+transito 02      0.365      0.86   3.9      1.09   7.4
+transito 03      0.428      0.58   3.6      1.05   5.9
+transito 04      0.448      0.00   5.0      0.13   7.2
+transito 05      0.304      0.03   8.9      0.20  10.0
+transito 06      0.230      1.36   6.1      1.37  11.2
+transito 07      0.313      0.83   4.5      1.14   7.5
+transito 12      0.312      0.62   5.2      0.90   8.5
+transito 13      0.229      0.02   6.6      0.48  10.1
+mobbing 03       0.617      0.19   2.7      0.58   4.2
+mobbing 04       0.346      0.23   4.4      0.82   7.0
+mobbing 05       0.287      0.41   5.1      0.94   8.0
+mobbing 07       0.459      0.03   4.6      0.38   6.1
+WiSt: mediana sobre eventos 0.32 s, IC 95 % [0.03333282470703125, 0.7250008583068848], intervalo entre eventos 0.00 a 1.36 s
+CoLd: mediana sobre eventos 0.86 s, IC 95 % [0.43332672119140625, 1.070816993713379], intervalo entre eventos 0.13 a 1.37 s

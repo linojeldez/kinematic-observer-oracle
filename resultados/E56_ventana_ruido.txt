@@ -1,0 +1,13 @@
+=== E56 · ventana óptima con ruido x0,5 y x2 (N = 250, k = 15, tau_W = 4 s, 4 réplicas) ===
+ancla frente a la cruz de E49: |Δ| máx = 0.00e+00 en 1728 comparaciones
+ruido x0.5 forzado  : ventaja 0.292 | sin memoria 0.148 | 0.25 s 0.550 | 0.5 s 0.965 | 1 s 0.962 | 2 s 0.545 | 4 s 0.000 | mejor 0.5 s
+ruido x0.5 maniobra : ventaja 0.261 | sin memoria 0.053 | 0.25 s 0.368 | 0.5 s 0.614 | 1 s 0.701 | 2 s 0.628 | 4 s 0.360 | mejor 1 s
+ruido x2 forzado  : ventaja 0.274 | sin memoria 0.015 | 0.25 s 0.027 | 0.5 s 0.058 | 1 s 0.147 | 2 s 0.344 | 4 s 0.305 | mejor 2 s
+ruido x2 maniobra : ventaja 0.241 | sin memoria -0.106 | 0.25 s -0.084 | 0.5 s -0.038 | 1 s 0.076 | 2 s 0.304 | 4 s 0.361 | mejor 4 s
+
+=== Predicciones ===
+R1: {"ventanas": [2.0, 4.0], "cumple": true}
+R2: {"ventanas": [0.5, 1.0], "cumple": true}
+regla: {"todas_entre_1_y_2": false}
+
+572 s

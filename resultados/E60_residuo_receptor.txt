@@ -1,0 +1,26 @@
+=== E60 · residuo calculable por el receptor (N = 250, k = 15, ciclo de 1 s, 8 réplicas) ===
+anchura calibrada del residuo local: 0.3627 rad/s (residuo del motor: 0.3606)
+ancla L1 (modo emisor frente a E42-E48): |Δ| máx = 2.22e-16 en 1296 comparaciones
+
+--- forzado, tau_W = 4 s ---
+  emisor    : recuperación 0.722 [0.687; 0.758] | FA 0.0002 | HIT 0.082 | AUROC(4 s) 0.842 | PERS nan s
+  par_propio: recuperación 0.653 [0.621; 0.686] | FA 0.0001 | HIT 0.074 | AUROC(4 s) 0.841 | PERS nan s
+  par_local : recuperación 0.737 [0.703; 0.781] | FA 0.0001 | HIT 0.069 | AUROC(4 s) 0.834 | PERS nan s
+
+--- maniobra, tau_W = 4 s ---
+  emisor    : recuperación 0.538 [0.523; 0.552] | FA 0.0001 | HIT 0.303 | AUROC(4 s) 0.882 | PERS 0.00 s
+  par_propio: recuperación 0.481 [0.466; 0.495] | FA 0.0000 | HIT 0.278 | AUROC(4 s) 0.879 | PERS 0.00 s
+  par_local : recuperación 0.682 [0.660; 0.706] | FA 0.0001 | HIT 0.317 | AUROC(4 s) 0.881 | PERS 0.01 s
+
+--- maniobra, tau_W = 1 s ---
+  emisor    : recuperación 0.998 [0.985; 1.010] | FA 0.0002 | HIT 0.362 | AUROC(4 s) 0.872 | PERS 0.58 s
+  par_propio: recuperación 0.917 [0.902; 0.931] | FA 0.0002 | HIT 0.354 | AUROC(4 s) 0.873 | PERS 0.53 s
+  par_local : recuperación 1.240 [1.213; 1.262] | FA 0.0002 | HIT 0.380 | AUROC(4 s) 0.871 | PERS 0.62 s
+
+=== Predicciones ===
+L1: CUMPLE  {"delta_max": 2.220446049250313e-16, "comparaciones": 1296, "cumple": true}
+L2: FALLA  {"dif": [-0.06965026781948191, -0.056562508532468136, -0.08042145150921864], "cumple": false}
+L3: CUMPLE  {"cociente": [1.0195674874724143, 1.2676546701894846, 1.243262127133296], "cumple": true}
+L4: FALLA  {"HIT_forzado": 0.08170710267229254, "AUROC4_min": 0.8420139096275379, "FA_emisor_max": 0.00018292670402472443, "FA_local_max": 0.0001918980433492178, "cumple": false}
+
+964 s

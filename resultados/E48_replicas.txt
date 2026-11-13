@@ -1,0 +1,36 @@
+=== E48 · 32 réplicas pareadas en las celdas de cabecera ===
+ancla A0: réplica 0 vuelta a correr frente a los crudos guardados: |Δ| máx = 0.00e+00 en 132 comparaciones
+forzado   N =  250 tau_W = 4 s, corrida entera adaptado  | 8:  0.722 [ 0.687;  0.758] (n = 8) | 24 nuevas:  0.724 [ 0.700;  0.745] (n = 24) | 32:  0.723 [ 0.704;  0.741] (n = 32) | dentro del IC de 8: sí
+forzado   N =  250 tau_W = 4 s, corrida entera amplitud  | 8:  0.050 [ 0.048;  0.053] (n = 8) | 24 nuevas:  0.049 [ 0.048;  0.051] (n = 24) | 32:  0.050 [ 0.048;  0.051] (n = 32) | dentro del IC de 8: sí
+forzado   N =  250 tau_W = 4 s, primeros 4 s   adaptado  | 8:  0.802 [ 0.776;  0.833] (n = 8) | 24 nuevas:  0.816 [ 0.794;  0.836] (n = 24) | 32:  0.813 [ 0.795;  0.830] (n = 32) | dentro del IC de 8: sí
+forzado   N =  250 tau_W = 4 s, primeros 4 s   amplitud  | 8:  0.068 [ 0.063;  0.072] (n = 8) | 24 nuevas:  0.069 [ 0.067;  0.071] (n = 24) | 32:  0.069 [ 0.067;  0.071] (n = 32) | dentro del IC de 8: sí
+maniobra  N =  250 tau_W = 4 s, corrida entera adaptado  | 8:  0.538 [ 0.523;  0.552] (n = 8) | 24 nuevas:  0.541 [ 0.532;  0.550] (n = 24) | 32:  0.540 [ 0.533;  0.548] (n = 32) | dentro del IC de 8: sí
+maniobra  N =  250 tau_W = 4 s, corrida entera amplitud  | 8: -0.055 [-0.058; -0.052] (n = 8) | 24 nuevas: -0.054 [-0.056; -0.052] (n = 24) | 32: -0.054 [-0.056; -0.052] (n = 32) | dentro del IC de 8: sí
+maniobra  N =  250 tau_W = 4 s, primeros 4 s   adaptado  | 8:  0.765 [ 0.747;  0.779] (n = 8) | 24 nuevas:  0.768 [ 0.753;  0.781] (n = 24) | 32:  0.767 [ 0.755;  0.778] (n = 32) | dentro del IC de 8: sí
+maniobra  N =  250 tau_W = 4 s, primeros 4 s   amplitud  | 8:  0.027 [ 0.020;  0.033] (n = 8) | 24 nuevas:  0.030 [ 0.026;  0.033] (n = 24) | 32:  0.029 [ 0.026;  0.032] (n = 32) | dentro del IC de 8: sí
+maniobra  N =  250 tau_W = 1 s, corrida entera adaptado  | 8:  0.998 [ 0.985;  1.010] (n = 8) | 24 nuevas:  1.021 [ 1.005;  1.038] (n = 24) | 32:  1.015 [ 1.002;  1.029] (n = 32) | dentro del IC de 8: NO
+maniobra  N =  250 tau_W = 1 s, corrida entera amplitud  | 8:  0.054 [ 0.047;  0.060] (n = 8) | 24 nuevas:  0.057 [ 0.052;  0.062] (n = 24) | 32:  0.056 [ 0.052;  0.060] (n = 32) | dentro del IC de 8: sí
+maniobra  N =  250 tau_W = 1 s, primeros 4 s   adaptado  | 8:  0.926 [ 0.912;  0.942] (n = 8) | 24 nuevas:  0.936 [ 0.922;  0.951] (n = 24) | 32:  0.934 [ 0.922;  0.946] (n = 32) | dentro del IC de 8: sí
+maniobra  N =  250 tau_W = 1 s, primeros 4 s   amplitud  | 8:  0.075 [ 0.068;  0.083] (n = 8) | 24 nuevas:  0.080 [ 0.076;  0.084] (n = 24) | 32:  0.079 [ 0.075;  0.083] (n = 32) | dentro del IC de 8: sí
+forzado   N = 1000 tau_W = 4 s, corrida entera adaptado  | 8:  0.398 [ 0.375;  0.421] (n = 8) | 24 nuevas:  0.404 [ 0.389;  0.420] (n = 24) | 32:  0.403 [ 0.390;  0.416] (n = 32) | dentro del IC de 8: sí
+forzado   N = 1000 tau_W = 4 s, corrida entera amplitud  | 8:  0.033 [ 0.031;  0.035] (n = 8) | 24 nuevas:  0.032 [ 0.030;  0.033] (n = 24) | 32:  0.032 [ 0.031;  0.033] (n = 32) | dentro del IC de 8: sí
+forzado   N = 1000 tau_W = 4 s, primeros 4 s   adaptado  | 8:  0.779 [ 0.739;  0.818] (n = 8) | 24 nuevas:  0.814 [ 0.788;  0.840] (n = 24) | 32:  0.805 [ 0.783;  0.828] (n = 32) | dentro del IC de 8: sí
+forzado   N = 1000 tau_W = 4 s, primeros 4 s   amplitud  | 8:  0.066 [ 0.060;  0.072] (n = 8) | 24 nuevas:  0.068 [ 0.063;  0.072] (n = 24) | 32:  0.067 [ 0.064;  0.071] (n = 32) | dentro del IC de 8: sí
+maniobra  N = 1000 tau_W = 4 s, corrida entera adaptado  | 8:  0.374 [ 0.364;  0.384] (n = 8) | 24 nuevas:  0.364 [ 0.355;  0.372] (n = 24) | 32:  0.366 [ 0.359;  0.373] (n = 32) | dentro del IC de 8: sí
+maniobra  N = 1000 tau_W = 4 s, corrida entera amplitud  | 8: -0.050 [-0.054; -0.045] (n = 8) | 24 nuevas: -0.050 [-0.053; -0.048] (n = 24) | 32: -0.050 [-0.053; -0.048] (n = 32) | dentro del IC de 8: sí
+maniobra  N = 1000 tau_W = 4 s, primeros 4 s   adaptado  | 8:  0.774 [ 0.753;  0.791] (n = 8) | 24 nuevas:  0.775 [ 0.763;  0.787] (n = 24) | 32:  0.775 [ 0.764;  0.785] (n = 32) | dentro del IC de 8: sí
+maniobra  N = 1000 tau_W = 4 s, primeros 4 s   amplitud  | 8:  0.025 [ 0.016;  0.032] (n = 8) | 24 nuevas:  0.024 [ 0.018;  0.030] (n = 24) | 32:  0.024 [ 0.020;  0.029] (n = 32) | dentro del IC de 8: sí
+maniobra  N = 1000 tau_W = 1 s, corrida entera adaptado  | 8:  1.000 [ 0.978;  1.022] (n = 8) | 24 nuevas:  1.002 [ 0.984;  1.021] (n = 24) | 32:  1.002 [ 0.987;  1.017] (n = 32) | dentro del IC de 8: sí
+maniobra  N = 1000 tau_W = 1 s, corrida entera amplitud  | 8:  0.057 [ 0.046;  0.066] (n = 8) | 24 nuevas:  0.049 [ 0.038;  0.058] (n = 24) | 32:  0.051 [ 0.042;  0.058] (n = 32) | dentro del IC de 8: sí
+maniobra  N = 1000 tau_W = 1 s, primeros 4 s   adaptado  | 8:  0.952 [ 0.931;  0.972] (n = 8) | 24 nuevas:  0.958 [ 0.942;  0.974] (n = 24) | 32:  0.957 [ 0.943;  0.970] (n = 32) | dentro del IC de 8: sí
+maniobra  N = 1000 tau_W = 1 s, primeros 4 s   amplitud  | 8:  0.076 [ 0.065;  0.085] (n = 8) | 24 nuevas:  0.075 [ 0.067;  0.082] (n = 24) | 32:  0.075 [ 0.069;  0.081] (n = 32) | dentro del IC de 8: sí
+
+=== Predicciones declaradas ===
+A0: CUMPLE  {"delta_max": 0.0, "comparaciones": 132, "cumple": true}
+P1: FALLA  {"dentro": 11, "de": 12, "cumple": false}
+P2a: CUMPLE  {"sin_memoria": [["forzado|250|4|15.8", 0.04965570971118, 0.051228829588921984], ["maniobra|250|4|15.8", -0.05434453808969703, -0.0524541719941687], ["maniobra|250|1|15.8", 0.056182100023172185, 0.060134932635320125], ["forzado|1000|4|31.6", 0.0319708585904349, 0.033233738315099876], ["maniobra|1000|4|31.6", -0.05019649706396107, -0.04785761446909477], ["maniobra|1000|1|31.6", 0.05071533480135376, 0.05825325970991787
+P2b: CUMPLE  {"adaptado_tauW4": {"forzado|250": 0.7234102191220063, "maniobra|250": 0.5402488233047038, "forzado|1000": 0.40291810398299827, "maniobra|1000": 0.3661339144681236}, "cumple": true}
+P2c: CUMPLE  {"adaptado_tauW1": [["maniobra|250|1|15.8", 1.0153439013902925, [1.00213510184448, 1.0293457238941701]], ["maniobra|1000|1|31.6", 1.0018559611171443, [0.986957649503624, 1.0165991178308873]]], "cumple": true}
+P3: CUMPLE  {"solapan": 12, "de": 12, "cumple": true}
+
+10019 s en esta pasada (N = (1000,))

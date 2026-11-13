@@ -1,0 +1,10 @@
+{
+  "title": "What an observer of kinematics recovers of the oracle in models of collective leadership: code and results",
+  "upload_type": "software",
+  "description": "Simulation engine, analysis scripts and archived results of the paper of the same title: how much of the benefit of recognising the informed individual (an oracle) an observer that only sees motion recovers in models of collective leadership, and what jackdaw, tetra and homing-pigeon data say about it.",
+  "creators": [
+    {"name": "Jeldez Salinas, Lino", "orcid": "0009-0007-9862-0070"}
+  ],
+  "license": "MIT",
+  "keywords": ["collective motion", "leadership", "signal detection", "integration window", "flocking"]
+}

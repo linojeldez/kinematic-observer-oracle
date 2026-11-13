@@ -1,0 +1,56 @@
+=== E52 · AUC iniciador/seguidor frente a la ventana previa al inicio colectivo ===
+inicio colectivo desde el comienzo del evento (s): transito 01 0.79, transito 02 0.85, transito 03 1.05, transito 04 0.95, transito 05 1.22, transito 06 0.73, transito 07 1.00, transito 09 0.72, transito 12 1.52, transito 13 0.97, mobbing 01 0.95, mobbing 03 1.63, mobbing 04 1.42, mobbing 05 1.60, mobbing 07 1.17
+
+k = 3; eventos con al menos 1 s antes del inicio colectivo; todos: 8 eventos, 115 iniciadoras y 115 seguidoras
+  cuadro: 0.683 [0.590; 0.765] | 0.1: 0.694 [0.604; 0.777] | 0.2: 0.699 [0.606; 0.784] | 0.25: 0.704 [0.607; 0.787] | 0.3: 0.710 [0.615; 0.782] | 0.4: 0.722 [0.627; 0.793] | 0.5: 0.736 [0.631; 0.809] | 0.6: 0.734 [0.621; 0.813] | 0.7: 0.717 [0.606; 0.795] | 0.8: 0.718 [0.599; 0.799] | 0.9: 0.726 [0.598; 0.809] | 1.0: 0.737 [0.610; 0.816]
+  p de permutación: cuadro: 0.0002, 0.1: 0.0002, 0.2: 0.0002, 0.25: 0.0002, 0.3: 0.0002, 0.4: 0.0002, 0.5: 0.0002, 0.6: 0.0002, 0.7: 0.0002, 0.8: 0.0002, 0.9: 0.0002, 1.0: 0.0002
+  Δ = AUC(1 s) − AUC(un cuadro) = +0.053 [-0.025; +0.108]; positiva en 91.8 % de los remuestreos; dejando un evento fuera: +0.034 a +0.071; AUC larga dejando uno fuera: 0.711 a 0.767
+  ventana más corta dentro del 95 % del máximo: 0.25 s [0.1, 0.6]
+
+k = 3; eventos con al menos 1 s antes del inicio colectivo; transito: 4 eventos, 62 iniciadoras y 62 seguidoras
+  cuadro: 0.629 [0.554; 0.704] | 0.1: 0.658 [0.585; 0.705] | 0.2: 0.662 [0.599; 0.710] | 0.25: 0.671 [0.606; 0.720] | 0.3: 0.685 [0.611; 0.732] | 0.4: 0.708 [0.646; 0.744] | 0.5: 0.728 [0.653; 0.766] | 0.6: 0.735 [0.663; 0.788] | 0.7: 0.721 [0.635; 0.783] | 0.8: 0.727 [0.628; 0.799] | 0.9: 0.738 [0.616; 0.816] | 1.0: 0.750 [0.617; 0.831]
+  p de permutación: cuadro: 0.0072, 0.1: 0.0020, 0.2: 0.0017, 0.25: 0.0005, 0.3: 0.0005, 0.4: 0.0002, 0.5: 0.0002, 0.6: 0.0002, 0.7: 0.0002, 0.8: 0.0002, 0.9: 0.0002, 1.0: 0.0002
+  Δ = AUC(1 s) − AUC(un cuadro) = +0.122 [+0.063; +0.145]; positiva en 99.5 % de los remuestreos; dejando un evento fuera: +0.110 a +0.135; AUC larga dejando uno fuera: 0.699 a 0.777
+  ventana más corta dentro del 95 % del máximo: 0.5 s [0.2, 0.8]
+
+k = 3; eventos con al menos 1 s antes del inicio colectivo; mobbing: 4 eventos, 53 iniciadoras y 53 seguidoras
+  cuadro: 0.742 [0.575; 0.837] | 0.1: 0.737 [0.547; 0.866] | 0.2: 0.744 [0.532; 0.873] | 0.25: 0.739 [0.520; 0.868] | 0.3: 0.734 [0.510; 0.850] | 0.4: 0.737 [0.515; 0.861] | 0.5: 0.747 [0.507; 0.874] | 0.6: 0.739 [0.482; 0.878] | 0.7: 0.713 [0.463; 0.851] | 0.8: 0.707 [0.458; 0.849] | 0.9: 0.714 [0.440; 0.857] | 1.0: 0.720 [0.460; 0.860]
+  p de permutación: cuadro: 0.0002, 0.1: 0.0002, 0.2: 0.0002, 0.25: 0.0002, 0.3: 0.0002, 0.4: 0.0002, 0.5: 0.0002, 0.6: 0.0002, 0.7: 0.0002, 0.8: 0.0002, 0.9: 0.0002, 1.0: 0.0002
+  Δ = AUC(1 s) − AUC(un cuadro) = -0.022 [-0.123; +0.023]; positiva en 25.7 % de los remuestreos; dejando un evento fuera: -0.064 a +0.006; AUC larga dejando uno fuera: 0.645 a 0.786
+  ventana más corta dentro del 95 % del máximo: 0.1 s [0.1, 0.1]
+
+k = 3, ventana hasta 1.5 s: sólo 3 eventos; no se analiza
+
+k = 3, ventana hasta 2.0 s: sólo 0 eventos; no se analiza
+
+k = 7; eventos con al menos 1 s antes del inicio colectivo; todos: 8 eventos, 115 iniciadoras y 115 seguidoras
+  cuadro: 0.603 [0.537; 0.671] | 0.1: 0.611 [0.555; 0.664] | 0.2: 0.626 [0.577; 0.684] | 0.25: 0.643 [0.588; 0.704] | 0.3: 0.660 [0.606; 0.722] | 0.4: 0.684 [0.617; 0.756] | 0.5: 0.692 [0.614; 0.774] | 0.6: 0.690 [0.606; 0.775] | 0.7: 0.678 [0.590; 0.761] | 0.8: 0.681 [0.590; 0.760] | 0.9: 0.690 [0.603; 0.764] | 1.0: 0.688 [0.600; 0.763]
+  p de permutación: cuadro: 0.0040, 0.1: 0.0010, 0.2: 0.0002, 0.25: 0.0002, 0.3: 0.0002, 0.4: 0.0002, 0.5: 0.0002, 0.6: 0.0002, 0.7: 0.0002, 0.8: 0.0002, 0.9: 0.0002, 1.0: 0.0002
+  Δ = AUC(1 s) − AUC(un cuadro) = +0.086 [-0.018; +0.167]; positiva en 95.0 % de los remuestreos; dejando un evento fuera: +0.055 a +0.120; AUC larga dejando uno fuera: 0.656 a 0.709
+  ventana más corta dentro del 95 % del máximo: 0.3 s [0.2, 0.6]
+
+k = 7; eventos con al menos 1 s antes del inicio colectivo; transito: 4 eventos, 62 iniciadoras y 62 seguidoras
+  cuadro: 0.549 [0.505; 0.582] | 0.1: 0.560 [0.523; 0.569] | 0.2: 0.579 [0.542; 0.607] | 0.25: 0.598 [0.547; 0.626] | 0.3: 0.625 [0.569; 0.670] | 0.4: 0.667 [0.597; 0.731] | 0.5: 0.688 [0.632; 0.746] | 0.6: 0.694 [0.638; 0.753] | 0.7: 0.686 [0.633; 0.727] | 0.8: 0.698 [0.644; 0.732] | 0.9: 0.713 [0.640; 0.753] | 1.0: 0.711 [0.645; 0.757]
+  p de permutación: cuadro: 0.1752, 0.1: 0.1325, 0.2: 0.0672, 0.25: 0.0290, 0.3: 0.0060, 0.4: 0.0010, 0.5: 0.0002, 0.6: 0.0002, 0.7: 0.0002, 0.8: 0.0002, 0.9: 0.0002, 1.0: 0.0002
+  Δ = AUC(1 s) − AUC(un cuadro) = +0.162 [+0.089; +0.217]; positiva en 100.0 % de los remuestreos; dejando un evento fuera: +0.130 a +0.191; AUC larga dejando uno fuera: 0.696 a 0.729
+  ventana más corta dentro del 95 % del máximo: 0.5 s [0.4, 0.8]
+
+k = 7; eventos con al menos 1 s antes del inicio colectivo; mobbing: 4 eventos, 53 iniciadoras y 53 seguidoras
+  cuadro: 0.660 [0.535; 0.733] | 0.1: 0.656 [0.547; 0.713] | 0.2: 0.684 [0.592; 0.749] | 0.25: 0.700 [0.590; 0.777] | 0.3: 0.710 [0.605; 0.794] | 0.4: 0.713 [0.592; 0.828] | 0.5: 0.705 [0.557; 0.849] | 0.6: 0.690 [0.522; 0.840] | 0.7: 0.667 [0.495; 0.826] | 0.8: 0.660 [0.482; 0.815] | 0.9: 0.666 [0.502; 0.822] | 1.0: 0.666 [0.500; 0.817]
+  p de permutación: cuadro: 0.0020, 0.1: 0.0027, 0.2: 0.0005, 0.25: 0.0002, 0.3: 0.0002, 0.4: 0.0005, 0.5: 0.0007, 0.6: 0.0012, 0.7: 0.0017, 0.8: 0.0027, 0.9: 0.0025, 1.0: 0.0025
+  Δ = AUC(1 s) − AUC(un cuadro) = +0.006 [-0.133; +0.123]; positiva en 55.2 % de los remuestreos; dejando un evento fuera: -0.068 a +0.067; AUC larga dejando uno fuera: 0.569 a 0.709
+  ventana más corta dentro del 95 % del máximo: 0.2 s [0.1, 0.4]
+
+k = 7, ventana hasta 1.5 s: sólo 3 eventos; no se analiza
+
+k = 7, ventana hasta 2.0 s: sólo 0 eventos; no se analiza
+
+[sensibilidad no declarada] k = 3; eventos con al menos 0,7 s antes del inicio colectivo: 15 eventos, 187 + 186 aves
+  cuadro: 0.625 [0.547; 0.726] | 0.1: 0.635 [0.555; 0.733] | 0.2: 0.651 [0.582; 0.743] | 0.25: 0.655 [0.584; 0.747] | 0.3: 0.656 [0.583; 0.746] | 0.4: 0.649 [0.563; 0.752] | 0.5: 0.640 [0.539; 0.759] | 0.6: 0.635 [0.532; 0.758] | 0.7: 0.619 [0.520; 0.734]
+  Δ = AUC(0,7 s) − AUC(un cuadro) = -0.006 [-0.056; +0.043]; dejando un evento fuera: -0.019 a +0.003
+
+[sensibilidad no declarada] k = 7; eventos con al menos 0,7 s antes del inicio colectivo: 14 eventos, 185 + 184 aves
+  cuadro: 0.588 [0.549; 0.645] | 0.1: 0.585 [0.543; 0.650] | 0.2: 0.605 [0.562; 0.674] | 0.25: 0.618 [0.569; 0.694] | 0.3: 0.627 [0.572; 0.709] | 0.4: 0.632 [0.562; 0.731] | 0.5: 0.623 [0.543; 0.737] | 0.6: 0.619 [0.538; 0.733] | 0.7: 0.600 [0.519; 0.711]
+  Δ = AUC(0,7 s) − AUC(un cuadro) = +0.012 [-0.061; +0.106]; dejando un evento fuera: -0.009 a +0.050
+
+=== regla del plan === el intervalo de Δ (k = 3, 1 s frente a un cuadro) contiene el cero

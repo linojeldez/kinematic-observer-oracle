@@ -1,0 +1,5 @@
+=== E57b · potencia del contraste de palomas (inyección en sueltas de control) ===
+   1 trazas por minuto: D_inj = +0.025 [+0.016; +0.037] (8 bandadas)
+   3 trazas por minuto: D_inj = +0.053 [+0.047; +0.060] (8 bandadas)
+  10 trazas por minuto: D_inj = +0.159 [+0.137; +0.183] (8 bandadas)
+minutos de vuelo con ≥ 3 aves por suelta de control: mediana 4.0

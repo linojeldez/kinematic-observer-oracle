@@ -1,0 +1,86 @@
+=== E54 · tetras: misma ventana, mismo estimador y mismo k que las grajillas ===
+ancla (N = 8 y 10, configuración por defecto) frente a E27 y E28: {"n_eventos": [339, 339], "curva_delta_max": 0.0, "omega": [4.890893993079802, 4.890893993079802], "omega_alat": [4.7410269150853965, 4.7410269150853965], "huella_2s": [1.3, 1.3], "huella_5s": [1.78, 1.78], "cumple": true}
+
+--- N = 8 y 10: 19 experimentos, 339 giros analizados (339 detectados) ---
+  AUC: cuadro: 0.553 [0.527; 0.579] | 0.1: 0.569 [0.537; 0.595] | 0.2: 0.602 [0.573; 0.626] | 0.3: 0.638 [0.610; 0.666] | 0.4: 0.668 [0.638; 0.697] | 0.5: 0.703 [0.672; 0.729] | 0.6: 0.729 [0.693; 0.753] | 0.7: 0.754 [0.716; 0.778] | 0.8: 0.769 [0.734; 0.789] | 0.9: 0.785 [0.754; 0.806] | 1.0: 0.794 [0.773; 0.813] | 1.25: 0.796 [0.781; 0.815] | 1.5: 0.795 [0.783; 0.810] | 2.0: 0.790 [0.776; 0.807]
+  ventana más corta dentro del 95 % del máximo: 0.8 s [0.7, 0.9]; Δ = AUC(1 s) − AUC(un cuadro) = +0.240 [+0.207; +0.268]
+  T95, ventana de 2 s (primer pez): mediana 0.180, media 0.235, IC 95 % de la mediana [0.160; 0.220] (n = 259)
+  T95 nulo (un pez no iniciador): mediana 0.040, media 0.105, IC 95 % de la mediana [0.000; 0.120] (n = 259)
+  T95, ventana de 2 s (cuartil iniciador): mediana 0.160, media 0.191, IC 95 % de la mediana [0.140; 0.180] (n = 259)
+  T95, ventana de 5 s: mediana 0.340, media 0.369, IC 95 % de la mediana [0.280; 0.380] (n = 296)
+  operador anterior, 2 s: mediana 1.300, media 1.255, IC 95 % de la mediana [1.160; 1.420] (n = 259)
+  operador anterior, 5 s: mediana 1.780, media 1.997, IC 95 % de la mediana [1.500; 1.980] (n = 276)
+  agilidad a_perp/v: mediana 4.741, media 4.885, IC 95 % de la mediana [4.620; 5.129] (n = 339)
+  agilidad por rumbo: mediana 4.891, media 5.118, IC 95 % de la mediana [4.706; 5.299] (n = 339)
+  anchura a media altura de la curva mediana por experimento: 0.20 s [0.18; 0.24] (19 experimentos, 0 censuradas)
+
+--- N = 4: 9 experimentos, 879 giros analizados (879 detectados) ---
+  AUC: cuadro: 0.535 [0.510; 0.562] | 0.1: 0.537 [0.512; 0.563] | 0.2: 0.555 [0.537; 0.573] | 0.3: 0.590 [0.576; 0.608] | 0.4: 0.633 [0.619; 0.652] | 0.5: 0.675 [0.657; 0.696] | 0.6: 0.706 [0.684; 0.733] | 0.7: 0.731 [0.703; 0.768] | 0.8: 0.753 [0.720; 0.793] | 0.9: 0.760 [0.726; 0.801] | 1.0: 0.770 [0.733; 0.815] | 1.25: 0.785 [0.743; 0.834] | 1.5: 0.787 [0.746; 0.832] | 2.0: 0.779 [0.738; 0.826]
+  ventana más corta dentro del 95 % del máximo: 0.8 s [0.7, 1.0]; Δ = AUC(1 s) − AUC(un cuadro) = +0.235 [+0.180; +0.294]
+  T95, ventana de 2 s (primer pez): mediana 0.120, media 0.157, IC 95 % de la mediana [0.120; 0.120] (n = 804)
+  T95 nulo (un pez no iniciador): mediana 0.100, media 0.136, IC 95 % de la mediana [0.060; 0.120] (n = 804)
+  T95, ventana de 2 s (cuartil iniciador): mediana 0.120, media 0.157, IC 95 % de la mediana [0.120; 0.120] (n = 804)
+  T95, ventana de 5 s: mediana 0.300, media 0.356, IC 95 % de la mediana [0.280; 0.320] (n = 819)
+  operador anterior, 2 s: mediana 1.040, media 1.080, IC 95 % de la mediana [0.940; 1.140] (n = 802)
+  operador anterior, 5 s: mediana 1.760, media 2.208, IC 95 % de la mediana [1.500; 2.200] (n = 800)
+  agilidad a_perp/v: mediana 4.510, media 4.737, IC 95 % de la mediana [4.338; 4.654] (n = 879)
+  agilidad por rumbo: mediana 4.494, media 4.942, IC 95 % de la mediana [4.298; 4.816] (n = 879)
+  anchura a media altura de la curva mediana por experimento: 0.18 s [0.16; 0.20] (9 experimentos, 0 censuradas)
+
+--- N = 5: 10 experimentos, 305 giros analizados (305 detectados) ---
+  AUC: cuadro: 0.581 [0.549; 0.618] | 0.1: 0.602 [0.577; 0.642] | 0.2: 0.640 [0.611; 0.688] | 0.3: 0.687 [0.654; 0.741] | 0.4: 0.718 [0.685; 0.753] | 0.5: 0.749 [0.723; 0.773] | 0.6: 0.773 [0.743; 0.802] | 0.7: 0.788 [0.756; 0.826] | 0.8: 0.795 [0.764; 0.833] | 0.9: 0.803 [0.773; 0.840] | 1.0: 0.807 [0.776; 0.848] | 1.25: 0.813 [0.784; 0.849] | 1.5: 0.815 [0.781; 0.850] | 2.0: 0.819 [0.779; 0.861]
+  ventana más corta dentro del 95 % del máximo: 0.7 s [0.6, 0.9]; Δ = AUC(1 s) − AUC(un cuadro) = +0.227 [+0.192; +0.246]
+  T95, ventana de 2 s (primer pez): mediana 0.160, media 0.224, IC 95 % de la mediana [0.120; 0.160] (n = 286)
+  T95 nulo (un pez no iniciador): mediana 0.100, media 0.142, IC 95 % de la mediana [0.020; 0.130] (n = 286)
+  T95, ventana de 2 s (cuartil iniciador): mediana 0.125, media 0.172, IC 95 % de la mediana [0.100; 0.150] (n = 286)
+  T95, ventana de 5 s: mediana 0.360, media 0.420, IC 95 % de la mediana [0.310; 0.380] (n = 295)
+  operador anterior, 2 s: mediana 1.040, media 1.120, IC 95 % de la mediana [0.950; 1.120] (n = 286)
+  operador anterior, 5 s: mediana 1.220, media 1.718, IC 95 % de la mediana [1.120; 1.280] (n = 293)
+  agilidad a_perp/v: mediana 4.510, media 4.814, IC 95 % de la mediana [4.350; 4.881] (n = 305)
+  agilidad por rumbo: mediana 4.485, media 4.856, IC 95 % de la mediana [4.325; 4.845] (n = 305)
+  anchura a media altura de la curva mediana por experimento: 0.20 s [0.18; 0.22] (9 experimentos, 0 censuradas)
+
+--- N = 8: 8 experimentos, 294 giros analizados (294 detectados) ---
+  AUC: cuadro: 0.549 [0.524; 0.573] | 0.1: 0.570 [0.532; 0.599] | 0.2: 0.603 [0.569; 0.634] | 0.3: 0.642 [0.616; 0.678] | 0.4: 0.672 [0.649; 0.712] | 0.5: 0.708 [0.685; 0.738] | 0.6: 0.737 [0.710; 0.759] | 0.7: 0.762 [0.737; 0.782] | 0.8: 0.776 [0.751; 0.795] | 0.9: 0.790 [0.762; 0.810] | 1.0: 0.793 [0.771; 0.811] | 1.25: 0.794 [0.776; 0.813] | 1.5: 0.794 [0.777; 0.806] | 2.0: 0.787 [0.770; 0.802]
+  ventana más corta dentro del 95 % del máximo: 0.7 s [0.7, 0.8]; Δ = AUC(1 s) − AUC(un cuadro) = +0.245 [+0.224; +0.262]
+  T95, ventana de 2 s (primer pez): mediana 0.180, media 0.236, IC 95 % de la mediana [0.150; 0.220] (n = 220)
+  T95 nulo (un pez no iniciador): mediana 0.030, media 0.100, IC 95 % de la mediana [0.000; 0.120] (n = 220)
+  T95, ventana de 2 s (cuartil iniciador): mediana 0.160, media 0.197, IC 95 % de la mediana [0.135; 0.195] (n = 220)
+  T95, ventana de 5 s: mediana 0.340, media 0.369, IC 95 % de la mediana [0.270; 0.380] (n = 253)
+  operador anterior, 2 s: mediana 1.330, media 1.263, IC 95 % de la mediana [1.220; 1.480] (n = 220)
+  operador anterior, 5 s: mediana 1.780, media 2.004, IC 95 % de la mediana [1.560; 2.040] (n = 234)
+  agilidad a_perp/v: mediana 4.720, media 4.847, IC 95 % de la mediana [4.551; 5.182] (n = 294)
+  agilidad por rumbo: mediana 4.860, media 5.067, IC 95 % de la mediana [4.675; 5.425] (n = 294)
+  anchura a media altura de la curva mediana por experimento: 0.17 s [0.14; 0.24] (8 experimentos, 0 censuradas)
+
+--- N = 10: 11 experimentos, 45 giros analizados (45 detectados) ---
+  AUC: cuadro: 0.571 [0.492; 0.631] | 0.1: 0.569 [0.524; 0.641] | 0.2: 0.597 [0.554; 0.671] | 0.3: 0.623 [0.571; 0.715] | 0.4: 0.653 [0.603; 0.748] | 0.5: 0.682 [0.630; 0.774] | 0.6: 0.698 [0.642; 0.787] | 0.7: 0.720 [0.661; 0.813] | 0.8: 0.738 [0.685; 0.809] | 0.9: 0.765 [0.714; 0.830] | 1.0: 0.795 [0.754; 0.853] | 1.25: 0.805 [0.773; 0.859] | 1.5: 0.805 [0.781; 0.854] | 2.0: 0.808 [0.782; 0.861]
+  ventana más corta dentro del 95 % del máximo: 1 s [0.7, 1.25]; Δ = AUC(1 s) − AUC(un cuadro) = +0.223 [+0.154; +0.340]
+  T95, ventana de 2 s (primer pez): mediana 0.160, media 0.226, IC 95 % de la mediana [0.140; 0.280] (n = 39)
+  T95 nulo (un pez no iniciador): mediana 0.100, media 0.135, IC 95 % de la mediana [0.000; 0.170] (n = 39)
+  T95, ventana de 2 s (cuartil iniciador): mediana 0.160, media 0.161, IC 95 % de la mediana [0.120; 0.200] (n = 39)
+  T95, ventana de 5 s: mediana 0.280, media 0.372, IC 95 % de la mediana [0.200; 0.390] (n = 43)
+  operador anterior, 2 s: mediana 1.120, media 1.209, IC 95 % de la mediana [0.760; 1.420] (n = 39)
+  operador anterior, 5 s: mediana 1.720, media 1.958, IC 95 % de la mediana [0.960; 2.400] (n = 42)
+  agilidad a_perp/v: mediana 4.885, media 5.128, IC 95 % de la mediana [4.709; 5.083] (n = 45)
+  agilidad por rumbo: mediana 5.174, media 5.453, IC 95 % de la mediana [4.733; 5.208] (n = 45)
+  anchura a media altura de la curva mediana por experimento: 0.22 s [0.18; 0.26] (11 experimentos, 0 censuradas)
+
+--- especies, mismo estimador (T95, ventana de 2 s, k = 3) ---
+{"T95_grajilla": {"mediana": 0.0666656494140625, "ic95": [0.0, 0.15416431427001953], "nulo": 0.10568376213613183}, "T95_tetra": {"mediana": 0.18, "ic95": [0.16, 0.22], "nulo": 0.04}, "diferencia_tetra_menos_grajilla": {"valor": 0.1133343505859375, "ic95": [0.01833549499511719, 0.18]}, "cociente_definido_en": 0.9325, "tau95_grajilla": {"valor": 0.25, "ic95": [0.1, 0.6]}, "tau95_tetra": [0.8, [0.7, 0.9]], "delta_grajilla": {"larga": "1.0", "corta": "cuadro", "delta": 0.05338374291115311, "ic95": [-0.024691358024691357, 0.10804214879942448], "frac_boot_positiva": 0.9183, "dejando_uno_fuera": [0.03443511531512389, 0.07119971520113921], "auc_larga_dejando_uno_fuera": [0.7109141274238228, 0.7665539337842648]}, "delta_tetra": [0.2403984490939156, [0.2072849353798993, 0.2682958561695955]]}
+
+--- B3: sensibilidad a la detección (N = 8 y 10) ---
+ umbral  sep  N=8 det  N=10 det  analiz.  AUC 1 s  tau95 AUC cuadro
+   0.10   10      350        51      401    0.751    0.9      0.535
+   0.15   10      343        49      392    0.757    0.9      0.535
+   0.20   10      330        49      379    0.772    0.9      0.543
+   0.30   10      294        45      339    0.794    0.8      0.553
+   0.40   10      231        40      271    0.811    0.7      0.553
+   0.50   10      136        25      161    0.821    0.7      0.555
+   0.10    5      463        53      516    0.748    0.8      0.527
+   0.15    5      452        51      503    0.755    0.8      0.528
+   0.20    5      426        51      477    0.765    0.8      0.533
+   0.30    5      368        47      415    0.789    0.8      0.543
+   0.40    5      266        40      306    0.812    0.7      0.549
+   0.50    5      146        25      171    0.821    0.7      0.546
+rango: AUC a 1 s 0.748 a 0.821; ventana 0.7 a 0.9 s; giros con N = 8: 136 a 463; con N = 10: 25 a 53

@@ -1,0 +1,25 @@
+=== E61b · incertidumbre de la ventana óptima (4 réplicas, 2000 remuestreos) ===
+base  forzado   peso ligado: mejor 1 s | gana en: 1 s 100 %
+base  forzado   peso fijo  : mejor 1 s | gana en: 0.5 s 29 %, 1 s 71 %
+base  maniobra  peso ligado: mejor 2 s | gana en: 2 s 100 %
+base  maniobra  peso fijo  : mejor 2 s | gana en: 2 s 100 %
+a5    forzado   peso ligado: mejor 4 s | gana en: 4 s 100 %
+a5    forzado   peso fijo  : mejor 2 s | gana en: 2 s 100 %
+a5    maniobra  peso ligado: mejor 4 s | gana en: 4 s 100 %
+a5    maniobra  peso fijo  : mejor 2 s | gana en: 1 s 38 %, 2 s 62 %
+a20   forzado   peso ligado: mejor 0.5 s | gana en: 0.5 s 100 %, 1 s 0 %
+a20   forzado   peso fijo  : mejor 0.25 s | gana en: 0.25 s 54 %, 0.5 s 46 %
+a20   maniobra  peso ligado: mejor 1 s | gana en: 0.5 s 44 %, 1 s 56 %
+a20   maniobra  peso fijo  : mejor 0.25 s | gana en: 0.25 s 100 %
+a40   forzado   peso ligado: mejor 0.25 s | gana en: 0.25 s 72 %, 0.5 s 28 %
+a40   forzado   peso fijo  : mejor 0.25 s | gana en: 0.25 s 100 %, 0.5 s 0 %
+a40   maniobra  peso ligado: mejor 0.25 s | gana en: 0.25 s 96 %, 0.5 s 4 %
+a40   maniobra  peso fijo  : mejor 0.25 s | gana en: 0.25 s 100 %
+f0.5  forzado   peso ligado: mejor 0.5 s | gana en: 0.5 s 64 %, 1 s 36 %
+f0.5  forzado   peso fijo  : mejor 0.5 s | gana en: 0.5 s 100 %
+f0.5  maniobra  peso ligado: mejor 1 s | gana en: 1 s 100 %
+f0.5  maniobra  peso fijo  : mejor 0.5 s | gana en: 0.25 s 45 %, 0.5 s 55 %
+f2    forzado   peso ligado: mejor 2 s | gana en: 2 s 100 %
+f2    forzado   peso fijo  : mejor 1 s | gana en: 1 s 100 %
+f2    maniobra  peso ligado: mejor 4 s | gana en: 4 s 100 %
+f2    maniobra  peso fijo  : mejor 1 s | gana en: 1 s 100 %

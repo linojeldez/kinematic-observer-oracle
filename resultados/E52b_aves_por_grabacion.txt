@@ -1,0 +1,6 @@
+=== E52b · grajillas, remuestreo por grabación (k = 3, ventana de 1 s) ===
+ancla frente a E52: AUC(1 s) 0.736711 / 0.736711
+8 eventos en 6 unidades: mobbing flock 06: mobbing 03, mobbing 04, mobbing 05; mobbing flock 07: mobbing 07; transito 03: transito 03; transito 05: transito 05; transito 07: transito 07; transito 12: transito 12
+AUC(1 s) 0.737 [0.584, 0.797] | AUC(cuadro) 0.683 [0.561, 0.75] | ganancia +0.053 [-0.016, 0.129] (positiva en 94.6 %)
+dejando una unidad fuera: mobbing flock 06: AUC 0.702, ganancia +0.085; mobbing flock 07: AUC 0.767, ganancia +0.071; transito 03: AUC 0.711, ganancia +0.037; transito 05: AUC 0.737, ganancia +0.034; transito 07: AUC 0.739, ganancia +0.042; transito 12: AUC 0.750, ganancia +0.057
+promedio por evento con igual peso: AUC(1 s) 0.671, AUC(cuadro) 0.660, ganancia +0.011

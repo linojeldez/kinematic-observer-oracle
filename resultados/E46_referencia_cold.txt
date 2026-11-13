@@ -1,0 +1,61 @@
+=== E46 · CoLd como referencia única de la maniobra única ===
+
+--- anclas (referencia ViSt frente a lo archivado; E44b con referencia CoLd) ---
+  E42              |Δ| máx = 0.00e+00 en 24 comparaciones
+  E42b             |Δ| máx = 0.00e+00 en 22 comparaciones
+  E44              |Δ| máx = 0.00e+00 en 56 comparaciones
+  E43              |Δ| máx = 0.00e+00 en 12 comparaciones
+  E43b             |Δ| máx = 0.00e+00 en 4 comparaciones
+  E44 tauW1        |Δ| máx = 0.00e+00 en 6 comparaciones
+  E44b             |Δ| máx = 0.00e+00 en 44 comparaciones
+  E22 secuencial   |Δ| máx = 1.11e-16 en 2 comparaciones
+
+--- identidad rec_CoLd = (rec_ViSt - c)/(1 - c): |Δ| máx = 2.22e-16 en 69 comparaciones
+
+--- escalera (recuperación; maniobra única contada desde CoLd) ---
+protocolo     N tau_W |  ventaja CoLd/ViSt |         adaptado, entero            adaptado, 4 s |      sin memoria, entero         sin memoria, 4 s
+tractor    250   4.0 |   0.2923           |  0.722 [ 0.687;  0.758]  0.802 [ 0.776;  0.833] |  0.050 [ 0.048;  0.053]  0.068 [ 0.063;  0.072]
+tractor    500   4.0 |   0.2115           |  0.542 [ 0.516;  0.566]  0.797 [ 0.756;  0.832] |  0.040 [ 0.038;  0.041]  0.069 [ 0.066;  0.072]
+tractor   1000   4.0 |   0.1564           |  0.398 [ 0.375;  0.421]  0.779 [ 0.739;  0.818] |  0.033 [ 0.031;  0.035]  0.066 [ 0.060;  0.072]
+pulso      250   4.0 |   0.2612     0.142 |  0.538 [ 0.523;  0.552]  0.765 [ 0.747;  0.779] | -0.055 [-0.058; -0.052]  0.027 [ 0.020;  0.033]
+pulso      500   4.0 |   0.1566     0.126 |  0.420 [ 0.396;  0.439]  0.751 [ 0.721;  0.778] | -0.050 [-0.052; -0.049]  0.031 [ 0.026;  0.035]
+pulso     1000   4.0 |   0.0888     0.116 |  0.374 [ 0.364;  0.384]  0.774 [ 0.753;  0.791] | -0.050 [-0.054; -0.045]  0.025 [ 0.016;  0.032]
+pulso      250   2.0 |   0.1750     0.115 |  0.708 [ 0.692;  0.722]  0.813 [ 0.797;  0.827] | -0.009 [-0.013; -0.004]  0.040 [ 0.033;  0.047]
+pulso      250   1.0 |   0.1064     0.093 |  0.998 [ 0.985;  1.010]  0.926 [ 0.912;  0.942] |  0.054 [ 0.047;  0.060]  0.075 [ 0.068;  0.083]
+pulso     1000   1.0 |   0.0235     0.098 |  1.000 [ 0.978;  1.022]  0.952 [ 0.931;  0.972] |  0.057 [ 0.046;  0.066]  0.076 [ 0.065;  0.085]
+
+--- barrido de la ventana del observador (4 réplicas, ventana de medida sqrt(N)) ---
+protocolo     N | sin memoria   0.25 s    0.5 s      1 s      2 s      4 s
+tractor    250 |       0.049    0.117    0.416    0.743    0.622    0.059   mejor: 1 s
+tractor   1000 |       0.032      ---    0.186    0.379    0.358    0.042   mejor: 1 s
+pulso      250 |      -0.057    0.061    0.270    0.533    0.607    0.326   mejor: 2 s
+pulso     1000 |      -0.051      ---    0.170    0.382    0.468    0.259   mejor: 2 s
+
+--- observador secuencial, N = 250, tau_W = 4 s ---
+  tractor  secuencial  0.717 [ 0.691;  0.741]   ciclo de 1 s  0.722 [ 0.687;  0.758]
+  pulso    secuencial  0.579 [ 0.569;  0.588]   ciclo de 1 s  0.538 [ 0.523;  0.552]
+
+--- intervenciones sobre la lectura, tau_W = 4 s, ventana sqrt(N) ---
+celda          |   G(1)   G(2)   G(4)   G(8) |                 adaptado |         D, sólo el líder |          R, sin el líder | T eq. adapt.  T eq. D |             D / adaptado
+tractor N=250  |  0.121  0.369  0.799  0.986 |  0.722 [ 0.687;  0.758] |  0.621 [ 0.594;  0.647] | -0.019 [-0.021; -0.017] |       3.54 s   3.00 s |  0.860 [ 0.837;  0.897]
+tractor N=1000 |  0.052  0.170  0.488  0.877 |  0.398 [ 0.375;  0.421] |  0.390 [ 0.371;  0.407] | -0.018 [-0.021; -0.016] |       3.29 s   3.24 s |  0.981 [ 0.940;  1.043]
+pulso N=250    |  0.135  0.386  0.748  0.977 |  0.538 [ 0.523;  0.552] |  0.597 [ 0.579;  0.613] | -0.018 [-0.020; -0.016] |       2.68 s   2.99 s |  1.110 [ 1.076;  1.152]
+pulso N=1000   |  0.091  0.265  0.582  0.918 |  0.374 [ 0.364;  0.384] |  0.464 [ 0.444;  0.482] | -0.016 [-0.020; -0.012] |       2.54 s   3.09 s |  1.241 [ 1.202;  1.275]
+  primeros 4 s: tractor|250: G(2) 0.705, adaptado 0.802, D 0.654; tractor|1000: G(2) 0.691, adaptado 0.779, D 0.648; pulso|250: G(2) 0.728, adaptado 0.765, D 0.699; pulso|1000: G(2) 0.716, adaptado 0.774, D 0.699
+  tau_W = 1 s, maniobra única, N = 250: D  1.046 [ 1.037;  1.057]   R -0.011 [-0.016; -0.006]   adaptado  0.998 [ 0.985;  1.010]
+  tau_W = 1 s, maniobra única, N = 1000: D  1.059 [ 1.026;  1.086]   R -0.016 [-0.030; -0.002]   adaptado  1.000 [ 0.978;  1.022]
+  caída de G4 de N = 250 a 1000, tractor: 0.799 -> 0.488 = 0.311 [0.300; 0.323]
+  caída de adaptado de N = 250 a 1000, tractor: 0.722 -> 0.398 = 0.324 [0.283; 0.368]
+  caída de G4 de N = 250 a 1000, pulso: 0.748 -> 0.582 = 0.166 [0.158; 0.175]
+  caída de adaptado de N = 250 a 1000, pulso: 0.538 -> 0.374 = 0.164 [0.146; 0.181]
+
+=== Predicciones declaradas ===
+A0: CUMPLE  {"anclas": {"E42": {"delta_max": 0.0, "n": 24}, "E42b": {"delta_max": 0.0, "n": 22}, "E44": {"delta_max": 0.0, "n": 56}, "E43": {"delta_max": 0.0, "n": 12}, "E43b": {"delta_max": 0.0, "n": 4}, "E44 tauW1": {"delta_max": 0.0, "n": 6}, "E44b": {"delta_max": 0.0, "n": 44}, "E22 secuencial": {"delta_max": 1.1102230246251565e-16, "n": 2}}, "cumple": true}
+A1: CUMPLE  {"delta_max": 2.220446049250313e-16, "n": 69, "cumple": true}
+A2: CUMPLE  {"N250": {"0.25": 0.06095764921852464, "0.5": 0.2704156342036657, "1": 0.5334182708674106, "2": 0.6065194573233816, "4": 0.32605648924889385}, "mejor": {"pulso|250": "2", "pulso|1000": "2"}, "cumple": true}
+A3: CUMPLE  {"secuencial": 0.5789833114243036, "ic95": [0.569286698538269, 0.5884943522126592], "ciclo": 0.5378306054871813, "disjuntos": true, "cumple": true}
+A4: CUMPLE  {"t_equiv": {"250": 2.6752992738877377, "1000": 2.537823496726433}, "archivado": {"250": null, "1000": null}, "cumple": true}
+A5: CUMPLE  {"G4": [0.7484379674712369, 0.5819591523115183], "caida_G4": 0.16647881515971863, "caida_adaptado": 0.1637135711789422, "cumple": true}
+A6: CUMPLE  {"reevaluadas": {"N2": false, "N3_sin_memoria_bajo_0.10": true, "N3_cociente_tractor": true, "N3_cociente_pulso_definido": false, "N5": false, "T3": true, "T4": true, "U1": true, "U2": true, "V1": true, "V2": true, "E20_mas_de_0.25": true}, "esperado": {"N2": false, "N3_sin_memoria_bajo_0.10": true, "N3_cociente_tractor": true, "N3_cociente_pulso_definido": false, "N5": false, "T3": true, "T4": true, "U1": true, "U2": true, "V1": true, "V2": true, "E20_mas_de_0.25": true}, "cumple": true}
+
+50 s de corridas nuevas (secuencial)

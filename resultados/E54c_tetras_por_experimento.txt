@@ -1,0 +1,12 @@
+=== E54c · tetras por experimento (19 experimentos, 339 giros) ===
+agrupada: AUC(1 s) 0.7937, AUC(cuadro) 0.5533, ganancia +0.2404; ventana 95 % del máximo bruto 0.8 s, del exceso sobre 0,5 0.9 s
+igual peso por experimento: AUC(1 s) 0.833, AUC(cuadro) 0.578, ganancia +0.256
+dejando uno fuera: AUC(1 s) 0.787–0.798, ganancia +0.234–+0.248, ventana 95 % 0.7–0.8 s
+sin el experimento de más giros (exp08H20150903_11h28.csv, 124 giros): AUC(1 s) 0.787, ganancia +0.242, ventana 0.8 s
+ganancia positiva en 8 de 8 experimentos con 5 o más giros
+por experimento (giros, AUC 1 s, ganancia): 14, 0.75, +0.20; 64, 0.79, +0.28; 8, 0.85, +0.28; 1, 1.00, +0.50; 68, 0.78, +0.25; 2, 0.50, -0.50; 124, 0.81, +0.24; 13, 0.84, +0.23; 1, 1.00, +0.67; 4, 0.86, +0.21; 3, 0.79, -0.06; 1, 0.83, +0.17; 3, 0.89, +0.26; 2, 0.97, +0.67; 4, 0.78, +0.26; 4, 0.85, +0.23; 6, 0.82, +0.46; 1, 1.00, +0.40; 16, 0.72, +0.12
+
+=== Predicciones ===
+T1: CUMPLE  {"cumple": true}
+T2: FALLA  {"positivos": [8, 8], "cumple": false}
+T3: CUMPLE  {"dif": 0.039732609620438786, "cumple": true}

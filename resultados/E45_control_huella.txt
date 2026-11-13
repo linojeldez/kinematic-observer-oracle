@@ -1,0 +1,29 @@
+=== E45 · control de ruido de la huella ===
+ancla (etiquetado frente a e15_helpers.huella, 48 corridas): |Δ| máx = 0.00e+00
+
+WiSt
+  etiquetado   : pico 3.47 σ [2.61; 5.12], sobre 1,5 σ en 16/16; duración 0.875 ± 0.384 s
+    primeras 8 réplicas: pico 3.6405 σ, duración 0.925 ± 0.278 s
+  sin etiqueta : pico 1.72 σ (p5 1.35; p95 2.50), sobre 1,5 σ el 81 %; duración 2.55 ± 1.41 s
+  rango percentil del etiquetado: media 0.991; sobre el p95 en 15/16 réplicas
+
+CoLd
+  etiquetado   : pico 5.89 σ [4.73; 10.19], sobre 1,5 σ en 16/16; duración 1.375 ± 0.176 s
+    primeras 8 réplicas: pico 6.1811 σ, duración 1.300 ± 0.141 s
+  sin etiqueta : pico 1.68 σ (p5 1.33; p95 2.22), sobre 1,5 σ el 78 %; duración 2.50 ± 1.43 s
+  rango percentil del etiquetado: media 1.000; sobre el p95 en 16/16 réplicas
+
+CaSp
+  etiquetado   : pico 1.60 σ [1.09; 2.23], sobre 1,5 σ en 10/16; duración 1.600 ± 1.366 s
+    primeras 8 réplicas: pico 1.5106 σ, duración 1.700 ± 1.112 s
+  sin etiqueta : pico 1.70 σ (p5 1.19; p95 2.34), sobre 1,5 σ el 73 %; duración 2.60 ± 1.50 s
+  rango percentil del etiquetado: media 0.434; sobre el p95 en 0/16 réplicas
+
+=== Predicciones declaradas ===
+C0: CUMPLE  {"delta_max": 0.0, "cumple": true}
+C1: CUMPLE  {"sin_etiqueta": 1.6972501274573735, "etiquetado": 1.6017322351385617, "cumple": true}
+C2: CUMPLE  {"rango_medio": 0.43373115577889443, "cumple": true}
+C3: CUMPLE  {"WiSt": 15, "CoLd": 16, "cumple": true}
+C4: FALLA  {"dur_mediana": 2.6, "dur_sd": 1.5014445310441922, "cumple": false}
+
+7 s

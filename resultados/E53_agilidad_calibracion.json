@@ -1,0 +1,333 @@
+{
+ "agilidad_min12": {
+  "omega_max": 1.3572432895206465,
+  "ic95": [
+   1.1643344088364282,
+   1.5777931504657559
+  ],
+  "n_eventos": 12,
+  "n_iniciadoras": 179,
+  "por_evento": [
+   1.4856154205321135,
+   1.250435438929499,
+   1.6936599885241814,
+   1.1742482260983511,
+   0.9424718761481204,
+   1.168767693244424,
+   1.1216722258984553,
+   1.2383858704681665,
+   1.6771744929442172,
+   1.307045995277142,
+   1.1589331264879394,
+   1.2071903027860786
+  ]
+ },
+ "agilidad_min0": {
+  "omega_max": 1.3556328067510222,
+  "ic95": [
+   1.165777663761802,
+   1.5757610739543473
+  ],
+  "n_eventos": 14,
+  "n_iniciadoras": 185,
+  "por_evento": [
+   1.3433656985887221,
+   1.4856154205321135,
+   1.250435438929499,
+   1.6936599885241814,
+   1.1742482260983511,
+   0.9424718761481204,
+   1.168767693244424,
+   1.231356440234596,
+   1.1216722258984553,
+   1.2383858704681665,
+   1.6771744929442172,
+   1.307045995277142,
+   1.1589331264879394,
+   1.2071903027860786
+  ]
+ },
+ "intervalos_curados": {
+  "mobbing flock 01": [
+   [
+    32.0833,
+    37.0333,
+    "mobbing 01"
+   ]
+  ],
+  "mobbing flock 02": [
+   [
+    86.85,
+    91.8,
+    "mobbing 02"
+   ]
+  ],
+  "mobbing flock 06": [
+   [
+    48.8167,
+    53.7667,
+    "mobbing 03"
+   ],
+   [
+    68.4833,
+    73.4333,
+    "mobbing 04"
+   ],
+   [
+    80.15,
+    85.1,
+    "mobbing 05"
+   ]
+  ],
+  "mobbing flock 07": [
+   [
+    47.7833,
+    52.7333,
+    "mobbing 06"
+   ],
+   [
+    54.45,
+    59.4,
+    "mobbing 07"
+   ]
+  ],
+  "mobbing flock 08": [
+   [
+    91.4833,
+    96.4333,
+    "mobbing 08"
+   ]
+  ]
+ },
+ "18 bloques (como en E9)": {
+  "horizontal|transit": {
+   "bandadas": 6,
+   "sigma": 0.1906696294980858,
+   "rango": [
+    0.1262676071699299,
+    0.369611520608475
+   ],
+   "nu": 4.443394696459739,
+   "nombres": [
+    "transit flock 01",
+    "transit flock 02",
+    "transit flock 03",
+    "transit flock 04",
+    "transit flock 05",
+    "transit flock 06"
+   ]
+  },
+  "horizontal|mobbing": {
+   "bandadas": 7,
+   "sigma": 0.6115600894032385,
+   "rango": [
+    0.43923295201724044,
+    0.7511947005032482
+   ],
+   "nu": 3.0513639526590866,
+   "nombres": [
+    "mobbing flock 01",
+    "mobbing flock 02",
+    "mobbing flock 03",
+    "mobbing flock 05 part 2",
+    "mobbing flock 06",
+    "mobbing flock 07",
+    "mobbing flock 08"
+   ]
+  },
+  "3d|transit": {
+   "bandadas": 6,
+   "sigma": 0.14881121751379411,
+   "rango": [
+    0.10424126078594659,
+    0.2765536692480609
+   ],
+   "nu": 4.104816930321003,
+   "nombres": [
+    "transit flock 01",
+    "transit flock 02",
+    "transit flock 03",
+    "transit flock 04",
+    "transit flock 05",
+    "transit flock 06"
+   ]
+  },
+  "3d|mobbing": {
+   "bandadas": 7,
+   "sigma": 0.40644267743357226,
+   "rango": [
+    0.3122643744020861,
+    0.50965371821312
+   ],
+   "nu": 3.6814785728550996,
+   "nombres": [
+    "mobbing flock 01",
+    "mobbing flock 02",
+    "mobbing flock 03",
+    "mobbing flock 05 part 2",
+    "mobbing flock 06",
+    "mobbing flock 07",
+    "mobbing flock 08"
+   ]
+  },
+  "factor_contexto_2d": 3.2074331450325606,
+  "exceso_2d": {
+   "transit": 0.28128532703128784,
+   "mobbing": 0.5046650446868735
+  }
+ },
+ "17 bandadas distintas": {
+  "horizontal|transit": {
+   "bandadas": 5,
+   "sigma": 0.20127909332966065,
+   "rango": [
+    0.1262676071699299,
+    0.369611520608475
+   ],
+   "nu": 4.551470202427507,
+   "nombres": [
+    "transit flock 01",
+    "transit flock 02",
+    "transit flock 03",
+    "transit flock 05",
+    "transit flock 06"
+   ]
+  },
+  "horizontal|mobbing": {
+   "bandadas": 7,
+   "sigma": 0.6115600894032385,
+   "rango": [
+    0.43923295201724044,
+    0.7511947005032482
+   ],
+   "nu": 3.0513639526590866,
+   "nombres": [
+    "mobbing flock 01",
+    "mobbing flock 02",
+    "mobbing flock 03",
+    "mobbing flock 05 part 2",
+    "mobbing flock 06",
+    "mobbing flock 07",
+    "mobbing flock 08"
+   ]
+  },
+  "3d|transit": {
+   "bandadas": 5,
+   "sigma": 0.16140039550639668,
+   "rango": [
+    0.10424126078594659,
+    0.2765536692480609
+   ],
+   "nu": 4.1028025792662035,
+   "nombres": [
+    "transit flock 01",
+    "transit flock 02",
+    "transit flock 03",
+    "transit flock 05",
+    "transit flock 06"
+   ]
+  },
+  "3d|mobbing": {
+   "bandadas": 7,
+   "sigma": 0.40644267743357226,
+   "rango": [
+    0.3122643744020861,
+    0.50965371821312
+   ],
+   "nu": 3.6814785728550996,
+   "nombres": [
+    "mobbing flock 01",
+    "mobbing flock 02",
+    "mobbing flock 03",
+    "mobbing flock 05 part 2",
+    "mobbing flock 06",
+    "mobbing flock 07",
+    "mobbing flock 08"
+   ]
+  },
+  "factor_contexto_2d": 3.0383686615758343,
+  "exceso_2d": {
+   "transit": 0.24707930670271172,
+   "mobbing": 0.5046650446868735
+  }
+ },
+ "17 bandadas, sin los cuadros de los eventos curados": {
+  "horizontal|transit": {
+   "bandadas": 5,
+   "sigma": 0.20127909332966065,
+   "rango": [
+    0.1262676071699299,
+    0.369611520608475
+   ],
+   "nu": 4.551470202427507,
+   "nombres": [
+    "transit flock 01",
+    "transit flock 02",
+    "transit flock 03",
+    "transit flock 05",
+    "transit flock 06"
+   ]
+  },
+  "horizontal|mobbing": {
+   "bandadas": 7,
+   "sigma": 0.6116796344802397,
+   "rango": [
+    0.41749375497357705,
+    0.7511947005032482
+   ],
+   "nu": 2.5231114195029116,
+   "nombres": [
+    "mobbing flock 01",
+    "mobbing flock 02",
+    "mobbing flock 03",
+    "mobbing flock 05 part 2",
+    "mobbing flock 06",
+    "mobbing flock 07",
+    "mobbing flock 08"
+   ]
+  },
+  "3d|transit": {
+   "bandadas": 5,
+   "sigma": 0.16140039550639668,
+   "rango": [
+    0.10424126078594659,
+    0.2765536692480609
+   ],
+   "nu": 4.1028025792662035,
+   "nombres": [
+    "transit flock 01",
+    "transit flock 02",
+    "transit flock 03",
+    "transit flock 05",
+    "transit flock 06"
+   ]
+  },
+  "3d|mobbing": {
+   "bandadas": 7,
+   "sigma": 0.40644267743357226,
+   "rango": [
+    0.2991475505970097,
+    0.50965371821312
+   ],
+   "nu": 3.289950156824206,
+   "nombres": [
+    "mobbing flock 01",
+    "mobbing flock 02",
+    "mobbing flock 03",
+    "mobbing flock 05 part 2",
+    "mobbing flock 06",
+    "mobbing flock 07",
+    "mobbing flock 08"
+   ]
+  },
+  "factor_contexto_2d": 3.0389625885208718,
+  "exceso_2d": {
+   "transit": 0.24707930670271172,
+   "mobbing": 0.5049591699931921
+  }
+ },
+ "ancla_E9": {
+  "delta_max": 0.0,
+  "cumple": true
+ }
+}

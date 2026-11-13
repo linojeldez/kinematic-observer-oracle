@@ -1,0 +1,21 @@
+=== E61 · ventana óptima con el peso de la evidencia fijo (n_ef = 12; N = 250, tau_W = 4 s, 4 réplicas) ===
+ancla (factor 1, ventana 0,5 s) frente a E55 y E56: |Δ| máx = 1.11e-16 en 60 comparaciones
+a5    forzado  : 0.25 s 0.200 | 0.5 s 0.231 | 1 s 0.278 | 2 s 0.299 | 4 s 0.241 | mejor 2 s | banda ≥90 %: [1.0, 2.0]
+a5    maniobra : 0.25 s 0.138 | 0.5 s 0.181 | 1 s 0.216 | 2 s 0.216 | 4 s 0.144 | mejor 2 s | banda ≥90 %: [1.0, 2.0]
+a20   forzado  : 0.25 s 0.644 | 0.5 s 0.636 | 1 s 0.336 | 2 s 0.019 | 4 s 0.001 | mejor 0.25 s | banda ≥90 %: [0.25, 0.5]
+a20   maniobra : 0.25 s 0.452 | 0.5 s 0.428 | 1 s 0.355 | 2 s 0.131 | 4 s 0.016 | mejor 0.25 s | banda ≥90 %: [0.25, 0.5]
+a40   forzado  : 0.25 s 0.401 | 0.5 s 0.297 | 1 s 0.003 | 2 s 0.000 | 4 s 0.000 | mejor 0.25 s | banda ≥90 %: [0.25]
+a40   maniobra : 0.25 s 0.403 | 0.5 s 0.255 | 1 s 0.096 | 2 s 0.022 | 4 s 0.003 | mejor 0.25 s | banda ≥90 %: [0.25]
+f0.5  forzado  : 0.25 s 0.894 | 0.5 s 1.097 | 1 s 0.962 | 2 s 0.458 | 4 s 0.012 | mejor 0.5 s | banda ≥90 %: [0.5]
+f0.5  maniobra : 0.25 s 0.721 | 0.5 s 0.723 | 1 s 0.701 | 2 s 0.575 | 4 s 0.374 | mejor 0.5 s | banda ≥90 %: [0.25, 0.5, 1.0]
+f2    forzado  : 0.25 s 0.100 | 0.5 s 0.129 | 1 s 0.147 | 2 s 0.128 | 4 s 0.098 | mejor 1 s | banda ≥90 %: [1.0]
+f2    maniobra : 0.25 s 0.025 | 0.5 s 0.057 | 1 s 0.076 | 2 s 0.061 | 4 s 0.013 | mejor 1 s | banda ≥90 %: [1.0]
+a10   forzado  : 0.25 s 0.602 | 0.5 s 0.736 | 1 s 0.743 | 2 s 0.547 | 4 s 0.121 | mejor 1 s | banda ≥90 %: [0.5, 1.0]
+a10   maniobra : 0.25 s 0.437 | 0.5 s 0.476 | 1 s 0.533 | 2 s 0.572 | 4 s 0.329 | mejor 2 s | banda ≥90 %: [1.0, 2.0]
+
+=== Predicciones ===
+G1: CUMPLE  {"a5": [2.0, 2.0], "a40": [0.25, 0.25], "cumple": true}
+G2: CUMPLE  {"f0.5": [0.5, 0.5], "f2": [1.0, 1.0], "cumple": true}
+G3: FALLA  {"celdas_con_banda_2_o_mas": 5, "de": 10, "cumple": false}
+
+975 s

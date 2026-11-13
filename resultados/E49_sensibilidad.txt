@@ -1,0 +1,134 @@
+=== E49 · sensibilidad a k y al ruido; observador autocalibrado ===
+
+=== anchura robusta del residuo del motor (ViSt, N = 250), rad/s ===
+k7|f0.5    0.1739 ± 0.0007  polarización 0.9993
+k7|f1      0.3482 ± 0.0015  polarización 0.9972
+k7|f2      0.7013 ± 0.0044  polarización 0.9874
+k15|f0.5   0.1803 ± 0.0006  polarización 0.9995
+k15|f1     0.3606 ± 0.0015  polarización 0.9979
+k15|f2     0.7267 ± 0.0039  polarización 0.9912
+k30|f0.5   0.1831 ± 0.0008  polarización 0.9996
+k30|f1     0.3663 ± 0.0018  polarización 0.9982
+k30|f2     0.7368 ± 0.0047  polarización 0.9924
+
+ancla: celda base frente a los crudos de E42, E43 y E44b: |Δ| máx = 0.00e+00 en 4320 comparaciones
+
+=== malla: maniobra única, tau_W = 1 s, corrida entera; recuperación desde CoLd ===
+
+k7|f0.5: ventaja del oráculo sobre CoLd 0.0832 [0.08171839270357253, 0.08430829641837881]
+   amplitud_fijo   0.178 [ 0.174;  0.182] (n = 8)
+   amplitud_cal    0.341 [ 0.334;  0.347] (n = 8)
+   amplitud_auto   0.301 [ 0.295;  0.306] (n = 8)
+   adaptado_fijo   0.875 [ 0.851;  0.898] (n = 8)
+   adaptado_cal    1.064 [ 1.041;  1.090] (n = 8)
+   adaptado_auto   1.003 [ 0.979;  1.028] (n = 8)
+   autocalibrado / calibrado (adaptado): 0.943 [0.9325377371372857, 0.9535401573850997]
+
+k7|f1: ventaja del oráculo sobre CoLd 0.0757 [0.07364448326852178, 0.07755673696676618]
+   amplitud_fijo   0.094 [ 0.087;  0.102] (n = 8)
+   amplitud_cal    0.099 [ 0.092;  0.108] (n = 8)
+   amplitud_auto   0.072 [ 0.065;  0.078] (n = 8)
+   adaptado_fijo   1.000 [ 0.969;  1.027] (n = 8)
+   adaptado_cal    1.016 [ 0.985;  1.040] (n = 8)
+   adaptado_auto   0.928 [ 0.895;  0.956] (n = 8)
+   autocalibrado / calibrado (adaptado): 0.913 [0.9025393683555929, 0.9232791893302743]
+
+k7|f2: ventaja del oráculo sobre CoLd 0.0541 [0.052038152227893306, 0.05626865987239719]
+   amplitud_fijo  -0.062 [-0.088; -0.036] (n = 8)
+   amplitud_cal   -0.075 [-0.086; -0.065] (n = 8)
+   amplitud_auto  -0.081 [-0.090; -0.072] (n = 8)
+   adaptado_fijo  -0.086 [-0.142; -0.024] (n = 8)
+   adaptado_cal    0.372 [ 0.335;  0.402] (n = 8)
+   adaptado_auto   0.291 [ 0.256;  0.320] (n = 8)
+   autocalibrado / calibrado (adaptado): 0.782 [0.7483474280092065, 0.8112339032119995]
+
+k15|f0.5: ventaja del oráculo sobre CoLd 0.1084 [0.10700178244360938, 0.10973868892262058]
+   amplitud_fijo   0.118 [ 0.114;  0.121] (n = 8)
+   amplitud_cal    0.263 [ 0.256;  0.269] (n = 8)
+   amplitud_auto   0.245 [ 0.239;  0.251] (n = 8)
+   adaptado_fijo   0.890 [ 0.867;  0.915] (n = 8)
+   adaptado_cal    1.161 [ 1.135;  1.187] (n = 8)
+   adaptado_auto   1.077 [ 1.053;  1.103] (n = 8)
+   autocalibrado / calibrado (adaptado): 0.927 [0.90806491501029, 0.9466212673467487]
+
+k15|f1: ventaja del oráculo sobre CoLd 0.1064 [0.10369841597013826, 0.10895274933768813]
+   amplitud_fijo   0.054 [ 0.047;  0.060] (n = 8)
+   amplitud_cal    0.054 [ 0.047;  0.060] (n = 8)
+   amplitud_auto   0.047 [ 0.041;  0.053] (n = 8)
+   adaptado_fijo   0.998 [ 0.985;  1.010] (n = 8)
+   adaptado_cal    0.998 [ 0.986;  1.010] (n = 8)
+   adaptado_auto   0.927 [ 0.910;  0.943] (n = 8)
+   autocalibrado / calibrado (adaptado): 0.929 [0.9200222421205477, 0.9380612829960556]
+
+k15|f2: ventaja del oráculo sobre CoLd 0.0952 [0.0919796496034075, 0.09854226855223491]
+   amplitud_fijo  -0.041 [-0.058; -0.023] (n = 8)
+   amplitud_cal   -0.055 [-0.062; -0.047] (n = 8)
+   amplitud_auto  -0.056 [-0.063; -0.049] (n = 8)
+   adaptado_fijo  -0.052 [-0.086; -0.015] (n = 8)
+   adaptado_cal    0.227 [ 0.206;  0.249] (n = 8)
+   adaptado_auto   0.202 [ 0.181;  0.224] (n = 8)
+   autocalibrado / calibrado (adaptado): 0.890 [0.8541383968567757, 0.9257808984205081]
+
+k30|f0.5: ventaja del oráculo sobre CoLd 0.2621 [0.25890002485841057, 0.26486519470427244]
+   amplitud_fijo   0.073 [ 0.071;  0.075] (n = 8)
+   amplitud_cal    0.167 [ 0.163;  0.171] (n = 8)
+   amplitud_auto   0.163 [ 0.159;  0.166] (n = 8)
+   adaptado_fijo   0.956 [ 0.920;  0.993] (n = 8)
+   adaptado_cal    1.158 [ 1.143;  1.174] (n = 8)
+   adaptado_auto   1.092 [ 1.073;  1.111] (n = 8)
+   autocalibrado / calibrado (adaptado): 0.943 [0.9330003325714117, 0.9531579300832687]
+
+k30|f1: ventaja del oráculo sobre CoLd 0.2574 [0.2523949502192358, 0.2620349145872038]
+   amplitud_fijo   0.032 [ 0.028;  0.036] (n = 8)
+   amplitud_cal    0.031 [ 0.027;  0.035] (n = 8)
+   amplitud_auto   0.029 [ 0.025;  0.033] (n = 8)
+   adaptado_fijo   0.973 [ 0.951;  0.993] (n = 8)
+   adaptado_cal    0.973 [ 0.951;  0.994] (n = 8)
+   adaptado_auto   0.934 [ 0.911;  0.957] (n = 8)
+   autocalibrado / calibrado (adaptado): 0.960 [0.9515704901044659, 0.9670198529251094]
+
+k30|f2: ventaja del oráculo sobre CoLd 0.2239 [0.21736592773869134, 0.23127568820819835]
+   amplitud_fijo  -0.018 [-0.027; -0.009] (n = 8)
+   amplitud_cal   -0.031 [-0.034; -0.027] (n = 8)
+   amplitud_auto  -0.031 [-0.035; -0.028] (n = 8)
+   adaptado_fijo  -0.027 [-0.041; -0.012] (n = 8)
+   adaptado_cal    0.132 [ 0.124;  0.142] (n = 8)
+   adaptado_auto   0.127 [ 0.119;  0.136] (n = 8)
+   autocalibrado / calibrado (adaptado): 0.961 [0.9524086335422292, 0.9699117853478376]
+
+=== cruz con líder forzado, corrida entera; recuperación desde ViSt ===
+k7|f1: ventaja 0.1419 | sin memoria cal.  0.181 [ 0.173;  0.188] (n = 8) | adaptado cal.  0.842 [ 0.812;  0.866] (n = 8) | adaptado auto  0.665 [ 0.631;  0.702] (n = 8)
+k15|f0.5: ventaja 0.2926 | sin memoria cal.  0.148 [ 0.141;  0.157] (n = 8) | adaptado cal.  0.979 [ 0.916;  1.030] (n = 8) | adaptado auto  0.790 [ 0.713;  0.838] (n = 8)
+k15|f1: ventaja 0.2923 | sin memoria cal.  0.050 [ 0.048;  0.053] (n = 8) | adaptado cal.  0.723 [ 0.688;  0.759] (n = 8) | adaptado auto  0.608 [ 0.580;  0.638] (n = 8)
+k15|f2: ventaja 0.2773 | sin memoria cal.  0.015 [ 0.013;  0.018] (n = 8) | adaptado cal.  0.141 [ 0.126;  0.157] (n = 8) | adaptado auto  0.118 [ 0.106;  0.132] (n = 8)
+k30|f1: ventaja 0.5727 | sin memoria cal.  0.028 [ 0.026;  0.030] (n = 8) | adaptado cal.  0.753 [ 0.720;  0.789] (n = 8) | adaptado auto  0.687 [ 0.658;  0.721] (n = 8)
+
+=== C3 en las celdas de cabecera: autocalibrado frente a fijo ===
+forzado   N =  250 tau_W = 4 s | fijo  0.722 [ 0.687;  0.758] (n = 8) | auto (5 s)  0.608 [ 0.580;  0.638] (n = 8) | cociente 0.841 [0.8182429846743136, 0.867604024647689] | auto 2 s 0.574 | auto 10 s 0.617
+maniobra  N =  250 tau_W = 4 s | fijo  0.538 [ 0.523;  0.552] (n = 8) | auto (5 s)  0.483 [ 0.472;  0.491] (n = 8) | cociente 0.898 [0.8843683116211638, 0.9101824299775517] | auto 2 s 0.468 | auto 10 s 0.490
+maniobra  N =  250 tau_W = 1 s | fijo  0.998 [ 0.985;  1.010] (n = 8) | auto (5 s)  0.927 [ 0.910;  0.943] (n = 8) | cociente 0.930 [0.9202338813002292, 0.9381883175584594] | auto 2 s 0.907 | auto 10 s 0.936
+forzado   N = 1000 tau_W = 4 s | fijo  0.398 [ 0.375;  0.421] (n = 8) | auto (5 s)  0.286 [ 0.262;  0.310] (n = 8) | cociente 0.718 [0.6760002532901572, 0.7557942380138772]
+maniobra  N = 1000 tau_W = 4 s | fijo  0.374 [ 0.364;  0.384] (n = 8) | auto (5 s)  0.327 [ 0.319;  0.335] (n = 8) | cociente 0.875 [0.8650071897526795, 0.8866832296316921]
+maniobra  N = 1000 tau_W = 1 s | fijo  1.000 [ 0.978;  1.022] (n = 8) | auto (5 s)  0.915 [ 0.897;  0.935] (n = 8) | cociente 0.915 [0.9094094736728071, 0.9218030138379503]
+
+=== anchura estimada por el autocalibrado (adaptado, tau_base = 5 s) ===
+k7|f0.5    al informarse el líder 0.1817 (1.045 de la medida); máximo durante la corrida 0.1908 (1.050 del inicial)
+k7|f1      al informarse el líder 0.3634 (1.044 de la medida); máximo durante la corrida 0.3781 (1.041 del inicial)
+k7|f2      al informarse el líder 0.7302 (1.041 de la medida); máximo durante la corrida 0.7597 (1.040 del inicial)
+k15|f0.5   al informarse el líder 0.1838 (1.019 de la medida); máximo durante la corrida 0.1938 (1.054 del inicial)
+k15|f1     al informarse el líder 0.3673 (1.019 de la medida); máximo durante la corrida 0.3834 (1.044 del inicial)
+k15|f2     al informarse el líder 0.7382 (1.016 de la medida); máximo durante la corrida 0.7704 (1.044 del inicial)
+k30|f0.5   al informarse el líder 0.1849 (1.010 de la medida); máximo durante la corrida 0.1993 (1.078 del inicial)
+k30|f1     al informarse el líder 0.3694 (1.009 de la medida); máximo durante la corrida 0.3865 (1.046 del inicial)
+k30|f2     al informarse el líder 0.7429 (1.008 de la medida); máximo durante la corrida 0.7761 (1.045 del inicial)
+
+=== Predicciones declaradas ===
+S1: FALLA  {"sin_memoria_cal": {"k7|f0.5": 0.3406772225083583, "k7|f1": 0.09945789512154768, "k7|f2": -0.07537235462991428, "k15|f0.5": 0.2625182234138129, "k15|f1": 0.05371322683673928, "k15|f2": -0.054984646451152225, "k30|f0.5": 0.16699718077653922, "k30|f1": 0.03087018511537512, "k30|f2": -0.030896624818065262}, "adaptado_cal": {"k7|f0.5": 1.063834185262049, "k7|f1": 1.0163138827530214, "k7|f2": 0.37243267136591374, "k15|f0.5": 1.1614372783228133, "k15|f1": 0.9979425252024925, "k15|f2": 0.2270759057542359, "k30|f0.5": 1.1580051211735243, "k30|f1": 0.9732844365957711, "k30|f2": 0.13249822776648265}, "fallan": ["k7|f0.5", "k7|f2", "k15|f0.5", "k15|f2", "k30|f0.5", "k30|f2"], "cumple": false}
+S2: FALLA  {"adaptado_fijo": {"k7|f0.5": 0.8750154858803839, "k7|f1": 1.0004529714848072, "k7|f2": -0.08611433317457036, "k15|f0.5": 0.8902041372617584, "k15|f1": 0.9975652064210153, "k15|f2": -0.05220999577975033, "k30|f0.5": 0.9556446901955047, "k30|f1": 0.9729096640079266, "k30|f2": -0.02666779801257623}, "cumple": false}
+S3: CUMPLE  {"cociente_auto_fijo": {"forzado|250|4": 0.8414880887298981, "maniobra|250|4": 0.8975574659947694, "maniobra|250|1": 0.9295410481822056}, "cumple": true}
+S4: FALLA  {"cociente_auto_cal": {"k7|f0.5": 0.9429959192200855, "k7|f1": 0.9131428231914075, "k7|f2": 0.7820554721524575, "k15|f0.5": 0.927260521249844, "k15|f1": 0.92918959177387, "k15|f2": 0.8904808574594252, "k30|f0.5": 0.9431723249662838, "k30|f1": 0.9601300243409322, "k30|f2": 0.9605780986263961}, "sin_memoria_auto": {"k7|f0.5": 0.30071830534938626, "k7|f1": 0.07156718350374017, "k7|f2": -0.08112649737049744, "k15|f0.5": 0.2452334515374383, "k15|f1": 0.046943269470416445, "k15|f2": -0.05648217992001603, "k30|f0.5": 0.16259863918661346, "k30|f1": 0.029284659474371356, "k30|f2": -0.03127456595531356}, "cumple": false}
+S5: CUMPLE  {"cociente_auto_fijo": {"forzado|1000|4": 0.7179239833690207, "maniobra|1000|4": 0.8747068090203124, "maniobra|1000|1": 0.9151048783153095}, "cumple": true}
+S6: CUMPLE  {"diferencia_2s_10s": {"forzado|250|4": [-0.03435095383173259, 0.009346736518113685], "maniobra|250|4": [-0.014879474053622055, 0.007574044187388551], "maniobra|250|1": [-0.019940061320605995, 0.008273244964488446]}, "cumple": true}
+S7: FALLA  {"sin_memoria_cal": {"k7|f1": 0.18103699624153555, "k15|f0.5": 0.14797778818823867, "k15|f1": 0.05037864253204103, "k15|f2": 0.015338335722637854, "k30|f1": 0.02793953357774906}, "adaptado_cal": {"k7|f1": 0.8418988057880642, "k15|f0.5": 0.9790431812791945, "k15|f1": 0.7231413242688809, "k15|f2": 0.1411635212873327, "k30|f1": 0.7532518408586283}, "cumple": false}
+
+6471 s

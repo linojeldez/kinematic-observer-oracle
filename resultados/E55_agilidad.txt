@@ -1,0 +1,31 @@
+=== E55 · agilidad intervenida en el modelo (N = 250, k = 15, tau_W = 4 s, 4 réplicas) ===
+ancla a_max = 10 frente a E42, E42b y E44b: |Δ| máx = 0.00e+00 en 3456 comparaciones
+anchura del residuo (rad/s): a_max 5.0: 0.363, a_max 10.0: 0.3606, a_max 20.0: 0.3606, a_max 40.0: 0.3606
+huella WiSt a_max    5: operador 1.58 s, T95 0.65 s, pico 2.8 σ
+huella WiSt a_max   10: operador 0.88 s, T95 0.90 s, pico 3.5 σ
+huella WiSt a_max   20: operador 0.62 s, T95 1.00 s, pico 5.7 σ
+huella WiSt a_max   40: operador 0.55 s, T95 0.98 s, pico 7.2 σ
+huella CoLd a_max    5: operador 2.17 s, T95 1.43 s, pico 4.8 σ
+huella CoLd a_max   10: operador 1.38 s, T95 1.27 s, pico 5.9 σ
+huella CoLd a_max   20: operador 0.85 s, T95 0.88 s, pico 10.9 σ
+huella CoLd a_max   40: operador 0.65 s, T95 0.73 s, pico 13.8 σ
+forzado   a_max    5: ventaja 0.237 | sin memoria 0.025 | 0.25 s 0.051 | 0.5 s 0.107 | 1 s 0.278 | 2 s 0.684 | 4 s 0.764 | mejor 4 s
+maniobra  a_max    5: ventaja 0.209 | sin memoria -0.092 | 0.25 s -0.050 | 0.5 s 0.033 | 1 s 0.216 | 2 s 0.536 | 4 s 0.760 | mejor 4 s
+forzado   a_max   10: ventaja 0.291 | sin memoria 0.049 | 0.25 s 0.117 | 0.5 s 0.416 | 1 s 0.743 | 2 s 0.622 | 4 s 0.059 | mejor 1 s
+maniobra  a_max   10: ventaja 0.260 | sin memoria -0.057 | 0.25 s 0.061 | 0.5 s 0.270 | 1 s 0.533 | 2 s 0.607 | 4 s 0.326 | mejor 2 s
+forzado   a_max   20: ventaja 0.310 | sin memoria 0.067 | 0.25 s 0.252 | 0.5 s 0.476 | 1 s 0.336 | 2 s 0.013 | 4 s 0.000 | mejor 0.5 s
+maniobra  a_max   20: ventaja 0.273 | sin memoria -0.012 | 0.25 s 0.198 | 0.5 s 0.354 | 1 s 0.355 | 2 s 0.120 | 4 s 0.010 | mejor 1 s
+forzado   a_max   40: ventaja 0.317 | sin memoria 0.070 | 0.25 s 0.210 | 0.5 s 0.205 | 1 s 0.003 | 2 s -0.000 | 4 s 0.000 | mejor 0.25 s
+maniobra  a_max   40: ventaja 0.278 | sin memoria 0.037 | 0.25 s 0.267 | 0.5 s 0.229 | 1 s 0.096 | 2 s 0.022 | 4 s 0.002 | mejor 0.25 s
+
+=== Predicciones ===
+P1_WiSt: CUMPLE  {"cociente_5_40": 2.8636363636363638, "cumple": true}
+P1_CoLd: CUMPLE  {"cociente_5_40": 3.346153846153846, "cumple": true}
+P2_forzado: FALLA  {"ventanas": [4.0, 1.0, 0.5, 0.25], "cociente_5_40": 16.0, "cumple": false}
+P3_forzado: FALLA  {"rec_5": 0.7637722492247454, "rec_10": 0.7434106297165349, "cumple": false}
+regla_forzado: —  {"cambia_mas_de_x2": true}
+P2_maniobra: FALLA  {"ventanas": [4.0, 2.0, 1.0, 0.25], "cociente_5_40": 16.0, "cumple": false}
+P3_maniobra: FALLA  {"rec_5": 0.7601144913362751, "rec_10": 0.6065194573233816, "cumple": false}
+regla_maniobra: —  {"cambia_mas_de_x2": true}
+
+1236 s

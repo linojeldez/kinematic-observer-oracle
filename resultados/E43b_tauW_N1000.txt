@@ -1,0 +1,14 @@
+=== E43b · tau_W = 1 s con N = 1000 (maniobra única) ===
+control: ViSt con tau_W = 1 s frente a E42 (tau_W = 4 s), réplica 0: |Δ| máx = 0.00e+00
+ ventana |  R ViSt R orác. ventaja |               amplitud |               adaptado
+     4.0 |  0.0022  0.0184  0.0162 |  0.152 [0.142; 0.160] |  0.956 [0.936; 0.974]
+     8.0 |  0.0025  0.0234  0.0209 |  0.150 [0.142; 0.157] |  1.001 [0.985; 1.017]
+    15.8 |  0.0031  0.0270  0.0239 |  0.149 [0.140; 0.156] |  1.004 [0.987; 1.021]
+    31.6 |  0.0038  0.0299  0.0261 |  0.149 [0.139; 0.158] |  1.000 [0.980; 1.020]
+
+=== Predicciones declaradas ===
+U0: CUMPLE  {"control_vist": 0.0, "cumple": true}
+U1: CUMPLE  {"rec_adaptado": 1.0001270816462202, "ic95": [0.9799484354320325, 1.0202049760239222], "cumple": true}
+U2: CUMPLE  {"rec_amplitud": 0.1492507631234375, "cumple": true}
+
+721 s

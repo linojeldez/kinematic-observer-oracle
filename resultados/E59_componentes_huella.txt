@@ -1,0 +1,14 @@
+=== E59 · componentes de la huella (N = 200, k = 12, 16 réplicas; semillas de E47) ===
+CoLd  57°: huella 0.775 s (E47 0.775) | latencia 0.10 s | giro propio bajo umbral 0.95 s | alineado (<14,4°) 0.50 s | v_min 0.83 v0 | en la huella: |ω_L| 1.13 y |ω_vec| 0.32 umbrales | «propio» 3/16
+CoLd 115°: huella 1.375 s (E47 1.375) | latencia 0.17 s | giro propio bajo umbral 1.48 s | alineado (<14,4°) 1.05 s | v_min 0.51 v0 | en la huella: |ω_L| 1.05 y |ω_vec| 0.35 umbrales | «propio» 6/16
+CoLd 153°: huella 1.475 s (E47 1.475) | latencia 0.20 s | giro propio bajo umbral 1.48 s | alineado (<14,4°) 1.10 s | v_min 0.20 v0 | en la huella: |ω_L| 0.91 y |ω_vec| 0.15 umbrales | «propio» 11/16
+CoLd 172°: huella 1.450 s (E47 1.450) | latencia 0.23 s | giro propio bajo umbral 1.45 s | alineado (<14,4°) 1.00 s | v_min 0.08 v0 | en la huella: |ω_L| 0.76 y |ω_vec| 0.18 umbrales | «propio» 14/16
+WiSt  57°: huella 0.500 s (E47 0.500) | latencia 0.15 s | giro propio bajo umbral 0.82 s | alineado (<14,4°) 0.60 s | v_min 0.87 v0 | en la huella: |ω_L| 2.05 y |ω_vec| 1.44 umbrales | «propio» 2/16
+WiSt 115°: huella 0.875 s (E47 0.875) | latencia 0.15 s | giro propio bajo umbral 1.55 s | alineado (<14,4°) 1.30 s | v_min 0.75 v0 | en la huella: |ω_L| 2.41 y |ω_vec| 1.81 umbrales | «propio» 1/16
+WiSt 153°: huella 1.175 s (E47 1.175) | latencia 0.15 s | giro propio bajo umbral 1.77 s | alineado (<14,4°) 1.48 s | v_min 0.53 v0 | en la huella: |ω_L| 2.68 y |ω_vec| 2.00 umbrales | «propio» 0/16
+WiSt 172°: huella 1.600 s (E47 1.600) | latencia 0.20 s | giro propio bajo umbral 1.75 s | alineado (<14,4°) 1.45 s | v_min 0.32 v0 | en la huella: |ω_L| 1.96 y |ω_vec| 1.74 umbrales | «propio» 6/16
+
+=== Predicciones ===
+D1: CUMPLE  {"delta_max_medianas": 0.0, "cumple": true}
+D2: FALLA  {"CoLd_propio": [3, 6, 11, 14], "WiSt_social": [15, 16, 10], "cumple": false}
+D3: FALLA  {"v_min": {"CoLd|57": 0.834320467672334, "CoLd|115": 0.5075841911103336, "CoLd|153": 0.20097628675477108, "CoLd|172": 0.07771380977423567, "WiSt|57": 0.87069948821517, "WiSt|115": 0.754504788780066, "WiSt|153": 0.5298932844303674, "WiSt|172": 0.3219571875084651}, "t_lat_172": [0.225, 0.2], "cumple": false}

@@ -1,0 +1,35 @@
+=== E53 · agilidad de la grajilla y tabla de calibración ===
+
+--- A3: omega_max = a_perp / v ---
+12 eventos con al menos 12 aves: 1.357 rad/s, IC 95 % [1.164; 1.578] (12 eventos con 3 o más iniciadoras, 179 iniciadoras)
+todos los eventos: 1.356 rad/s, IC 95 % [1.166; 1.576] (14 eventos con 3 o más iniciadoras, 185 iniciadoras)
+
+--- A4: calibración desde el archivo continuo ---
+   mobbing flock 01: se excluyen mobbing 01 [32.08; 37.03] s
+   mobbing flock 02: se excluyen mobbing 02 [86.85; 91.80] s
+   mobbing flock 06: se excluyen mobbing 03 [48.82; 53.77] s; mobbing 04 [68.48; 73.43] s; mobbing 05 [80.15; 85.10] s
+   mobbing flock 07: se excluyen mobbing 06 [47.78; 52.73] s; mobbing 07 [54.45; 59.40] s
+   mobbing flock 08: se excluyen mobbing 08 [91.48; 96.43] s
+
+18 bloques (como en E9):
+   horizontal|transit    6 bandadas  sigma_theta 0.1907 rad/s [0.126; 0.370]  nu 4.44
+   horizontal|mobbing    7 bandadas  sigma_theta 0.6116 rad/s [0.439; 0.751]  nu 3.05
+   3d|transit            6 bandadas  sigma_theta 0.1488 rad/s [0.104; 0.277]  nu 4.10
+   3d|mobbing            7 bandadas  sigma_theta 0.4064 rad/s [0.312; 0.510]  nu 3.68
+   factor entre contextos (2D): 3.21; exceso de la proyección horizontal: 28 % (tránsito), 50 % (mobbing)
+
+17 bandadas distintas:
+   horizontal|transit    5 bandadas  sigma_theta 0.2013 rad/s [0.126; 0.370]  nu 4.55
+   horizontal|mobbing    7 bandadas  sigma_theta 0.6116 rad/s [0.439; 0.751]  nu 3.05
+   3d|transit            5 bandadas  sigma_theta 0.1614 rad/s [0.104; 0.277]  nu 4.10
+   3d|mobbing            7 bandadas  sigma_theta 0.4064 rad/s [0.312; 0.510]  nu 3.68
+   factor entre contextos (2D): 3.04; exceso de la proyección horizontal: 25 % (tránsito), 50 % (mobbing)
+
+17 bandadas, sin los cuadros de los eventos curados:
+   horizontal|transit    5 bandadas  sigma_theta 0.2013 rad/s [0.126; 0.370]  nu 4.55
+   horizontal|mobbing    7 bandadas  sigma_theta 0.6117 rad/s [0.417; 0.751]  nu 2.52
+   3d|transit            5 bandadas  sigma_theta 0.1614 rad/s [0.104; 0.277]  nu 4.10
+   3d|mobbing            7 bandadas  sigma_theta 0.4064 rad/s [0.299; 0.510]  nu 3.29
+   factor entre contextos (2D): 3.04; exceso de la proyección horizontal: 25 % (tránsito), 50 % (mobbing)
+
+ancla: los 18 bloques frente a E9_validacion.json: |Δ| máx = 0.00e+00

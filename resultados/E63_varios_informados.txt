@@ -1,0 +1,12 @@
+=== E63 · 12 informados de 250, observador de 1 s (8 réplicas) ===
+ancla (un informado frente a E42): |Δ| máx = 1.11e-16 en 36 comparaciones
+forzado|4   : R CoLd 0.550, oráculo 0.861 (ventaja 0.311; con un líder 0.294) | pi0 0.048: 0.886 [0.868; 0.902] | pi0 0.173: 0.939 [0.914; 0.972] | pi0 0.004: 0.573 [0.513; 0.627]
+maniobra|4  : R CoLd 0.459, oráculo 0.850 (ventaja 0.390; con un líder 0.261) | pi0 0.048: 0.822 [0.805; 0.836] | pi0 0.173: 0.812 [0.790; 0.834] | pi0 0.004: 0.639 [0.607; 0.670]
+maniobra|1  : R CoLd 0.209, oráculo 0.705 (ventaja 0.497; con un líder 0.105) | pi0 0.048: 0.880 [0.864; 0.897] | pi0 0.173: 0.878 [0.864; 0.891] | pi0 0.004: 0.712 [0.694; 0.727]
+
+=== Predicciones ===
+S1: CUMPLE  {"rec": [0.8858694528547387, 0.8215253976249224, 0.8796704322602173], "cumple": true}
+S2: CUMPLE  {"cumple": true}
+S3: FALLA  {"cumple": false}
+
+901 s
