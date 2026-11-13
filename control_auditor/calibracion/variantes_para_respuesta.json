@@ -1,0 +1,140 @@
+{
+  "variants": [
+    {
+      "name": "matched_fpr_tau0",
+      "stat": "full",
+      "tau": 0.0,
+      "gain": 12.048,
+      "intercept": -6.449839801401604,
+      "scheme": "fpr",
+      "estimand": "directed_nonself_edges",
+      "validation_seeds": [
+        911000,
+        911001,
+        911002,
+        911003,
+        911004,
+        911005,
+        911006,
+        911007
+      ],
+      "validation_equivalence": true
+    },
+    {
+      "name": "matched_mean_tau0",
+      "stat": "full",
+      "tau": 0.0,
+      "gain": 12.048,
+      "intercept": -0.32827606340638815,
+      "scheme": "mean",
+      "estimand": "directed_nonself_edges",
+      "validation_seeds": [
+        911000,
+        911001,
+        911002,
+        911003,
+        911004,
+        911005,
+        911006,
+        911007
+      ],
+      "validation_equivalence": true
+    },
+    {
+      "name": "matched_joint_tau0",
+      "stat": "full",
+      "tau": 0.0,
+      "gain": 1.821045237450166,
+      "intercept": -0.9852235824185194,
+      "scheme": "joint",
+      "estimand": "directed_nonself_edges",
+      "validation_seeds": [
+        911000,
+        911001,
+        911002,
+        911003,
+        911004,
+        911005,
+        911006,
+        911007
+      ],
+      "validation_equivalence": true
+    },
+    {
+      "name": "matched_fpr_tau1",
+      "stat": "full",
+      "tau": 1.0,
+      "gain": 12.048,
+      "intercept": 3.6382126771272927,
+      "scheme": "fpr",
+      "estimand": "directed_nonself_edges",
+      "validation_seeds": [
+        911000,
+        911001,
+        911002,
+        911003,
+        911004,
+        911005,
+        911006,
+        911007
+      ],
+      "validation_equivalence": true
+    },
+    {
+      "name": "matched_mean_tau1",
+      "stat": "full",
+      "tau": 1.0,
+      "gain": 12.048,
+      "intercept": 3.462858246154562,
+      "scheme": "mean",
+      "estimand": "directed_nonself_edges",
+      "validation_seeds": [
+        911000,
+        911001,
+        911002,
+        911003,
+        911004,
+        911005,
+        911006,
+        911007
+      ],
+      "validation_equivalence": true
+    },
+    {
+      "name": "matched_joint_tau1",
+      "stat": "full",
+      "tau": 1.0,
+      "gain": 13.860511515486206,
+      "intercept": 4.186899063382973,
+      "scheme": "joint",
+      "estimand": "directed_nonself_edges",
+      "validation_seeds": [
+        911000,
+        911001,
+        911002,
+        911003,
+        911004,
+        911005,
+        911006,
+        911007
+      ],
+      "validation_equivalence": true
+    }
+  ],
+  "frozen_parameters_sha256": "947e320e544c6028db4b062eb604bc776ade9d5a550bff1c5efd00688aae0d45",
+  "calibration_file": "calibracion/calibracion_final.json",
+  "estimator": "directed_nonself_edges",
+  "validation_seeds": [
+    911000,
+    911001,
+    911002,
+    911003,
+    911004,
+    911005,
+    911006,
+    911007
+  ],
+  "motor_sha256": "68638cff8ddcdf7c320b9df33028308c3022a9663dfe284214ef15e1b717c053",
+  "parameters_frozen_before_validation_and_responsivity": true,
+  "warning": "Unmatched variants remain sensitivity analyses; do not claim equal FPR/attention"
+}

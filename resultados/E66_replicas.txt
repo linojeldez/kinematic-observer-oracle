@@ -1,0 +1,33 @@
+=== E66 · 16 réplicas en las celdas de 4 (tau_W = 4 s) ===
+ancla (réplica 0 frente a lo guardado): |Δ| máx = 2.22e-16 en 828 comparaciones
+barrido|base|N250|forzado          mejor 4 rép.:    1 s | 16 rép.:    1 s | 0.25: 0.117  0.5: 0.383  1: 0.721  2: 0.603  4: 0.094 | boot: 1:1.00
+barrido|base|N250|maniobra         mejor 4 rép.:    2 s | 16 rép.:    2 s | 0.25: 0.069  0.5: 0.283  1: 0.544  2: 0.624  4: 0.360 | boot: 2:1.00
+barrido|base|N1000|forzado         mejor 4 rép.:    1 s | 16 rép.:    1 s | 0.5: 0.213  1: 0.394  2: 0.380  4: 0.083 | boot: 1:0.88 2:0.12
+barrido|base|N1000|maniobra        mejor 4 rép.:    2 s | 16 rép.:    2 s | 0.5: 0.173  1: 0.369  2: 0.465  4: 0.306 | boot: 2:1.00
+agilidad|a5|N250|forzado           mejor 4 rép.:    4 s | 16 rép.:    4 s | 0.25: 0.049  0.5: 0.103  1: 0.269  2: 0.675  4: 0.759 | boot: 4:1.00
+agilidad|a5|N250|maniobra          mejor 4 rép.:    4 s | 16 rép.:    4 s | 0.25: -0.053  0.5: 0.029  1: 0.208  2: 0.532  4: 0.760 | boot: 4:1.00
+agilidad|a20|N250|forzado          mejor 4 rép.:  0.5 s | 16 rép.:  0.5 s | 0.25: 0.214  0.5: 0.442  1: 0.310  2: 0.008  4: 0.000 | boot: 0.5:1.00
+agilidad|a20|N250|maniobra         mejor 4 rép.:    1 s | 16 rép.:  0.5 s | 0.25: 0.201  0.5: 0.357  1: 0.331  2: 0.123  4: 0.015 | boot: 0.5:1.00 1:0.00
+agilidad|a40|N250|forzado          mejor 4 rép.: 0.25 s | 16 rép.: 0.25 s | 0.25: 0.202  0.5: 0.186  1: 0.003  2: 0.000  4: 0.000 | boot: 0.25:0.82 0.5:0.18
+agilidad|a40|N250|maniobra         mejor 4 rép.: 0.25 s | 16 rép.: 0.25 s | 0.25: 0.254  0.5: 0.238  1: 0.090  2: 0.026  4: 0.003 | boot: 0.25:0.94 0.5:0.06
+ruido|f0.5|N250|forzado            mejor 4 rép.:  0.5 s | 16 rép.:    1 s | 0.25: 0.532  0.5: 0.949  1: 0.979  2: 0.565  4: 0.000 | boot: 0.5:0.00 1:1.00
+ruido|f0.5|N250|maniobra           mejor 4 rép.:    1 s | 16 rép.:    1 s | 0.25: 0.367  0.5: 0.611  1: 0.669  2: 0.626  4: 0.389 | boot: 1:1.00 2:0.00
+ruido|f2|N250|forzado              mejor 4 rép.:    2 s | 16 rép.:    2 s | 0.25: 0.030  0.5: 0.060  1: 0.144  2: 0.311  4: 0.292 | boot: 2:0.95 4:0.05
+ruido|f2|N250|maniobra             mejor 4 rép.:    4 s | 16 rép.:    4 s | 0.25: -0.081  0.5: -0.035  1: 0.077  2: 0.297  4: 0.367 | boot: 4:1.00
+peso_fijo|a5|N250|forzado          mejor 4 rép.:    2 s | 16 rép.:    2 s | 0.25: 0.186  0.5: 0.223  1: 0.269  2: 0.287  4: 0.229 | boot: 2:1.00
+peso_fijo|a5|N250|maniobra         mejor 4 rép.:    2 s | 16 rép.:    1 s | 0.25: 0.135  0.5: 0.176  1: 0.208  2: 0.208  4: 0.139 | boot: 1:0.57 2:0.43
+peso_fijo|a20|N250|forzado         mejor 4 rép.: 0.25 s | 16 rép.:  0.5 s | 0.25: 0.574  0.5: 0.624  1: 0.310  2: 0.011  4: 0.001 | boot: 0.25:0.01 0.5:0.99
+peso_fijo|a20|N250|maniobra        mejor 4 rép.: 0.25 s | 16 rép.: 0.25 s | 0.25: 0.463  0.5: 0.434  1: 0.331  2: 0.126  4: 0.020 | boot: 0.25:1.00
+peso_fijo|a40|N250|forzado         mejor 4 rép.: 0.25 s | 16 rép.: 0.25 s | 0.25: 0.396  0.5: 0.270  1: 0.003  2: 0.000  4: 0.000 | boot: 0.25:1.00
+peso_fijo|a40|N250|maniobra        mejor 4 rép.: 0.25 s | 16 rép.: 0.25 s | 0.25: 0.379  0.5: 0.255  1: 0.090  2: 0.026  4: 0.003 | boot: 0.25:1.00
+peso_fijo|f0.5|N250|forzado        mejor 4 rép.:  0.5 s | 16 rép.:  0.5 s | 0.25: 0.930  0.5: 1.059  1: 0.979  2: 0.491  4: 0.014 | boot: 0.5:1.00
+peso_fijo|f0.5|N250|maniobra       mejor 4 rép.:  0.5 s | 16 rép.:  0.5 s | 0.25: 0.723  0.5: 0.744  1: 0.669  2: 0.598  4: 0.398 | boot: 0.25:0.01 0.5:0.99
+peso_fijo|f2|N250|forzado          mejor 4 rép.:    1 s | 16 rép.:    1 s | 0.25: 0.108  0.5: 0.130  1: 0.144  2: 0.125  4: 0.097 | boot: 1:1.00
+peso_fijo|f2|N250|maniobra         mejor 4 rép.:    1 s | 16 rép.:    1 s | 0.25: 0.033  0.5: 0.062  1: 0.077  2: 0.058  4: 0.011 | boot: 1:1.00
+
+mejor ventana: igual en 20, adyacente en 4, más lejos en 0 de 24
+
+=== Predicciones ===
+V1: CUMPLE  {"iguales": 20, "adyacentes": 4, "mas_lejos": [], "total": 24, "cumple": true}
+
+(análisis rehecho desde el crudo: con N = 1000 la rejilla es 0,5-4 s)

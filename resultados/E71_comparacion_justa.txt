@@ -1,0 +1,34 @@
+=== E71 · comparación con el mismo presupuesto de ajuste (elección con réplicas 0-7, prueba 8-15) ===
+ancla (frente a E68): |Δ| máx = 0.00e+00 en 144 comparaciones
+N250|n1|forzado|4        n = 8 | elegidos: integrador, sin_memoria_x12 | prueba: integrador 1 s 0.116 [0.086; 0.145], integrador 0.116, sin_memoria_x12 0.213 [0.192; 0.236] | int1 − sin memoria elegido -0.097 [-0.123; -0.067]
+N250|n1|maniobra|4       n = 8 | elegidos: integrador_2s, sin_memoria_x6 | prueba: integrador 1 s 0.173 [0.146; 0.205], integrador_2s 0.196, sin_memoria_x6 0.267 [0.244; 0.298] | int1 − sin memoria elegido -0.093 [-0.129; -0.069]
+N250|n1|maniobra|1       n = 8 | elegidos: integrador_2s, sin_memoria_x6 | prueba: integrador 1 s 0.459 [0.414; 0.497], integrador_2s 0.498, sin_memoria_x6 0.445 [0.424; 0.469] | int1 − sin memoria elegido +0.014 [-0.035; +0.050]
+N250|n3|forzado|4        n = 8 | elegidos: integrador_2s, sin_memoria_x12 | prueba: integrador 1 s 0.330 [0.304; 0.355], integrador_2s 0.285, sin_memoria_x12 0.283 [0.250; 0.321] | int1 − sin memoria elegido +0.047 [-0.001; +0.081]
+N250|n3|maniobra|4       n = 8 | elegidos: integrador_2s, sin_memoria_x6 | prueba: integrador 1 s 0.435 [0.406; 0.463], integrador_2s 0.458, sin_memoria_x6 0.234 [0.225; 0.242] | int1 − sin memoria elegido +0.202 [+0.169; +0.232]
+N250|n3|maniobra|1       n = 8 | elegidos: integrador_2s, sin_memoria_x6 | prueba: integrador 1 s 0.714 [0.687; 0.747], integrador_2s 0.725, sin_memoria_x6 0.404 [0.395; 0.414] | int1 − sin memoria elegido +0.310 [+0.281; +0.340]
+N250|n12|forzado|4       n = 8 | elegidos: integrador, sin_memoria_x6 | prueba: integrador 1 s 0.846 [0.811; 0.875], integrador 0.846, sin_memoria_x6 0.600 [0.565; 0.632] | int1 − sin memoria elegido +0.246 [+0.217; +0.269]
+N250|n12|maniobra|4      n = 8 | elegidos: integrador, sin_memoria_x3 | prueba: integrador 1 s 0.766 [0.725; 0.807], integrador 0.766, sin_memoria_x3 0.300 [0.250; 0.343] | int1 − sin memoria elegido +0.466 [+0.445; +0.489]
+N250|n12|maniobra|1      n = 8 | elegidos: integrador_2s, sin_memoria_x3 | prueba: integrador 1 s 0.872 [0.863; 0.882], integrador_2s 0.870, sin_memoria_x3 0.408 [0.396; 0.418] | int1 − sin memoria elegido +0.465 [+0.453; +0.476]
+N250|n25|forzado|4       n = 8 | elegidos: integrador, sin_memoria_x6 | prueba: integrador 1 s 0.912 [0.886; 0.933], integrador 0.912, sin_memoria_x6 0.678 [0.657; 0.697] | int1 − sin memoria elegido +0.234 [+0.208; +0.267]
+N250|n25|maniobra|4      n = 8 | elegidos: integrador_2s, sin_memoria_x6 | prueba: integrador 1 s 0.763 [0.684; 0.830], integrador_2s 0.844, sin_memoria_x6 -0.005 [-0.069; 0.048] | int1 − sin memoria elegido +0.768 [+0.706; +0.833]
+N250|n25|maniobra|1      n = 8 | elegidos: integrador_2s, sin_memoria_x6 | prueba: integrador 1 s 0.818 [0.788; 0.844], integrador_2s 0.873, sin_memoria_x6 0.290 [0.273; 0.308] | int1 − sin memoria elegido +0.527 [+0.495; +0.557]
+
+=== R4 · ventana en la celda central (12 de 250, prior 12/250), 16 réplicas ===
+forzado|4    n = 16 | 0.1 s: 0.150  0.25 s: 0.450  0.5 s: 0.772  1 s: 0.866  2 s: 0.794  4 s: 0.226  8 s: 0.000 | mejor integrador (frecuencia 1.00)
+maniobra|4   n = 16 | 0.1 s: 0.058  0.25 s: 0.406  0.5 s: 0.664  1 s: 0.793  2 s: 0.795  4 s: 0.558  8 s: 0.126 | mejor integrador_2s (frecuencia 0.54)
+maniobra|1   n = 16 | 0.1 s: 0.130  0.25 s: 0.465  0.5 s: 0.734  1 s: 0.876  2 s: 0.875  4 s: 0.611  8 s: 0.100 | mejor integrador (frecuencia 0.62)
+
+=== N = 1000, 48 informados (réplicas 0-7): ganancia elegida en N = 250 ===
+forzado|4    n = 8 | integrador: 0.873  sin_memoria: 0.191  sin_memoria_x6: 0.641  sin_memoria_x12: 0.623 | elegida en N = 250: sin_memoria_x6 | integrador − sin_memoria_x6: +0.232 [+0.201; +0.264]
+maniobra|4   n = 8 | integrador: 0.778  sin_memoria: 0.014  sin_memoria_x6: 0.168  sin_memoria_x12: -0.006 | elegida en N = 250: None | integrador − sin_memoria_x6: +0.610 [+0.591; +0.630]
+maniobra|1   n = 8 | integrador: 0.894  sin_memoria: 0.162  sin_memoria_x6: 0.359  sin_memoria_x12: 0.284 | elegida en N = 250: None | integrador − sin_memoria_x6: +0.535 [+0.525; +0.544]
+
+=== Predicciones ===
+J1: FALLA  {"falla_en": ["N250|n3|forzado|4"], "cumple": false}
+J2: CUMPLE  {"difs": {"N250|n1|forzado|4": {"dif": -0.0966053752712588, "ic95": [-0.12298684975670689, -0.06676061226050693], "p_menor0": 1.0}, "N250|n1|maniobra|4": {"dif": -0.09324107330440184, "ic95": [-0.12875498922162587, -0.06870323396489766], "p_menor0": 1.0}}, "cumple": true}
+J3: FALLA  {"a_un_paso": 12, "de": 12, "dif_max": 0.0810732119413956, "cumple": false}
+J4: CUMPLE  {"cumple": true}
+W1: CUMPLE  {"mejores": {"forzado|4": "integrador", "maniobra|4": "integrador_2s", "maniobra|1": "integrador"}, "cumple": true}
+W2: CUMPLE  {"cociente": {"forzado|4": 1.0, "maniobra|4": 0.9976052655378076, "maniobra|1": 1.0}, "cumple": true}
+
+10134 s

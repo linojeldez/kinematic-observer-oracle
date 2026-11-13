@@ -1,0 +1,24 @@
+=== E68 · recuperación contra la fracción de informados (prior = fracción) ===
+ancla (celda central frente a E63): |Δ| máx = 3.33e-16 en 3888 comparaciones
+N250|n1|forzado|4          ventaja 0.201 | integrador 0.110 [0.084; 0.138] | sin memoria x1: 0.006 x6: 0.159 x12: 0.200 (máx 0.200)
+N250|n1|maniobra|4         ventaja 0.177 | integrador 0.157 [0.130; 0.184] | sin memoria x1: 0.006 x6: 0.227 x12: 0.169 (máx 0.227)
+N250|n1|maniobra|1         ventaja 0.082 | integrador 0.466 [0.422; 0.497] | sin memoria x1: 0.024 x6: 0.419 x12: 0.353 (máx 0.419)
+N250|n3|forzado|4          ventaja 0.444 | integrador 0.338 [0.287; 0.386] | sin memoria x1: 0.023 x6: 0.283 x12: 0.305 (máx 0.305)
+N250|n3|maniobra|4         ventaja 0.444 | integrador 0.426 [0.382; 0.468] | sin memoria x1: 0.016 x6: 0.255 x12: 0.157 (máx 0.255)
+N250|n3|maniobra|1         ventaja 0.251 | integrador 0.704 [0.680; 0.730] | sin memoria x1: 0.053 x6: 0.410 x12: 0.328 (máx 0.410)
+N250|n12|forzado|4         ventaja 0.321 | integrador 0.873 [0.860; 0.883] | sin memoria x1: 0.189 x6: 0.615 x12: 0.595 x3: 0.543 x24: 0.568 (máx 0.615)
+N250|n12|maniobra|4        ventaja 0.413 | integrador 0.799 [0.782; 0.815] | sin memoria x1: 0.081 x6: 0.255 x12: 0.112 x3: 0.344 x24: 0.008 (máx 0.344)
+N250|n12|maniobra|1        ventaja 0.502 | integrador 0.883 [0.875; 0.892] | sin memoria x1: 0.175 x6: 0.369 x12: 0.295 x3: 0.421 x24: 0.246 (máx 0.421)
+N250|n25|forzado|4         ventaja 0.162 | integrador 0.901 [0.890; 0.911] | sin memoria x1: 0.393 x6: 0.674 x12: 0.649 (máx 0.674)
+N250|n25|maniobra|4        ventaja 0.212 | integrador 0.812 [0.773; 0.849] | sin memoria x1: -0.118 x6: 0.038 x12: -0.137 (máx 0.038)
+N250|n25|maniobra|1        ventaja 0.462 | integrador 0.826 [0.794; 0.853] | sin memoria x1: 0.161 x6: 0.295 x12: 0.233 (máx 0.295)
+N1000|n48|forzado|4        ventaja 0.204 | integrador 0.873 [0.855; 0.889] | sin memoria x1: 0.191 (máx 0.191)
+N1000|n48|maniobra|4       ventaja 0.380 | integrador 0.778 [0.752; 0.802] | sin memoria x1: 0.014 (máx 0.014)
+N1000|n48|maniobra|1       ventaja 0.510 | integrador 0.894 [0.881; 0.906] | sin memoria x1: 0.162 (máx 0.162)
+
+=== Predicciones ===
+F1: CUMPLE  {"serie": {"forzado|4": [0.10952490823203855, 0.33833727502847977, 0.8727494464099891, 0.9008108786198643], "maniobra|4": [0.15731485919086077, 0.4260505603760376, 0.7992349793312733, 0.8120728317385798], "maniobra|1": [0.4659206374906207, 0.7041265335850562, 0.8834070911857472, 0.8256246277494277]}, "cumple": true}
+F2: FALLA  {"max_sin_memoria": {"N250|n1|forzado|4": 0.2004790997555934, "N250|n1|maniobra|4": 0.22695007693773578, "N250|n1|maniobra|1": 0.4189101046289036, "N250|n3|forzado|4": 0.30462257750468585, "N250|n3|maniobra|4": 0.2551379287303032, "N250|n3|maniobra|1": 0.41040018996667044, "N250|n12|forzado|4": 0.6150743278274575, "N250|n12|maniobra|4": 0.3437228047121441, "N250|n12|maniobra|1": 0.42121282239231067, "N250|n25|forzado|4": 0.6741149470841982, "N250|n25|maniobra|4": 0.03758323159246918, "N250|n25|maniobra|1": 0.2952727501909973, "N1000|n48|forzado|4": 0.19133061257167724, "N1000|n48|maniobra|4": 0.014074474047611175, "N1000|n48|maniobra|1": 0.16189836762980106}, "cumple": false}
+F3: CUMPLE  {"N1000": {"N1000|n48|forzado|4": 0.8729606158331785, "N1000|n48|maniobra|4": 0.7779428434191663, "N1000|n48|maniobra|1": 0.8937468497079719}, "cumple": true}
+
+9964 s

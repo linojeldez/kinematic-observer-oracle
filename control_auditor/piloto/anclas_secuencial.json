@@ -1,0 +1,39 @@
+{
+  "pass": true,
+  "checks": [
+    {
+      "tau": 0.25,
+      "protocol": "forzado",
+      "max_projection_error": 0.0,
+      "R_old": -0.04758560617086994,
+      "R_new": -0.04758560617086994,
+      "pass": true
+    },
+    {
+      "tau": 0.25,
+      "protocol": "maniobra",
+      "max_projection_error": 0.0,
+      "R_old": -0.04452755954948567,
+      "R_new": -0.04452755954948567,
+      "pass": true
+    },
+    {
+      "tau": 1.0,
+      "protocol": "forzado",
+      "max_projection_error": 0.0,
+      "R_old": 4.2208178434517406e-05,
+      "R_new": 4.2208178434517406e-05,
+      "pass": true
+    },
+    {
+      "tau": 1.0,
+      "protocol": "maniobra",
+      "max_projection_error": 0.0,
+      "R_old": 0.010770158282929808,
+      "R_new": 0.010770158282929808,
+      "pass": true
+    }
+  ],
+  "engine_sha256_before": "c86362eb7acb48fcd2bf1f64bd378e8e6f8c7b491c275d9f40944800aa283e66",
+  "engine_sha256_after": "c86362eb7acb48fcd2bf1f64bd378e8e6f8c7b491c275d9f40944800aa283e66"
+}

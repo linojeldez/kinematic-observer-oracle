@@ -1,0 +1,45 @@
+{
+ "n_vuelos": 43,
+ "n_eventos": 77,
+ "n_ev_predacion": 54,
+ "n_ev_control": 23,
+ "sigma": 0.06471493383297305,
+ "omega_max": 1.370366098085505,
+ "omega_max_alat": 1.0638298256862468,
+ "huella": 5.0,
+ "curva_auc": {
+  "0.2": 0.4960191786007192,
+  "0.4": 0.490853573907009,
+  "0.7": 0.4911917229196896,
+  "1.0": 0.49370668075524865,
+  "1.5": 0.49024048838874784,
+  "2.0": 0.4914614121510673,
+  "3.0": 0.4903607835175093,
+  "4.0": 0.495655024201737,
+  "5.0": 0.49673854163531855,
+  "6.0": 0.49964121412141216
+ },
+ "tau_star": 6.0,
+ "tau_star95": 0.2,
+ "auc_max": 0.49964121412141216,
+ "prediccion_biomecanica": 0.9924355264626095,
+ "n_huellas": 71,
+ "diagnostico": {
+  "retrasos_spread_total_s": {
+   "mediana": 0.6,
+   "p90": 1.88
+  },
+  "retrasos_iqr_s": {
+   "cuartilado_5Hz": 0.0,
+   "interpolado_subdt": 0.144
+  },
+  "auc_ranking_retraso_interp": "0.39-0.45 (invertida: mide lado interior del giro, no iniciativa)",
+  "auc_ranking_dist2pred": "0.47-0.52 (plana: el halcon es visible para toda la bandada)",
+  "veredicto": "NO DISCRIMINA, por tres razones independientes: (1) criterio pre-registrado de degeneracion disparado (omega_max 1.37 en zona 0.9-1.4; biomecanica predice 0.99 s ~ conservada); (2) 5 Hz no resuelve los retrasos entre aves (spread 0.60 s, IQR 0.14 s); (3) el estimulo es publico (RobotFalcon visible): no hay informacion privada que reconocer. El censo SI se cumplio (77 eventos >= 20): primera candidata que pasa el censo y cae por otra cosa.",
+  "lecciones_nuevas": [
+   "omega_max relevante es el de MANIOBRA, no crucero: palomas 0.16 mediana en vuelo, 1.37 en giro colectivo",
+   "requisito nuevo: dt <~ IQR de retrasos entre individuos (escala con la velocidad de la especie)",
+   "requisito nuevo: eventos iniciados por informacion PRIVADA, no estimulo globalmente visible"
+  ]
+ }
+}

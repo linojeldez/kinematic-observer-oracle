@@ -1,0 +1,5 @@
+{
+  "status": "exploratory_superseded",
+  "reason": "Final design targets directed non-self edge scores; prior run targeted emitter scores",
+  "use_for_responsivity": false
+}

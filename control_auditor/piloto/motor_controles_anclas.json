@@ -1,0 +1,74 @@
+{
+  "pass": true,
+  "checks": [
+    {
+      "check": "legacy_trajectory_equivalence",
+      "stat": "full",
+      "protocol": "forzado",
+      "N": 250,
+      "burn": 3,
+      "test_seconds": 3,
+      "max_abs_projection_difference": 0.0,
+      "R_difference": 0.0,
+      "elapsed": 1.5499671249999665
+    },
+    {
+      "check": "legacy_trajectory_equivalence",
+      "stat": "binary",
+      "protocol": "forzado",
+      "N": 250,
+      "burn": 3,
+      "test_seconds": 3,
+      "max_abs_projection_difference": 0.0,
+      "R_difference": 0.0,
+      "elapsed": 1.6453921250067651
+    },
+    {
+      "check": "legacy_trajectory_equivalence",
+      "stat": "full",
+      "protocol": "maniobra",
+      "N": 250,
+      "burn": 3,
+      "test_seconds": 3,
+      "max_abs_projection_difference": 0.0,
+      "R_difference": 0.0,
+      "elapsed": 2.4292887920164503
+    },
+    {
+      "check": "legacy_trajectory_equivalence",
+      "stat": "binary",
+      "protocol": "maniobra",
+      "N": 250,
+      "burn": 3,
+      "test_seconds": 3,
+      "max_abs_projection_difference": 0.0,
+      "R_difference": 0.0,
+      "elapsed": 2.8871379579941276
+    },
+    {
+      "check": "diagnostics_do_not_change_trajectory",
+      "pass": true
+    },
+    {
+      "check": "one_memory_update_per_step_and_exact_own_will",
+      "pass": true
+    },
+    {
+      "check": "null_stream_shape_and_exact_score_logit_mapping",
+      "pass": true
+    },
+    {
+      "check": "offline_replay_EMA_matches_shadow_control",
+      "stat": "full",
+      "max_abs_score_difference": 0.0
+    },
+    {
+      "check": "offline_replay_EMA_matches_shadow_control",
+      "stat": "binary",
+      "max_abs_score_difference": 3.885780586188048e-16
+    }
+  ],
+  "frozen_engine_sha256_before": "c86362eb7acb48fcd2bf1f64bd378e8e6f8c7b491c275d9f40944800aa283e66",
+  "frozen_engine_sha256_after": "c86362eb7acb48fcd2bf1f64bd378e8e6f8c7b491c275d9f40944800aa283e66",
+  "n_checks": 9
+}

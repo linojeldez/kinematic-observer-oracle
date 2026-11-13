@@ -1,0 +1,48 @@
+{
+  "plan": {
+    "date": "2026-11-12",
+    "question": "Sensitivity of tau=4 closed-loop null attention to burn12 vs24",
+    "stat": "full",
+    "tau": 4.0,
+    "intercept": -1.5645131005259123,
+    "seeds": [
+      900000,
+      900001,
+      900002,
+      900003
+    ],
+    "gains": [
+      1.0,
+      12.048192771084336,
+      48.0
+    ],
+    "burns": [
+      12.0,
+      24.0
+    ],
+    "duration": 12.0,
+    "sample_every": 0.1,
+    "N": 250,
+    "k": 15,
+    "noise": 1.4142135623730951,
+    "workers": 4,
+    "estimator": "directed nonself recipient-sender edges, equal replicate weighting",
+    "decision_rule": {
+      "difference_direction": "burn24 minus burn12",
+      "use_burn24_if_absolute_mean_edge_FPR_difference_gt": 0.01,
+      "or_absolute_mean_edge_weight_difference_gt": 0.015,
+      "scope": "flag each affected gain at tau4; if common block required use24 for tau4 and its comparison references"
+    },
+    "limitations": [
+      "four independent seeds only; no test of full stationarity",
+      "same-seed evaluation segments are12-24s and24-36s, so both memory transient and trajectory variation contribute",
+      "edge samples within a replicate are not independent replicates",
+      "no response trial or response-derived tuning is permitted in this check"
+    ]
+  },
+  "source_hashes": {
+    "scripts/motor_controles.py": "68638cff8ddcdf7c320b9df33028308c3022a9663dfe284214ef15e1b717c053",
+    "fuentes/flocking.py": "c86362eb7acb48fcd2bf1f64bd378e8e6f8c7b491c275d9f40944800aa283e66",
+    "scripts/asentamiento_memoria.py": "c1be1b3b1e650ad83c89e0cb553c95511ab2c4c21bba1b0d8c8b776dde90ad4b"
+  }
+}

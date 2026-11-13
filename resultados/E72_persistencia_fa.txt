@@ -1,0 +1,40 @@
+=== E72 · persistencia con falsas alarmas (N = 250, k = 15, tau_W = 4 s, 600 s) ===
+lambda_FP = 8.42e-05 s^-1 por agente (x1, 16 réplicas) y x10 (8); P/P_ViSt contra ViSt sin falsas alarmas (E64)
+
+--- lambda x1 ---
+oraculo              n 16  P/P_ViSt 0.022 [0.014; 0.036]  P/P_or 1.000 [1.000; 1.000]  falsas alarmas 13.2  pol 0.747  cohesión mín 0.21
+adaptado_pi0.173     n 16  P/P_ViSt 0.074 [0.050; 0.107]  P/P_or 3.394 [1.932; 5.992]  falsas alarmas 13.2  pol 0.868  cohesión mín 0.31
+adaptado_pi0.05      n 16  P/P_ViSt 0.064 [0.037; 0.111]  P/P_or 2.956 [1.479; 6.165]  falsas alarmas 13.2  pol 0.817  cohesión mín 0.25
+amplitud_pi0.173     n 16  P/P_ViSt 0.801 [0.729; 0.867]  P/P_or 36.788 [22.406; 58.429]  falsas alarmas 13.2  pol 0.997  cohesión mín 0.56
+inst_m6_pi0.173      n 16  P/P_ViSt 0.605 [0.546; 0.667]  P/P_or 27.786 [16.556; 44.801]  falsas alarmas 13.2  pol 0.997  cohesión mín 0.72
+inst_m12_pi0.173     n 16  P/P_ViSt 0.630 [0.568; 0.697]  P/P_or 28.972 [17.321; 46.817]  falsas alarmas 13.2  pol 0.997  cohesión mín 0.70
+ViSt                 n 16  P/P_ViSt 0.928 [0.843; 1.010]  P/P_or 42.657 [25.849; 67.983]  falsas alarmas 13.2  pol 0.997  cohesión mín 0.66
+CoLd                 n 16  P/P_ViSt 0.548 [0.481; 0.620]  P/P_or 25.164 [15.322; 39.799]  falsas alarmas 13.2  pol 0.990  cohesión mín 0.31
+  adaptado_pi0.173     c_P = 0.947  | rec (E64, un líder): forzado|4 0.722  maniobra|4 0.538  maniobra|1 0.998
+  adaptado_pi0.05      c_P = 0.956  | rec (E64, un líder): forzado|4 0.503  maniobra|4 0.474  maniobra|1 0.865
+  amplitud_pi0.173     c_P = 0.204  | rec (E64, un líder): forzado|4 0.050  maniobra|4 -0.055  maniobra|1 0.054
+  inst_m6_pi0.173      c_P = 0.404  | rec (E64, un líder): forzado|4 0.191  maniobra|4 0.042  maniobra|1 0.231
+  inst_m12_pi0.173     c_P = 0.378  | rec (E64, un líder): forzado|4 0.188  maniobra|4 0.030  maniobra|1 0.216
+  CoLd                 c_P = 0.462  | rec (E64, un líder): 
+
+--- lambda x10 ---
+oraculo              n  8  P/P_ViSt 0.002 [0.002; 0.003]  P/P_or 1.000 [1.000; 1.000]  falsas alarmas 132.6  pol 0.435  cohesión mín 0.13
+adaptado_pi0.173     n  8  P/P_ViSt 0.005 [0.003; 0.007]  P/P_or 1.894 [1.539; 2.532]  falsas alarmas 132.6  pol 0.526  cohesión mín 0.18
+adaptado_pi0.05      n  8  P/P_ViSt 0.004 [0.003; 0.005]  P/P_or 1.524 [1.126; 2.390]  falsas alarmas 132.6  pol 0.511  cohesión mín 0.18
+amplitud_pi0.173     n  8  P/P_ViSt 0.391 [0.331; 0.461]  P/P_or 164.445 [122.090; 214.477]  falsas alarmas 132.6  pol 0.991  cohesión mín 0.50
+inst_m12_pi0.173     n  8  P/P_ViSt 0.232 [0.189; 0.286]  P/P_or 97.787 [72.833; 130.031]  falsas alarmas 132.6  pol 0.964  cohesión mín 0.32
+CoLd                 n  8  P/P_ViSt 0.090 [0.070; 0.115]  P/P_or 37.900 [30.851; 46.754]  falsas alarmas 132.6  pol 0.876  cohesión mín 0.26
+  adaptado_pi0.173     c_P = 0.998  | rec (E64, un líder): forzado|4 0.722  maniobra|4 0.538  maniobra|1 0.998
+  adaptado_pi0.05      c_P = 0.999  | rec (E64, un líder): forzado|4 0.503  maniobra|4 0.474  maniobra|1 0.865
+  amplitud_pi0.173     c_P = 0.611  | rec (E64, un líder): forzado|4 0.050  maniobra|4 -0.055  maniobra|1 0.054
+  inst_m12_pi0.173     c_P = 0.769  | rec (E64, un líder): forzado|4 0.188  maniobra|4 0.030  maniobra|1 0.216
+  CoLd                 c_P = 0.912  | rec (E64, un líder): 
+
+=== Predicciones ===
+P4: CUMPLE  {"r_or": 0.02176138203629801, "ic": [0.013552057458872393, 0.036322581543694596], "cumple": true}
+P5: CUMPLE  {"r_int": 0.07385506133568162, "P_int/P_or": 3.393858956774497, "ic": [1.932198743809055, 5.992095964917509], "cumple": true}
+P6: FALLA  {"c_P_0.173": 0.9467474720965099, "rec_0.173": 0.7223789713262555, "c_P_0.05": 0.9564866315983029, "rec_0.05": 0.5026189834012542, "cumple": false}
+P7: CUMPLE  {"m12": 2.011334982583151, "int": 1.3105966669521454, "cumple": true}
+control_ViSt: CUMPLE  {"r": 0.9282690820572266, "ic": [0.8434013836433093, 1.0100796064517923], "cumple": true}
+
+2161 s

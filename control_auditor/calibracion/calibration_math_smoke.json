@@ -1,0 +1,290 @@
+{
+  "status": "passed",
+  "continuous": [
+    {
+      "scheme": "fpr",
+      "gain": 12.048,
+      "intercept": 0.507520901914604,
+      "status": "offline_calibrated",
+      "targets": {
+        "fpr": 0.05,
+        "mean_attention": 0.173
+      },
+      "objectives": [
+        "fpr"
+      ],
+      "achieved_offline": {
+        "n_total": 20000,
+        "n_finite": 20000,
+        "n_nonfinite": 0,
+        "fpr": 0.04995,
+        "mean_attention": 0.06190923608235671,
+        "posterior_ties_at_half": 5e-05,
+        "posterior_min": 4.223625072436017e-12,
+        "posterior_max": 0.9999790124362881,
+        "gain": 12.048,
+        "intercept": 0.507520901914604
+      },
+      "errors_offline": {
+        "fpr": -5.000000000000143e-05,
+        "mean_attention": -0.11109076391764328
+      },
+      "score_diagnostics": {
+        "n_total": 20000,
+        "n_finite": 20000,
+        "n_nonfinite": 0,
+        "n_unique": 20000,
+        "binary_or_constant": false,
+        "maximum_atom": 5e-05,
+        "minimum": -2.2159568589504395,
+        "maximum": 0.851928835504064,
+        "mean": -0.7011178858237559,
+        "sd": 0.4004160791527972,
+        "q95": -0.04212490885745385,
+        "quantile_method": "higher",
+        "fpr_strict_at_quantile": 0.04995,
+        "quantile_tie_mass": 5e-05,
+        "fpr_if_all_ties_positive": 0.05,
+        "target_obstructed_by_ties": false,
+        "empirical_resolution": 5e-05
+      },
+      "gain_bracket": null,
+      "solver_iterations": 0,
+      "posterior_convention": "logistic(gain * score + total_intercept)",
+      "no_responsivity_used": true
+    },
+    {
+      "scheme": "mean",
+      "gain": 12.048,
+      "intercept": 3.6288625799038545,
+      "status": "offline_calibrated",
+      "targets": {
+        "fpr": 0.05,
+        "mean_attention": 0.173
+      },
+      "objectives": [
+        "mean_attention"
+      ],
+      "achieved_offline": {
+        "n_total": 20000,
+        "n_finite": 20000,
+        "n_nonfinite": 0,
+        "fpr": 0.1576,
+        "mean_attention": 0.1730000000712336,
+        "posterior_ties_at_half": 0.0,
+        "posterior_min": 9.577823423413339e-11,
+        "posterior_max": 0.9999990744726146,
+        "gain": 12.048,
+        "intercept": 3.6288625799038545
+      },
+      "errors_offline": {
+        "fpr": 0.10759999999999999,
+        "mean_attention": 7.12336023500626e-11
+      },
+      "score_diagnostics": {
+        "n_total": 20000,
+        "n_finite": 20000,
+        "n_nonfinite": 0,
+        "n_unique": 20000,
+        "binary_or_constant": false,
+        "maximum_atom": 5e-05,
+        "minimum": -2.2159568589504395,
+        "maximum": 0.851928835504064,
+        "mean": -0.7011178858237559,
+        "sd": 0.4004160791527972,
+        "q95": -0.04212490885745385,
+        "quantile_method": "higher",
+        "fpr_strict_at_quantile": 0.04995,
+        "quantile_tie_mass": 5e-05,
+        "fpr_if_all_ties_positive": 0.05,
+        "target_obstructed_by_ties": false,
+        "empirical_resolution": 5e-05
+      },
+      "gain_bracket": null,
+      "solver_iterations": 35,
+      "posterior_convention": "logistic(gain * score + total_intercept)",
+      "no_responsivity_used": true
+    },
+    {
+      "scheme": "joint",
+      "gain": 2.97071770465013,
+      "intercept": 0.12514121254961122,
+      "status": "offline_calibrated",
+      "targets": {
+        "fpr": 0.05,
+        "mean_attention": 0.173
+      },
+      "objectives": [
+        "fpr",
+        "mean_attention"
+      ],
+      "achieved_offline": {
+        "n_total": 20000,
+        "n_finite": 20000,
+        "n_nonfinite": 0,
+        "fpr": 0.04995,
+        "mean_attention": 0.1730000000447047,
+        "posterior_ties_at_half": 5e-05,
+        "posterior_min": 0.0015657223273855007,
+        "posterior_max": 0.9343786883020511,
+        "gain": 2.97071770465013,
+        "intercept": 0.12514121254961122
+      },
+      "errors_offline": {
+        "fpr": -5.000000000000143e-05,
+        "mean_attention": 4.470471215434202e-11
+      },
+      "score_diagnostics": {
+        "n_total": 20000,
+        "n_finite": 20000,
+        "n_nonfinite": 0,
+        "n_unique": 20000,
+        "binary_or_constant": false,
+        "maximum_atom": 5e-05,
+        "minimum": -2.2159568589504395,
+        "maximum": 0.851928835504064,
+        "mean": -0.7011178858237559,
+        "sd": 0.4004160791527972,
+        "q95": -0.04212490885745385,
+        "quantile_method": "higher",
+        "fpr_strict_at_quantile": 0.04995,
+        "quantile_tie_mass": 5e-05,
+        "fpr_if_all_ties_positive": 0.05,
+        "target_obstructed_by_ties": false,
+        "empirical_resolution": 5e-05
+      },
+      "gain_bracket": {
+        "gain_low": 0.01,
+        "gain_high": 10000.0,
+        "mean_low": 0.49835253008789115,
+        "mean_high": 0.05000226645798764
+      },
+      "solver_iterations": 32,
+      "posterior_convention": "logistic(gain * score + total_intercept)",
+      "no_responsivity_used": true
+    }
+  ],
+  "binary": {
+    "scheme": "joint",
+    "gain": 2.298467036141007,
+    "intercept": -2.298467036141007,
+    "status": "joint_fpr_unattainable_due_to_ties",
+    "targets": {
+      "fpr": 0.05,
+      "mean_attention": 0.173
+    },
+    "objectives": [
+      "fpr",
+      "mean_attention"
+    ],
+    "achieved_offline": {
+      "n_total": 20000,
+      "n_finite": 20000,
+      "n_nonfinite": 0,
+      "fpr": 0.0,
+      "mean_attention": 0.1730000000161947,
+      "posterior_ties_at_half": 0.2,
+      "posterior_min": 0.09125000002024337,
+      "posterior_max": 0.5,
+      "gain": 2.298467036141007,
+      "intercept": -2.298467036141007
+    },
+    "errors_offline": {
+      "fpr": -0.05,
+      "mean_attention": 1.6194712237904696e-11
+    },
+    "score_diagnostics": {
+      "n_total": 20000,
+      "n_finite": 20000,
+      "n_nonfinite": 0,
+      "n_unique": 2,
+      "binary_or_constant": true,
+      "maximum_atom": 0.8,
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "mean": 0.2,
+      "sd": 0.4000000000000001,
+      "q95": 1.0,
+      "quantile_method": "higher",
+      "fpr_strict_at_quantile": 0.0,
+      "quantile_tie_mass": 0.2,
+      "fpr_if_all_ties_positive": 0.2,
+      "target_obstructed_by_ties": true,
+      "empirical_resolution": 5e-05
+    },
+    "gain_bracket": {
+      "gain_low": 0.01,
+      "gain_high": 10000.0,
+      "mean_low": 0.49800001666649985,
+      "mean_high": 0.1
+    },
+    "solver_iterations": 34,
+    "posterior_convention": "logistic(gain * score + total_intercept)",
+    "no_responsivity_used": true
+  },
+  "constant": {
+    "scheme": "joint",
+    "gain": 10000.0,
+    "intercept": -10000.0,
+    "status": "joint_target_outside_gain_bracket",
+    "targets": {
+      "fpr": 0.05,
+      "mean_attention": 0.173
+    },
+    "objectives": [
+      "fpr",
+      "mean_attention"
+    ],
+    "achieved_offline": {
+      "n_total": 1000,
+      "n_finite": 1000,
+      "n_nonfinite": 0,
+      "fpr": 0.0,
+      "mean_attention": 0.5,
+      "posterior_ties_at_half": 1.0,
+      "posterior_min": 0.5,
+      "posterior_max": 0.5,
+      "gain": 10000.0,
+      "intercept": -10000.0
+    },
+    "errors_offline": {
+      "fpr": -0.05,
+      "mean_attention": 0.327
+    },
+    "score_diagnostics": {
+      "n_total": 1000,
+      "n_finite": 1000,
+      "n_nonfinite": 0,
+      "n_unique": 1,
+      "binary_or_constant": true,
+      "maximum_atom": 1.0,
+      "minimum": 1.0,
+      "maximum": 1.0,
+      "mean": 1.0,
+      "sd": 0.0,
+      "q95": 1.0,
+      "quantile_method": "higher",
+      "fpr_strict_at_quantile": 0.0,
+      "quantile_tie_mass": 1.0,
+      "fpr_if_all_ties_positive": 1.0,
+      "target_obstructed_by_ties": true,
+      "empirical_resolution": 0.001
+    },
+    "gain_bracket": {
+      "gain_low": 0.01,
+      "gain_high": 10000.0,
+      "mean_low": 0.5,
+      "mean_high": 0.5
+    },
+    "solver_iterations": 0,
+    "posterior_convention": "logistic(gain * score + total_intercept)",
+    "no_responsivity_used": true
+  },
+  "tests": [
+    "continuous target errors",
+    "structural binary ties recorded",
+    "constant scores unattainable",
+    "stable logistic tails"
+  ],
+  "no_simulation_run": true
+}

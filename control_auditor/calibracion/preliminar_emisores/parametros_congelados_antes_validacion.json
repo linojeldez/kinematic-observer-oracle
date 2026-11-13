@@ -1,0 +1,182 @@
+{
+  "declaration": {
+    "date": "2026-11-12T17:12:59.300417+00:00",
+    "targets": {
+      "fpr": 0.05,
+      "mean_attention": 0.173
+    },
+    "fixed_gain": 12.048,
+    "taus": [
+      0.0,
+      1.0
+    ],
+    "train_seeds": [
+      900000,
+      900001,
+      900002,
+      900003
+    ],
+    "validation_seeds": [
+      910000,
+      910001,
+      910002,
+      910003,
+      910004,
+      910005,
+      910006,
+      910007
+    ],
+    "burn": 12.0,
+    "duration": 12.0,
+    "sample_every": 0.1,
+    "maximum_iterations": 4,
+    "workers": 4,
+    "motor_sha256": "c27483ae14fe08342ba4ef11fafddba6ff23d9c37d4de32528cd9ea2831ead05",
+    "calibration_sha256": "bc10edf284e01af4a769868c921400679ae6df008777d0cde583f959bceec799",
+    "no_responsivity_used": true,
+    "posterior": "logistic(gain * raw_score + total_intercept)",
+    "selection": "fit only 4 training seeds; freeze before 8 validation seeds; no validation refit"
+  },
+  "variants": [
+    {
+      "scheme": "fpr",
+      "tau": 0.0,
+      "gain": 12.048,
+      "intercept": -6.816226373894886,
+      "stat": "full",
+      "status": "train_point_matched",
+      "train_seeds": [
+        900000,
+        900001,
+        900002,
+        900003
+      ],
+      "iterations": 1,
+      "maximum_iterations": 4,
+      "damping": 0.7,
+      "targets": {
+        "fpr": 0.05,
+        "mean_attention": 0.173
+      },
+      "no_responsivity_used": true,
+      "name": "matched_fpr_tau0"
+    },
+    {
+      "scheme": "mean",
+      "tau": 0.0,
+      "gain": 12.048,
+      "intercept": -0.620581349712499,
+      "stat": "full",
+      "status": "train_point_matched",
+      "train_seeds": [
+        900000,
+        900001,
+        900002,
+        900003
+      ],
+      "iterations": 1,
+      "maximum_iterations": 4,
+      "damping": 0.7,
+      "targets": {
+        "fpr": 0.05,
+        "mean_attention": 0.173
+      },
+      "no_responsivity_used": true,
+      "name": "matched_mean_tau0"
+    },
+    {
+      "scheme": "joint",
+      "tau": 0.0,
+      "gain": 1.791882177461884,
+      "intercept": -1.013767808509951,
+      "stat": "full",
+      "status": "train_point_matched",
+      "train_seeds": [
+        900000,
+        900001,
+        900002,
+        900003
+      ],
+      "iterations": 1,
+      "maximum_iterations": 4,
+      "damping": 0.7,
+      "targets": {
+        "fpr": 0.05,
+        "mean_attention": 0.173
+      },
+      "no_responsivity_used": true,
+      "name": "matched_joint_tau0"
+    },
+    {
+      "scheme": "fpr",
+      "tau": 1.0,
+      "gain": 12.048,
+      "intercept": 3.5307286826311697,
+      "stat": "full",
+      "status": "train_point_matched",
+      "train_seeds": [
+        900000,
+        900001,
+        900002,
+        900003
+      ],
+      "iterations": 1,
+      "maximum_iterations": 4,
+      "damping": 0.7,
+      "targets": {
+        "fpr": 0.05,
+        "mean_attention": 0.173
+      },
+      "no_responsivity_used": true,
+      "name": "matched_fpr_tau1"
+    },
+    {
+      "scheme": "mean",
+      "tau": 1.0,
+      "gain": 12.048,
+      "intercept": 3.3995402084818607,
+      "stat": "full",
+      "status": "train_point_matched",
+      "train_seeds": [
+        900000,
+        900001,
+        900002,
+        900003
+      ],
+      "iterations": 1,
+      "maximum_iterations": 4,
+      "damping": 0.7,
+      "targets": {
+        "fpr": 0.05,
+        "mean_attention": 0.173
+      },
+      "no_responsivity_used": true,
+      "name": "matched_mean_tau1"
+    },
+    {
+      "scheme": "joint",
+      "tau": 1.0,
+      "gain": 13.35597315978854,
+      "intercept": 3.914036978728208,
+      "stat": "full",
+      "status": "train_point_matched",
+      "train_seeds": [
+        900000,
+        900001,
+        900002,
+        900003
+      ],
+      "iterations": 1,
+      "maximum_iterations": 4,
+      "damping": 0.7,
+      "targets": {
+        "fpr": 0.05,
+        "mean_attention": 0.173
+      },
+      "no_responsivity_used": true,
+      "name": "matched_joint_tau1"
+    }
+  ],
+  "frozen_utc": "2026-11-12T17:13:23.908979+00:00",
+  "before_validation": true
+}

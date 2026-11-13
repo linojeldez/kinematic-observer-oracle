@@ -1,0 +1,8 @@
+{
+  "passed": true,
+  "tables": 6,
+  "data_rows": 40,
+  "numeric_values": 328,
+  "discrepancies": 0,
+  "method": "Compara las cifras impresas con las salidas numéricas a la precisión decimal declarada."
+}

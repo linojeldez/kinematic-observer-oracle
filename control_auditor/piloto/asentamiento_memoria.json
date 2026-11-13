@@ -1,0 +1,564 @@
+{
+  "plan": {
+    "date": "2026-11-12",
+    "question": "Sensitivity of tau=4 closed-loop null attention to burn12 vs24",
+    "stat": "full",
+    "tau": 4.0,
+    "intercept": -1.5645131005259123,
+    "seeds": [
+      900000,
+      900001,
+      900002,
+      900003
+    ],
+    "gains": [
+      1.0,
+      12.048192771084336,
+      48.0
+    ],
+    "burns": [
+      12.0,
+      24.0
+    ],
+    "duration": 12.0,
+    "sample_every": 0.1,
+    "N": 250,
+    "k": 15,
+    "noise": 1.4142135623730951,
+    "workers": 4,
+    "estimator": "directed nonself recipient-sender edges, equal replicate weighting",
+    "decision_rule": {
+      "difference_direction": "burn24 minus burn12",
+      "use_burn24_if_absolute_mean_edge_FPR_difference_gt": 0.01,
+      "or_absolute_mean_edge_weight_difference_gt": 0.015,
+      "scope": "flag each affected gain at tau4; if common block required use24 for tau4 and its comparison references"
+    },
+    "limitations": [
+      "four independent seeds only; no test of full stationarity",
+      "same-seed evaluation segments are12-24s and24-36s, so both memory transient and trajectory variation contribute",
+      "edge samples within a replicate are not independent replicates",
+      "no response trial or response-derived tuning is permitted in this check"
+    ]
+  },
+  "source_hashes": {
+    "scripts/motor_controles.py": "68638cff8ddcdf7c320b9df33028308c3022a9663dfe284214ef15e1b717c053",
+    "fuentes/flocking.py": "c86362eb7acb48fcd2bf1f64bd378e8e6f8c7b491c275d9f40944800aa283e66",
+    "scripts/asentamiento_memoria.py": "c1be1b3b1e650ad83c89e0cb553c95511ab2c4c21bba1b0d8c8b776dde90ad4b"
+  },
+  "sources_unchanged": true,
+  "n_runs": 24,
+  "runs": [
+    {
+      "seed": 900000,
+      "gain": 1.0,
+      "burn": 12.0,
+      "duration": 12.0,
+      "samples_time": 120,
+      "samples_nonself_edges": 450000,
+      "edge_FPR": 0.0,
+      "edge_mean_weight": 0.11972400985295754,
+      "edge_mean_posterior": 0.11972400985295754,
+      "edge_FPR_perceived": 0.0,
+      "emitter_FPR": 0.0,
+      "emitter_mean_posterior": 0.11973787285139965,
+      "seconds": 4.697515583015047
+    },
+    {
+      "seed": 900000,
+      "gain": 1.0,
+      "burn": 24.0,
+      "duration": 12.0,
+      "samples_time": 120,
+      "samples_nonself_edges": 450000,
+      "edge_FPR": 0.0,
+      "edge_mean_weight": 0.11889879102865056,
+      "edge_mean_posterior": 0.11889879102865056,
+      "edge_FPR_perceived": 0.0,
+      "emitter_FPR": 0.0,
+      "emitter_mean_posterior": 0.11893634854599229,
+      "seconds": 5.80481050000526
+    },
+    {
+      "seed": 900001,
+      "gain": 1.0,
+      "burn": 12.0,
+      "duration": 12.0,
+      "samples_time": 120,
+      "samples_nonself_edges": 450000,
+      "edge_FPR": 0.0,
+      "edge_mean_weight": 0.11956582077336815,
+      "edge_mean_posterior": 0.11956582077336815,
+      "edge_FPR_perceived": 0.0,
+      "emitter_FPR": 0.0,
+      "emitter_mean_posterior": 0.11960319880736785,
+      "seconds": 2.2914837920106947
+    },
+    {
+      "seed": 900001,
+      "gain": 1.0,
+      "burn": 24.0,
+      "duration": 12.0,
+      "samples_time": 120,
+      "samples_nonself_edges": 450000,
+      "edge_FPR": 0.0,
+      "edge_mean_weight": 0.1190774958149574,
+      "edge_mean_posterior": 0.1190774958149574,
+      "edge_FPR_perceived": 0.0,
+      "emitter_FPR": 0.0,
+      "emitter_mean_posterior": 0.11908930114599571,
+      "seconds": 3.5142593329946976
+    },
+    {
+      "seed": 900002,
+      "gain": 1.0,
+      "burn": 12.0,
+      "duration": 12.0,
+      "samples_time": 120,
+      "samples_nonself_edges": 450000,
+      "edge_FPR": 0.0,
+      "edge_mean_weight": 0.11972579871153988,
+      "edge_mean_posterior": 0.11972579871153988,
+      "edge_FPR_perceived": 0.0,
+      "emitter_FPR": 0.0,
+      "emitter_mean_posterior": 0.11974272762624719,
+      "seconds": 2.5079102920135483
+    },
+    {
+      "seed": 900002,
+      "gain": 1.0,
+      "burn": 24.0,
+      "duration": 12.0,
+      "samples_time": 120,
+      "samples_nonself_edges": 450000,
+      "edge_FPR": 0.0,
+      "edge_mean_weight": 0.11900579449991233,
+      "edge_mean_posterior": 0.11900579449991233,
+      "edge_FPR_perceived": 0.0,
+      "emitter_FPR": 0.0,
+      "emitter_mean_posterior": 0.1190210327281992,
+      "seconds": 3.541146542003844
+    },
+    {
+      "seed": 900003,
+      "gain": 1.0,
+      "burn": 12.0,
+      "duration": 12.0,
+      "samples_time": 120,
+      "samples_nonself_edges": 450000,
+      "edge_FPR": 0.0,
+      "edge_mean_weight": 0.11943261092659235,
+      "edge_mean_posterior": 0.11943261092659235,
+      "edge_FPR_perceived": 0.0,
+      "emitter_FPR": 0.0,
+      "emitter_mean_posterior": 0.11950791821262187,
+      "seconds": 2.3491759580210783
+    },
+    {
+      "seed": 900003,
+      "gain": 1.0,
+      "burn": 24.0,
+      "duration": 12.0,
+      "samples_time": 120,
+      "samples_nonself_edges": 450000,
+      "edge_FPR": 0.0,
+      "edge_mean_weight": 0.11919658772945681,
+      "edge_mean_posterior": 0.11919658772945681,
+      "edge_FPR_perceived": 0.0,
+      "emitter_FPR": 0.0,
+      "emitter_mean_posterior": 0.11924255633932025,
+      "seconds": 3.567248583014589
+    },
+    {
+      "seed": 900000,
+      "gain": 12.048192771084336,
+      "burn": 12.0,
+      "duration": 12.0,
+      "samples_time": 120,
+      "samples_nonself_edges": 450000,
+      "edge_FPR": 0.0,
+      "edge_mean_weight": 0.001357700062553939,
+      "edge_mean_posterior": 0.001357700062553939,
+      "edge_FPR_perceived": 0.0,
+      "emitter_FPR": 0.0,
+      "emitter_mean_posterior": 0.0013605232718793493,
+      "seconds": 4.530751124984818
+    },
+    {
+      "seed": 900000,
+      "gain": 12.048192771084336,
+      "burn": 24.0,
+      "duration": 12.0,
+      "samples_time": 120,
+      "samples_nonself_edges": 450000,
+      "edge_FPR": 0.0,
+      "edge_mean_weight": 0.0012335747412589035,
+      "edge_mean_posterior": 0.0012335747412589035,
+      "edge_FPR_perceived": 0.0,
+      "emitter_FPR": 0.0,
+      "emitter_mean_posterior": 0.0012364183075695076,
+      "seconds": 5.835291916009737
+    },
+    {
+      "seed": 900001,
+      "gain": 12.048192771084336,
+      "burn": 12.0,
+      "duration": 12.0,
+      "samples_time": 120,
+      "samples_nonself_edges": 450000,
+      "edge_FPR": 0.0,
+      "edge_mean_weight": 0.0013400515593718955,
+      "edge_mean_posterior": 0.0013400515593718955,
+      "edge_FPR_perceived": 0.0,
+      "emitter_FPR": 0.0,
+      "emitter_mean_posterior": 0.0013462019117746016,
+      "seconds": 2.4199125829909462
+    },
+    {
+      "seed": 900001,
+      "gain": 12.048192771084336,
+      "burn": 24.0,
+      "duration": 12.0,
+      "samples_time": 120,
+      "samples_nonself_edges": 450000,
+      "edge_FPR": 0.0,
+      "edge_mean_weight": 0.0012667325800963943,
+      "edge_mean_posterior": 0.0012667325800963943,
+      "edge_FPR_perceived": 0.0,
+      "emitter_FPR": 0.0,
+      "emitter_mean_posterior": 0.001267021002235203,
+      "seconds": 3.7518152080010623
+    },
+    {
+      "seed": 900002,
+      "gain": 12.048192771084336,
+      "burn": 12.0,
+      "duration": 12.0,
+      "samples_time": 120,
+      "samples_nonself_edges": 450000,
+      "edge_FPR": 0.0,
+      "edge_mean_weight": 0.0013671549142914394,
+      "edge_mean_posterior": 0.0013671549142914394,
+      "edge_FPR_perceived": 0.0,
+      "emitter_FPR": 0.0,
+      "emitter_mean_posterior": 0.001369503574219778,
+      "seconds": 2.3062720830203034
+    },
+    {
+      "seed": 900002,
+      "gain": 12.048192771084336,
+      "burn": 24.0,
+      "duration": 12.0,
+      "samples_time": 120,
+      "samples_nonself_edges": 450000,
+      "edge_FPR": 0.0,
+      "edge_mean_weight": 0.0012547819034244292,
+      "edge_mean_posterior": 0.0012547819034244292,
+      "edge_FPR_perceived": 0.0,
+      "emitter_FPR": 0.0,
+      "emitter_mean_posterior": 0.0012564036979205728,
+      "seconds": 3.4095960410195403
+    },
+    {
+      "seed": 900003,
+      "gain": 12.048192771084336,
+      "burn": 12.0,
+      "duration": 12.0,
+      "samples_time": 120,
+      "samples_nonself_edges": 450000,
+      "edge_FPR": 0.0,
+      "edge_mean_weight": 0.001315224830184925,
+      "edge_mean_posterior": 0.001315224830184925,
+      "edge_FPR_perceived": 0.0,
+      "emitter_FPR": 0.0,
+      "emitter_mean_posterior": 0.00132431403575786,
+      "seconds": 2.402257208013907
+    },
+    {
+      "seed": 900003,
+      "gain": 12.048192771084336,
+      "burn": 24.0,
+      "duration": 12.0,
+      "samples_time": 120,
+      "samples_nonself_edges": 450000,
+      "edge_FPR": 0.0,
+      "edge_mean_weight": 0.0012758868605782583,
+      "edge_mean_posterior": 0.0012758868605782583,
+      "edge_FPR_perceived": 0.0,
+      "emitter_FPR": 0.0,
+      "emitter_mean_posterior": 0.0012828182778636115,
+      "seconds": 3.3567178339872044
+    },
+    {
+      "seed": 900000,
+      "gain": 48.0,
+      "burn": 12.0,
+      "duration": 12.0,
+      "samples_time": 120,
+      "samples_nonself_edges": 450000,
+      "edge_FPR": 0.0,
+      "edge_mean_weight": 1.8560913190300536e-09,
+      "edge_mean_posterior": 1.8560913190300536e-09,
+      "edge_FPR_perceived": 0.0,
+      "emitter_FPR": 0.0,
+      "emitter_mean_posterior": 1.933169100699456e-09,
+      "seconds": 2.314984166994691
+    },
+    {
+      "seed": 900000,
+      "gain": 48.0,
+      "burn": 24.0,
+      "duration": 12.0,
+      "samples_time": 120,
+      "samples_nonself_edges": 450000,
+      "edge_FPR": 0.0,
+      "edge_mean_weight": 1.5265710112984008e-09,
+      "edge_mean_posterior": 1.5265710112984008e-09,
+      "edge_FPR_perceived": 0.0,
+      "emitter_FPR": 0.0,
+      "emitter_mean_posterior": 1.4964666860334785e-09,
+      "seconds": 3.499303457996575
+    },
+    {
+      "seed": 900001,
+      "gain": 48.0,
+      "burn": 12.0,
+      "duration": 12.0,
+      "samples_time": 120,
+      "samples_nonself_edges": 450000,
+      "edge_FPR": 0.0,
+      "edge_mean_weight": 2.3906715168361182e-09,
+      "edge_mean_posterior": 2.3906715168361182e-09,
+      "edge_FPR_perceived": 0.0,
+      "emitter_FPR": 0.0,
+      "emitter_mean_posterior": 2.4290774404500117e-09,
+      "seconds": 2.575939416012261
+    },
+    {
+      "seed": 900001,
+      "gain": 48.0,
+      "burn": 24.0,
+      "duration": 12.0,
+      "samples_time": 120,
+      "samples_nonself_edges": 450000,
+      "edge_FPR": 0.0,
+      "edge_mean_weight": 1.6330999575790557e-09,
+      "edge_mean_posterior": 1.6330999575790557e-09,
+      "edge_FPR_perceived": 0.0,
+      "emitter_FPR": 0.0,
+      "emitter_mean_posterior": 1.5848858200733224e-09,
+      "seconds": 3.593132041976787
+    },
+    {
+      "seed": 900002,
+      "gain": 48.0,
+      "burn": 12.0,
+      "duration": 12.0,
+      "samples_time": 120,
+      "samples_nonself_edges": 450000,
+      "edge_FPR": 0.0,
+      "edge_mean_weight": 2.1752284438937722e-09,
+      "edge_mean_posterior": 2.1752284438937722e-09,
+      "edge_FPR_perceived": 0.0,
+      "emitter_FPR": 0.0,
+      "emitter_mean_posterior": 2.2173416852423723e-09,
+      "seconds": 2.3316300000005867
+    },
+    {
+      "seed": 900002,
+      "gain": 48.0,
+      "burn": 24.0,
+      "duration": 12.0,
+      "samples_time": 120,
+      "samples_nonself_edges": 450000,
+      "edge_FPR": 0.0,
+      "edge_mean_weight": 1.9276603258490244e-09,
+      "edge_mean_posterior": 1.9276603258490244e-09,
+      "edge_FPR_perceived": 0.0,
+      "emitter_FPR": 0.0,
+      "emitter_mean_posterior": 1.8986041993815007e-09,
+      "seconds": 3.540875832986785
+    },
+    {
+      "seed": 900003,
+      "gain": 48.0,
+      "burn": 12.0,
+      "duration": 12.0,
+      "samples_time": 120,
+      "samples_nonself_edges": 450000,
+      "edge_FPR": 0.0,
+      "edge_mean_weight": 1.714823294261433e-09,
+      "edge_mean_posterior": 1.714823294261433e-09,
+      "edge_FPR_perceived": 0.0,
+      "emitter_FPR": 0.0,
+      "emitter_mean_posterior": 1.7308915066720734e-09,
+      "seconds": 2.2462668329826556
+    },
+    {
+      "seed": 900003,
+      "gain": 48.0,
+      "burn": 24.0,
+      "duration": 12.0,
+      "samples_time": 120,
+      "samples_nonself_edges": 450000,
+      "edge_FPR": 0.0,
+      "edge_mean_weight": 1.6210671361036203e-09,
+      "edge_mean_posterior": 1.6210671361036203e-09,
+      "edge_FPR_perceived": 0.0,
+      "emitter_FPR": 0.0,
+      "emitter_mean_posterior": 1.6867938491744612e-09,
+      "seconds": 3.1121572080010083
+    }
+  ],
+  "summary_by_gain": [
+    {
+      "gain": 1.0,
+      "by_burn": {
+        "12": {
+          "replicates": 4,
+          "edge_FPR_mean": 0.0,
+          "edge_weight_mean": 0.11961206006611448,
+          "edge_FPR_between_seed_sd": 0.0,
+          "edge_weight_between_seed_sd": 0.0001411964353968426
+        },
+        "24": {
+          "replicates": 4,
+          "edge_FPR_mean": 0.0,
+          "edge_weight_mean": 0.11904466726824427,
+          "edge_FPR_between_seed_sd": 0.0,
+          "edge_weight_between_seed_sd": 0.0001250979741510852
+        }
+      },
+      "paired_seed_differences": [
+        {
+          "seed": 900000,
+          "edge_FPR_delta24_minus12": 0.0,
+          "edge_weight_delta24_minus12": -0.0008252188243069863
+        },
+        {
+          "seed": 900001,
+          "edge_FPR_delta24_minus12": 0.0,
+          "edge_weight_delta24_minus12": -0.0004883249584107519
+        },
+        {
+          "seed": 900002,
+          "edge_FPR_delta24_minus12": 0.0,
+          "edge_weight_delta24_minus12": -0.0007200042116275451
+        },
+        {
+          "seed": 900003,
+          "edge_FPR_delta24_minus12": 0.0,
+          "edge_weight_delta24_minus12": -0.00023602319713554587
+        }
+      ],
+      "edge_FPR_delta24_minus12": 0.0,
+      "edge_weight_delta24_minus12": -0.0005673927978702142,
+      "FPR_threshold_exceeded": false,
+      "weight_threshold_exceeded": false,
+      "use_burn24": false,
+      "recommended_burn": 12
+    },
+    {
+      "gain": 12.048192771084336,
+      "by_burn": {
+        "12": {
+          "replicates": 4,
+          "edge_FPR_mean": 0.0,
+          "edge_weight_mean": 0.0013450328416005496,
+          "edge_FPR_between_seed_sd": 0.0,
+          "edge_weight_between_seed_sd": 2.2826704419885874e-05
+        },
+        "24": {
+          "replicates": 4,
+          "edge_FPR_mean": 0.0,
+          "edge_weight_mean": 0.0012577440213394962,
+          "edge_FPR_between_seed_sd": 0.0,
+          "edge_weight_between_seed_sd": 1.8283736364381984e-05
+        }
+      },
+      "paired_seed_differences": [
+        {
+          "seed": 900000,
+          "edge_FPR_delta24_minus12": 0.0,
+          "edge_weight_delta24_minus12": -0.00012412532129503539
+        },
+        {
+          "seed": 900001,
+          "edge_FPR_delta24_minus12": 0.0,
+          "edge_weight_delta24_minus12": -7.331897927550114e-05
+        },
+        {
+          "seed": 900002,
+          "edge_FPR_delta24_minus12": 0.0,
+          "edge_weight_delta24_minus12": -0.00011237301086701023
+        },
+        {
+          "seed": 900003,
+          "edge_FPR_delta24_minus12": 0.0,
+          "edge_weight_delta24_minus12": -3.9337969606666624e-05
+        }
+      ],
+      "edge_FPR_delta24_minus12": 0.0,
+      "edge_weight_delta24_minus12": -8.728882026105334e-05,
+      "FPR_threshold_exceeded": false,
+      "weight_threshold_exceeded": false,
+      "use_burn24": false,
+      "recommended_burn": 12
+    },
+    {
+      "gain": 48.0,
+      "by_burn": {
+        "12": {
+          "replicates": 4,
+          "edge_FPR_mean": 0.0,
+          "edge_weight_mean": 2.0342036435053445e-09,
+          "edge_FPR_between_seed_sd": 0.0,
+          "edge_weight_between_seed_sd": 3.0587859609912485e-10
+        },
+        "24": {
+          "replicates": 4,
+          "edge_FPR_mean": 0.0,
+          "edge_weight_mean": 1.6770996077075254e-09,
+          "edge_FPR_between_seed_sd": 0.0,
+          "edge_weight_between_seed_sd": 1.7370006610817685e-10
+        }
+      },
+      "paired_seed_differences": [
+        {
+          "seed": 900000,
+          "edge_FPR_delta24_minus12": 0.0,
+          "edge_weight_delta24_minus12": -3.2952030773165285e-10
+        },
+        {
+          "seed": 900001,
+          "edge_FPR_delta24_minus12": 0.0,
+          "edge_weight_delta24_minus12": -7.575715592570626e-10
+        },
+        {
+          "seed": 900002,
+          "edge_FPR_delta24_minus12": 0.0,
+          "edge_weight_delta24_minus12": -2.475681180447478e-10
+        },
+        {
+          "seed": 900003,
+          "edge_FPR_delta24_minus12": 0.0,
+          "edge_weight_delta24_minus12": -9.375615815781268e-11
+        }
+      ],
+      "edge_FPR_delta24_minus12": 0.0,
+      "edge_weight_delta24_minus12": -3.5710403579781903e-10,
+      "FPR_threshold_exceeded": false,
+      "weight_threshold_exceeded": false,
+      "use_burn24": false,
+      "recommended_burn": 12
+    }
+  ],
+  "maximum_absolute_FPR_difference": 0.0,
+  "maximum_absolute_mean_weight_difference": 0.0005673927978702142,
+  "use_common_burn24_for_tau4_block_and_references": false,
+  "seconds_wall": 23.39722337501007,
+  "seconds_sum_runs": 79.50045353805763,
+  "runtime": {
+    "python": "3.14.6 (main, Jun 10 2026, 10:03:53) [Clang 21.0.0 (clang-2100.0.123.102)]",
+    "numpy": "2.5.2"
+  }
+}

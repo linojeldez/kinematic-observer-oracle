@@ -1,0 +1,223 @@
+{
+  "declaration": {
+    "date": "2026-11-12T17:15:41.096543+00:00",
+    "targets": {
+      "fpr": 0.05,
+      "mean_attention": 0.173
+    },
+    "fixed_gain": 12.048,
+    "taus": [
+      0.0,
+      1.0
+    ],
+    "train_seeds": [
+      900000,
+      900001,
+      900002,
+      900003
+    ],
+    "validation_seeds": [
+      911000,
+      911001,
+      911002,
+      911003,
+      911004,
+      911005,
+      911006,
+      911007
+    ],
+    "burn": 12.0,
+    "duration": 12.0,
+    "sample_every": 0.1,
+    "maximum_iterations": 4,
+    "workers": 4,
+    "motor_sha256": "68638cff8ddcdf7c320b9df33028308c3022a9663dfe284214ef15e1b717c053",
+    "calibration_sha256": "ef65c8af2dc1da29670132b3cea36fb2d7c28c07bb89ce428b2c04b03c870723",
+    "fit_estimand": "directed non-self edges, equal weight per sampled edge",
+    "warm_estimand": "emitter scores in ViSt",
+    "train_tolerances": {
+      "fpr": 0.001,
+      "mean_attention": 0.002
+    },
+    "validation_tolerances": {
+      "fpr": 0.01,
+      "mean_attention": 0.015
+    },
+    "no_responsivity_used": true,
+    "posterior": "logistic(gain * raw_score + total_intercept)",
+    "selection": "fit only 4 training seeds; freeze before 8 validation seeds; no validation refit"
+  },
+  "variants": [
+    {
+      "scheme": "fpr",
+      "tau": 0.0,
+      "gain": 12.048,
+      "intercept": -6.449839801401604,
+      "stat": "full",
+      "status": "train_point_matched",
+      "train_seeds": [
+        900000,
+        900001,
+        900002,
+        900003
+      ],
+      "iterations": 3,
+      "maximum_iterations": 4,
+      "damping": 0.7,
+      "targets": {
+        "fpr": 0.05,
+        "mean_attention": 0.173
+      },
+      "training_tolerances": {
+        "fpr": 0.001,
+        "mean_attention": 0.002
+      },
+      "no_responsivity_used": true,
+      "name": "matched_fpr_tau0",
+      "estimand": "directed_nonself_edges"
+    },
+    {
+      "scheme": "mean",
+      "tau": 0.0,
+      "gain": 12.048,
+      "intercept": -0.32827606340638815,
+      "stat": "full",
+      "status": "train_point_matched",
+      "train_seeds": [
+        900000,
+        900001,
+        900002,
+        900003
+      ],
+      "iterations": 3,
+      "maximum_iterations": 4,
+      "damping": 0.7,
+      "targets": {
+        "fpr": 0.05,
+        "mean_attention": 0.173
+      },
+      "training_tolerances": {
+        "fpr": 0.001,
+        "mean_attention": 0.002
+      },
+      "no_responsivity_used": true,
+      "name": "matched_mean_tau0",
+      "estimand": "directed_nonself_edges"
+    },
+    {
+      "scheme": "joint",
+      "tau": 0.0,
+      "gain": 1.821045237450166,
+      "intercept": -0.9852235824185194,
+      "stat": "full",
+      "status": "train_point_matched",
+      "train_seeds": [
+        900000,
+        900001,
+        900002,
+        900003
+      ],
+      "iterations": 3,
+      "maximum_iterations": 4,
+      "damping": 0.7,
+      "targets": {
+        "fpr": 0.05,
+        "mean_attention": 0.173
+      },
+      "training_tolerances": {
+        "fpr": 0.001,
+        "mean_attention": 0.002
+      },
+      "no_responsivity_used": true,
+      "name": "matched_joint_tau0",
+      "estimand": "directed_nonself_edges"
+    },
+    {
+      "scheme": "fpr",
+      "tau": 1.0,
+      "gain": 12.048,
+      "intercept": 3.6382126771272927,
+      "stat": "full",
+      "status": "train_point_matched",
+      "train_seeds": [
+        900000,
+        900001,
+        900002,
+        900003
+      ],
+      "iterations": 3,
+      "maximum_iterations": 4,
+      "damping": 0.7,
+      "targets": {
+        "fpr": 0.05,
+        "mean_attention": 0.173
+      },
+      "training_tolerances": {
+        "fpr": 0.001,
+        "mean_attention": 0.002
+      },
+      "no_responsivity_used": true,
+      "name": "matched_fpr_tau1",
+      "estimand": "directed_nonself_edges"
+    },
+    {
+      "scheme": "mean",
+      "tau": 1.0,
+      "gain": 12.048,
+      "intercept": 3.462858246154562,
+      "stat": "full",
+      "status": "train_point_matched",
+      "train_seeds": [
+        900000,
+        900001,
+        900002,
+        900003
+      ],
+      "iterations": 3,
+      "maximum_iterations": 4,
+      "damping": 0.7,
+      "targets": {
+        "fpr": 0.05,
+        "mean_attention": 0.173
+      },
+      "training_tolerances": {
+        "fpr": 0.001,
+        "mean_attention": 0.002
+      },
+      "no_responsivity_used": true,
+      "name": "matched_mean_tau1",
+      "estimand": "directed_nonself_edges"
+    },
+    {
+      "scheme": "joint",
+      "tau": 1.0,
+      "gain": 13.860511515486206,
+      "intercept": 4.186899063382973,
+      "stat": "full",
+      "status": "train_point_matched",
+      "train_seeds": [
+        900000,
+        900001,
+        900002,
+        900003
+      ],
+      "iterations": 3,
+      "maximum_iterations": 4,
+      "damping": 0.7,
+      "targets": {
+        "fpr": 0.05,
+        "mean_attention": 0.173
+      },
+      "training_tolerances": {
+        "fpr": 0.001,
+        "mean_attention": 0.002
+      },
+      "no_responsivity_used": true,
+      "name": "matched_joint_tau1",
+      "estimand": "directed_nonself_edges"
+    }
+  ],
+  "frozen_utc": "2026-11-12T17:17:06.502376+00:00",
+  "before_validation": true,
+  "before_responsivity": true
+}

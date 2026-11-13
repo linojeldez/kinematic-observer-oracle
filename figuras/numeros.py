@@ -31,6 +31,33 @@ e54b, e57, e57b = J("E54b_prospectivo.json"), J("E57_palomas.json"), J("E57b_pot
 e60, e62, e63 = J("E60_residuo_receptor.json"), J("E62_prior.json"), J("E63_varios_informados.json")
 e52b, e54c, e59, e61 = J("E52b_aves_por_grabacion.json"), J("E54c_tetras_por_experimento.json"), J("E59_componentes_huella.json"), J("E61_ventana_peso_fijo.json")
 
+# ---- plan 15 (E66): las celdas de 4 réplicas de E42/E42b, E55, E56 y E61 pasan a 16. Se sobrescriben
+# las entradas que usan las tablas y macros de abajo, para que todas salgan de las 16 réplicas.
+e66 = J("E66_replicas.json")
+_C66, _A66 = e66["celdas"], e66["amplitud"]
+_VK = {"0.25": "0.25", "0.5": "0.5", "1": "1.0", "2": "2.0", "4": "4.0"}
+for _etq in ("forzado", "maniobra"):
+    for _a in ("5", "20", "40"):
+        _q = _C66[f"agilidad|a{_a}|N250|{_etq}"]["n16"]
+        e55["mejor"][f"{_etq}|{_a}"] = {"ventana": float(_q["mejor"]), "rec": _q["rec"][_q["mejor"]]["rec"]}
+        for _v, _r in _q["rec"].items():
+            e55["rec"][f"{_etq}|{_a}"][f"ciclo{_v}"] = _r
+        e55["rec"][f"{_etq}|{_a}"]["amplitud"] = _A66[f"agilidad|a{_a}|N250|{_etq}"]
+    _q = _C66[f"barrido|base|N250|{_etq}"]["n16"]
+    e55["mejor"][f"{_etq}|10"] = {"ventana": float(_q["mejor"]), "rec": _q["rec"][_q["mejor"]]["rec"]}
+    for _v, _r in _q["rec"].items():
+        e55["rec"][f"{_etq}|10"][f"ciclo{_v}"] = _r
+    for _f in ("0.5", "2"):
+        _q = _C66[f"ruido|f{_f}|N250|{_etq}"]["n16"]
+        e56["mejor"][f"{_etq}|{_f}"] = {"ventana": float(_q["mejor"]), "rec": _q["rec"][_q["mejor"]]["rec"]}
+        for _v, _r in _q["rec"].items():
+            e56["rec"][f"{_etq}|{_f}"][f"ciclo{_v}"] = _r
+        e56["rec"][f"{_etq}|{_f}"]["amplitud"] = _A66[f"ruido|f{_f}|N250|{_etq}"]
+    for _c in ("a5", "a20", "a40", "f0.5", "f2"):
+        _q = _C66[f"peso_fijo|{_c}|N250|{_etq}"]["n16"]
+        e61["mejor"][f"{_etq}|{_c}"] = {"ventana": float(_q["mejor"]), "rec": _q["rec"][_q["mejor"]]["rec"]}
+        e61["rec"][f"{_etq}|{_c}"]["serie"] = {_VK[_v]: _r["rec"] for _v, _r in _q["rec"].items()}
+
 M = {}                                   # nombre -> cuerpo de la macro
 
 
@@ -569,7 +596,7 @@ filas = []
 for c, nom in (("forzado|4", "driven, $\\tauW=4$\\,s"), ("maniobra|4", "manoeuvre, $\\tauW=4$\\,s"), ("maniobra|1", "manoeuvre, $\\tauW=1$\\,s")):
     r, i = R60[c], I60[c]["emisor"]
     filas.append(f"{nom} & ${r['emisor']['rec']:.2f}$ & ${r['par_propio']['rec']:.2f}$ & ${r['par_local']['rec']:.2f}$ "
-                 f"{ic(*r['par_local']['ic95'])} & ${i['HIT']:.2f}$ & ${i['AUROC4']:.2f}$ \\\\")
+                 f"{ic(*r['par_local']['ic95'])} & ${i['HIT']:.2f}$ & ${i['AUROC4']:.2f}$ & ${100 * i['FA']:.2f}$ \\\\")
 escribir("tab_receptor.tex", filas)
 
 
@@ -606,6 +633,312 @@ for c, nom in zip(CE, ("driven, $\\tauW=4$\\,s", "manoeuvre, $\\tauW=4$\\,s", "m
     filas.append(f"{nom} & ${a['R_CoLd']:.3f}$ & ${a['R_oraculo']:.3f}$ & ${r['0.048']['rec']:.2f}$ {ic(*r['0.048']['ic95'])} & "
                  f"${r['0.173']['rec']:.2f}$ & ${r['0.004']['rec']:.2f}$ \\\\")
 escribir("tab_multi.tex", filas)
+
+
+# ---------------------------------------------------------------- plan 15: persistencia (E64)
+e64 = J("E64_persistencia.json")
+P64, R64 = e64["P"], e64["R"]
+
+
+def pq(nom):
+    q = P64[nom]
+    return {"rec": q["ratio_incr"], "ic95": q["ratio_incr_ic"]}
+
+
+frac("PeAdJa", pq("adaptado_pi0.173"))
+frac("PeAdTres", pq("adaptado_pi0.3"))
+frac("PeSmSeis", pq("inst_m6_pi0.173"))
+frac("PeSmDoce", pq("inst_m12_pi0.173"))
+macro("PeViSt", num(P64["ViSt"]["P_incr"]))
+pe_sm = [P64[f"amplitud_pi{p}"]["ratio_incr"] for p in ("0.004", "0.01", "0.05", "0.173", "0.3")]
+macro("PeSmMin", num(min(pe_sm)))
+pe_ot = [P64[n]["ratio_incr"] for n in ("secuencial_pi0.004", "secuencial_pi0.173", "auto_pi0.004", "auto_pi0.173")]
+macro("PeOtMin", num(min(pe_ot)))
+macro("PeAtJa", num(P64["adaptado_pi0.173"]["att"], 3))
+macro("PeFpSeis", num(100 * P64["inst_m6_pi0.173"]["fpr"], 0))
+macro("PeFpDoce", num(100 * P64["inst_m12_pi0.173"]["fpr"], 0))
+rsm = [100 * R64[c][n]["rec"] for c in ("forzado|4", "maniobra|4", "maniobra|1") for n in ("inst_m6_pi0.173", "inst_m12_pi0.173")]
+macro("PeRecSmMax", num(max(rsm), 0))
+filas = []
+NOMS = [("integrating, $1$\\,s", "adaptado", ("0.004", "0.01", "0.05", "0.173", "0.3")),
+        ("memoryless", "amplitud", ("0.004", "0.05", "0.173", "0.3")),
+        ("sequential", "secuencial", ("0.004", "0.173")), ("self-calibrated", "auto", ("0.004", "0.173"))]
+for et, base, pis in NOMS:
+    for i, p in enumerate(pis):
+        k = f"{base}_pi{p}"
+        q = P64[k]
+        rr = " & ".join(f"${100 * R64[c][k]['rec']:.0f}$" for c in ("forzado|4", "maniobra|4", "maniobra|1"))
+        filas.append(f"{et if i == 0 else ''} & ${p}$ & ${q['ratio_incr']:.3f}$ {ic(*q['ratio_incr_ic'], 3)} & "
+                     f"${q['att']:.3f}$ & ${100 * q['fpr']:.1f}$ & {rr} \\\\")
+for et, k in (("memoryless $\\times6$", "inst_m6_pi0.173"), ("memoryless $\\times12$", "inst_m12_pi0.173")):
+    q = P64[k]
+    rr = " & ".join(f"${100 * R64[c][k]['rec']:.0f}$" for c in ("forzado|4", "maniobra|4", "maniobra|1"))
+    filas.append(f"{et} & $0.173$ & ${q['ratio_incr']:.3f}$ {ic(*q['ratio_incr_ic'], 3)} & ${q['att']:.3f}$ & "
+                 f"${100 * q['fpr']:.1f}$ & {rr} \\\\")
+escribir("tab_persistencia.tex", filas)
+
+
+# ---------------------------------------------------------------- plan 15: k = 70 (E65)
+e65 = J("E65_k70.json")
+for c, cod in (("forzado|4", "Fz"), ("maniobra|4", "Mc"), ("maniobra|1", "Mu")):
+    pct("Ks" + cod, e65["rec"][c]["k70|adaptado_cal"], 0)
+ksv = [100 * e65["rec"][c]["k70|adaptado_cal"]["rec"] for c in e65["rec"]]
+macro("KsAdMin", num(min(ksv), 0)); macro("KsAdMax", num(max(ksv), 0))
+macro("KsSmMax", num(max(100 * e65["rec"][c]["k70|amplitud_cal"]["rec"] for c in e65["rec"]), 0))
+macro("KsVentMu", num(e65["abs"]["maniobra|1"]["ventaja"]))
+macro("KsOrFz", num(e65["abs"]["forzado|4"]["R_oraculo"]))
+for c, cod in (("forzado|4", "Fz"), ("maniobra|4", "Mc"), ("maniobra|1", "Mu")):
+    macro("KsDif" + cod, num(e65["rec"][c]["k70|adaptado_cal"]["rec"] - e65["rec"][c]["k30|adaptado_cal"]["rec"], 2, True))
+
+
+# ---------------------------------------------------------------- plan 15: déficit del motor (E67)
+e67 = J("E67_deficit.json")
+D67 = e67["desvio"]
+otras = [v for v in D67 if v not in ("base", "sin_si", "lider_azar")]
+d15 = [100 * D67[v][f"{m}|15"] for v in otras for m in ("ViSt", "WiSt")]
+macro("DfQuinceMin", num(min(d15), 0)); macro("DfQuinceMax", num(max(d15), 0))
+macro("DfBaseViSt", num(100 * D67["base"]["ViSt|15"], 0)); macro("DfBaseWiSt", num(100 * D67["base"]["WiSt|15"], 0))
+
+
+# ---------------------------------------------------------------- plan 15: fracción de informados (E68)
+e68 = J("E68_fraccion_informados.json")
+R68, A68 = e68["rec"], e68["abs"]
+C3 = ("forzado|4", "maniobra|4", "maniobra|1")
+
+
+def rango(nombre, vals, nd=0):
+    macro(nombre + "Min", num(min(vals), nd)); macro(nombre + "Max", num(max(vals), nd))
+
+
+def mejor_sm(c):
+    return max(v["rec"] for k, v in R68[c].items() if k.startswith("sin_memoria"))
+
+
+for n, cod in ((1, "Uno"), (3, "Tres"), (12, "Doce"), (25, "Veinte")):
+    rango("Mf" + cod, [100 * R68[f"N250|n{n}|{c}"]["integrador"]["rec"] for c in C3])
+    rango("MfSm" + cod, [100 * mejor_sm(f"N250|n{n}|{c}") for c in C3])
+rango("MfK", [100 * R68[f"N1000|n48|{c}"]["integrador"]["rec"] for c in C3])
+rango("MfCab", [100 * R68[f"N{N}|n{n}|{c}"]["integrador"]["rec"] for c in C3 for N, n in ((250, 12), (1000, 48))])
+rango("MfSmK", [100 * R68[f"N1000|n48|{c}"]["sin_memoria"]["rec"] for c in C3])
+rango("MfVentDoce", [A68[f"N250|n12|{c}"]["ventaja"] for c in C3], 2)
+rango("MfVentK", [A68[f"N1000|n48|{c}"]["ventaja"] for c in C3], 2)
+for c, cod in zip(C3, ("Fz", "Mc", "Mu")):
+    pct("MfDoce" + cod, R68[f"N250|n12|{c}"]["integrador"], 0)
+    pct("MfK" + cod, R68[f"N1000|n48|{c}"]["integrador"], 0)
+    macro("MfSmUno" + cod, num(100 * mejor_sm(f"N250|n1|{c}"), 0))
+    macro("MfUno" + cod, num(100 * R68[f"N250|n1|{c}"]["integrador"]["rec"], 0))
+filas = []
+for N, n in ((250, 1), (250, 3), (250, 12), (250, 25), (1000, 48)):
+    for i, (c, nom) in enumerate(zip(C3, ("driven, $\\tauW=4$\\,s", "manoeuvre, $\\tauW=4$\\,s", "manoeuvre, $\\tauW=1$\\,s"))):
+        r, a = R68[f"N{N}|n{n}|{c}"], A68[f"N{N}|n{n}|{c}"]
+        sm = [k for k in r if k.startswith("sin_memoria")]
+        best = max(sm, key=lambda k: r[k]["rec"])
+        gtxt = "" if best == "sin_memoria" else f" ($\\times{best.split('_x')[1]}$)"
+        cab = f"${N}$ & ${n}$ & " if i == 0 else " & & "
+        filas.append(cab + f"{nom} & ${a['ventaja']:.3f}$ & ${r['integrador']['rec']:.2f}$ {ic(*r['integrador']['ic95'])} & "
+                     f"${r['sin_memoria']['rec']:.2f}$ & " + (f"${r[best]['rec']:.2f}${gtxt}" if len(sm) > 1 else "---") + " \\\\")
+escribir("tab_fraccion.tex", filas)
+
+# ---------------------------------------------------------------- plan 15: valor de leer al líder (E69)
+e69 = J("E69_dos_etapas.json")
+for cel, cod in (("F4", "Fz"), ("M4", "Mc"), ("M1", "Mu")):
+    H = dict(zip(e69["H"][cel]["c"], e69["H"][cel]["H"]))
+    G = dict(zip(e69["g"][cel]["T"], e69["g"][cel]["g"]))
+    macro("LeHq" + cod, num(100 * H[0.2], 0))
+    macro("LeHd" + cod, num(100 * H[0.1], 0))
+    macro("LeHdRaz" + cod, num(H[0.1] / 0.1, 1))
+    macro("LeGu" + cod, num(100 * G[1.0], 0))
+    macro("LeGc" + cod, num(100 * G[4.0], 0))
+P69 = e69["pred"]
+macro("LeRepFrac", num(100 * P69["L2"]["frac_dentro"], 0))
+macro("LeRepErr", num(P69["L2"]["error_mediano"]))
+macro("LeLinFrac", num(100 * P69["L1"]["frac_dentro"], 0))
+macro("LeTresFrac", num(100 * P69["L3"]["frac_dentro"], 0))
+macro("LeNcel", str(P69["L2"]["n"]))
+_e44 = J("E44_lectura.json")["wL_curso"]
+_wl = [v for k in ("tractor|250|4", "pulso|250|4") for v in _e44[k][1:6]]   # tramos de 0,5 s entre 0,5 y 3 s
+macro("LePostMin", num(min(_wl), 1)); macro("LePostMax", num(max(_wl), 1))
+er_sm = [v["replica"]["rec"] - v["medido"]["rec"] for k, v in e69["celdas"].items() if k.split("|")[1].startswith("inst")]
+macro("LeRepSm", num(sorted(er_sm)[len(er_sm) // 2], 2, True))
+filas = []
+for cel, nom in (("F4", "driven, $\\tauW=4$\\,s"), ("M4", "manoeuvre, $\\tauW=4$\\,s"), ("M1", "manoeuvre, $\\tauW=1$\\,s")):
+    G = dict(zip(e69["g"][cel]["T"], e69["g"][cel]["g"]))
+    H = dict(zip(e69["H"][cel]["c"], e69["H"][cel]["H"]))
+    filas.append(nom + " & " + " & ".join(f"${G[t]:.2f}$" for t in (0.5, 1.0, 2.0, 3.0, 4.0, 6.0)) + " & "
+                 + " & ".join(f"${H[c]:.2f}$" for c in (0.05, 0.1, 0.2, 0.35, 0.5)) + " \\\\")
+escribir("tab_lectura.tex", filas)
+for k, cod in (("L1", "Lin"), ("L3", "Tres")):
+    macro("LeErr" + cod, num(P69[k]["error_mediano"]))
+macro("LeCerFrac", num(100 * P69["L4"]["frac_dentro"], 0)); macro("LeCerRho", num(P69["L4"]["spearman"]))
+er_ad = [v["replica"]["rec"] - v["medido"]["rec"] for k, v in e69["celdas"].items()
+         if not k.split("|")[1].startswith("inst") and k.split("|")[1] not in ("ciclo1_n3", "ciclo1_n6")]
+macro("LeRepAd", num(sorted(er_ad)[len(er_ad) // 2], 2, True))
+macro("LeRepAdFrac", num(100 * sum(abs(x) <= 0.10 for x in er_ad) / len(er_ad), 0))
+
+# ---------------------------------------------------------------- control del auditor externo (prioridad 3)
+_p3 = os.path.join(RAIZ, "control_auditor", "resultados", "RESULTADOS_MEMORIA_GANANCIA.json")
+with open(_p3) as fh:
+    p3 = json.load(fh)
+for x in p3["conditions"]:
+    if x["tauW"] == 4.0 and x["variant"] in ("full_t0_joint", "full_t1_joint"):
+        cod = ("AuMem" if x["variant"] == "full_t1_joint" else "AuIns") + ("F" if x["protocol"] == "forzado" else "M")
+        macro(cod, num(100 * x["recovery"], 0))
+for x in p3["primary_contrasts"]:
+    if x["protocol"] == "maniobra" and x["scheme"] == "fpr":
+        macro("AuFprDifM", num(x["difference_R"], 3, True))
+        macro("AuFprDifMCI", ic(*x["simultaneous_CI95"], 3, True))
+
+
+# ---------------------------------------------------------------- plan 15: barrido de la ventana con 16 réplicas (E66)
+_NOMV = {"0.25": "Cuarto", "0.5": "Medio", "1": "Uno", "2": "Dos", "4": "Cuatro"}
+for _etq, _cod in (("forzado", "Fz"), ("maniobra", "Mc")):
+    for _v, _nv in _NOMV.items():
+        macro("Vb" + _cod + _nv, num(100 * _C66[f"barrido|base|N250|{_etq}"]["n16"]["rec"][_v]["rec"], 0))
+    macro("VbMejor" + _cod, num(float(_C66[f"barrido|base|N250|{_etq}"]["n16"]["mejor"]), 0))
+    macro("VbMejorK" + _cod, num(float(_C66[f"barrido|base|N1000|{_etq}"]["n16"]["mejor"]), 0))
+_P66 = e66["pred"]["V1"]
+macro("PfAgMaxM", num(e61["mejor"]["maniobra|a5"]["ventana"], 0))
+_bs = [max(c["n16"]["boot_mejor"].values()) for c in _C66.values() if "boot_mejor" in c.get("n16", {})]
+macro("VbBootMin", num(100 * min(_bs), 0)); macro("VbBootCien", str(sum(b >= 0.995 for b in _bs))); macro("VbBootTotal", str(len(_bs)))
+macro("VbIguales", str(_P66["iguales"])); macro("VbAdy", str(_P66["adyacentes"])); macro("VbTotal", str(_P66["total"]))
+
+# ---------------------------------------------------------------- plan 16: peces cebra con informados entrenados (E73, E73b)
+e73, e73b = J("E73_peces_entrenados.json"), J("E73b_variantes.json")
+macro("ZfNtr", str(e73["n"]["ensayos"])); macro("ZfNgr", str(len(e73["n"]["grupos"])))
+macro("ZfSig", num(e73["n"]["sigma_mediana"], 1))
+for _c, _n in (("1.0|1", "UnoUno"), ("cuadro|1", "CuUno"), ("1.0|0", "UnoCero"), ("0.5|0.5", "MedMed"), ("1.0|3", "UnoTres")):
+    macro("ZfA" + _n, num(e73["auc"][_c]))
+    macro("ZfA" + _n + "CI", ic(*e73["ic"][_c]))
+_d = e73["dif_1s_cuadro"]["1"]
+macro("ZfGan", num(_d["dif"], 3, True)); macro("ZfGanCI", ic(*_d["ic95"], 3, True))
+_q = e73["auc_tD"]
+macro("ZfTdUno", num(_q["1.0|tD"]["auc"])); macro("ZfTdUnoCI", ic(*_q["1.0|tD"]["ic95"]))
+macro("ZfTdCu", num(_q["cuadro|tD"]["auc"])); macro("ZfTdCuCI", ic(*_q["cuadro|tD"]["ic95"]))
+_d = e73["posterior_dif_tD"]
+macro("ZfGanTd", num(_d["dif"], 3, True)); macro("ZfGanTdCI", ic(*_d["ic95"], 3, True)); macro("ZfNtd", str(_d["n_ensayos"]))
+_c = e73["control_intertrial"]
+_vi = [q["auc"] for k, q in _c.items() if k.startswith("1.0|")]
+macro("ZfIntMin", num(min(_vi))); macro("ZfIntMax", num(max(_vi)))
+_r = e73["resp"]
+macro("ZfTE", num(_r["tE_mediana"])); macro("ZfTD", num(_r["tD_mediana"]))
+macro("ZfTDlo", num(_r["tD_iqr"][0])); macro("ZfTDhi", num(_r["tD_iqr"][1]))
+macro("ZfPrim", num(100 * _r["E_antes_D"], 0))
+macro("ZfGrSobre", str(e73["pred"]["Z1"]["grupos_sobre_0.5"]))
+_z6 = e73["Z6"]
+macro("ZfRho", num(_z6["rho_1s"], 2, True)); macro("ZfRhoCI", ic(*_z6["ic_1s"], 2, True))
+_v = e73b["rapidez"]
+macro("ZfVelPre", num(_v["auc"]["1.0|0"])); macro("ZfVelUno", num(_v["auc"]["1.0|1"]))
+macro("ZfVelTd", num(_v["auc_tD"]["1.0|tD"])); macro("ZfVelCuMed", num(_v["auc"]["cuadro|0.5"]))
+macro("ZfCicGan", num(e73b["ciclo"]["dif_1"]["dif"], 3, True)); macro("ZfCicGanCI", ic(*e73b["ciclo"]["dif_1"]["ic95"], 3, True))
+macro("ZfCicGanTd", num(e73b["ciclo"]["dif_tD"]["dif"], 3, True)); macro("ZfCicGanTdCI", ic(*e73b["ciclo"]["dif_tD"]["ic95"], 3, True))
+macro("ZfCincoGan", num(e73b["k5"]["dif_1"]["dif"], 3, True))
+
+_filas = []
+for _w, _et in (("cuadro", "one frame"), ("0.25", "$0.25$\\,s"), ("0.5", "$0.5$\\,s"), ("1.0", "$1$\\,s"), ("2.0", "$2$\\,s")):
+    _filas.append(_et + " & " + " & ".join(f"${e73['auc'][f'{_w}|{_t}']:.2f}$" for _t in ("-1", "0", "0.5", "1", "1.5", "2", "3"))
+                  + f" & ${e73['auc_tD'][f'{_w}|tD']['auc']:.2f}$ \\\\")
+escribir("tab_entrenados.tex", _filas)
+
+# ---------------------------------------------------------------- plan 16: la cabecera con otro ruido, agilidad y k (E70)
+e70 = J("E70_cabecera_robustez.json")
+_R70 = e70["rec"]
+_C3 = ("forzado|4", "maniobra|4", "maniobra|1")
+def _ri(v):
+    return [100 * _R70[f"{v}|{c}"]["integrador"]["rec"] for c in _C3]
+def _rsm(v):
+    return [100 * max(_R70[f"{v}|{c}"][k]["rec"] for k in ("sin_memoria", "sin_memoria_x6", "sin_memoria_x12")) for c in _C3]
+for _v, _cod in (("f0.5", "RuMed"), ("f2", "RuDos"), ("a5", "AgCinco"), ("a20", "AgVeinte"), ("k70", "Ks")):
+    rango("Rb" + _cod, _ri(_v))
+macro("RbAgCuarentaFz", num(_ri("a40")[0], 0))
+rango("RbAgCuarentaM", _ri("a40")[1:])
+macro("RbSmCuarentaFz", num(_rsm("a40")[0], 0))
+_g2 = e70["pred"]["G2"]["pares"]
+rango("RbColDos", [-100 * _g2[c][0] for c in _C3])
+rango("RbColSeis", [100 * _g2[c][1] for c in _C3])
+macro("RbMinResto", num(min(min(_ri(v)) for v in ("f0.5", "f2", "a5", "a20", "k70")), 0))
+macro("RbPierde", str(len(e70["pred"]["G3"]["pierde"])))
+_om = e70["omega_sobre_sigma"]
+_filas = []
+for _v, _et in (("ref", "reference"), ("f0.5", "noise $\\times0.5$"), ("f2", "noise $\\times2$"), ("a5", "$a_{\\max}=5$"),
+                ("a20", "$a_{\\max}=20$"), ("a40", "$a_{\\max}=40$"), ("k70", "$k=70$")):
+    _filas.append(f"{_et} & ${_om[_v]:.2f}$ & " + " & ".join(f"${x / 100:.2f}$" for x in _ri(_v)) + " & "
+                  + " & ".join(f"${x / 100:.2f}$" for x in _rsm(_v)) + " \\\\")
+escribir("tab_robustez.tex", _filas)
+
+# ---------------------------------------------------------------- plan 16: comparación con semillas nuevas y ventana (E71)
+e71 = J("E71_comparacion_justa.json")
+_D71 = e71["dif"]
+_tres = [c for c in _D71 if not c.startswith("N250|n1|")]
+_gan = [100 * _D71[c]["int1_vs_gstar"]["dif"] for c in _tres if _D71[c]["int1_vs_gstar"]["ic95"][0] > 0]
+macro("JuNgana", str(len(_gan))); macro("JuNtres", str(len(_tres)))
+rango("JuGan", _gan)
+_q = _D71["N250|n3|forzado|4"]["int1_vs_gstar"]
+macro("JuTresFz", num(100 * _q["dif"], 1, True)); macro("JuTresFzCI", ic(*_q["ic95"], 1, True, k=100))
+rango("JuUno", [-100 * _D71[f"N250|n1|{c}"]["int1_vs_gstar"]["dif"] for c in ("forzado|4", "maniobra|4")])
+rango("JuK", [100 * v["int_vs_gmax"]["dif"] for v in e71["N1000"].values()])
+_P71 = e71["prueba"]
+rango("JuPrDoce", [100 * _P71[f"N250|n12|{c}"]["integrador"]["rec"] for c in ("forzado|4", "maniobra|4", "maniobra|1")])
+_R4 = e71["R4"]
+_v = lambda c, n: 100 * _R4[c]["rec"][n]["rec"]
+rango("VrCorto", [_v(c, "integrador_0.1s") for c in _R4])
+rango("VrLargo", [_v(c, "integrador_8s") for c in _R4])
+rango("VrUno", [_v(c, "integrador") for c in _R4])
+macro("VrRat", num(100 * min(e71["pred"]["W2"]["cociente"].values()), 1))
+_filas = []
+for c, et in (("forzado|4", "driven, $\\tauW=4$\\,s"), ("maniobra|4", "manoeuvre, $\\tauW=4$\\,s"), ("maniobra|1", "manoeuvre, $\\tauW=1$\\,s")):
+    _filas.append(et + " & " + " & ".join(f"${_R4[c]['rec'][n]['rec']:.2f}$" for n in
+                  ("integrador_0.1s", "integrador_0.25s", "integrador_0.5s", "integrador", "integrador_2s", "integrador_4s", "integrador_8s")) + " \\\\")
+escribir("tab_ventana_cabecera.tex", _filas)
+_filas = []
+for c in _D71:
+    N_, n_, etq, tw = c.split("|")
+    et = {"forzado": "driven", "maniobra": "manoeuvre"}[etq] + f", $\\tauW={tw}$\\,s"
+    q = _D71[c]["int1_vs_gstar"]
+    el = e71["eleccion"][c]
+    vw = "1" if el["ventana"] == "integrador" else el["ventana"].split("_")[1][:-1]
+    g = "1" if el["ganancia"] == "sin_memoria" else el["ganancia"].split("_x")[1]
+    _filas.append(f"{n_[1:]} & {et} & ${vw}$ & $\\times{g}$ & ${_P71[c]['integrador']['rec']:.2f}$ & "
+                  f"${_P71[c][el['ventana']]['rec']:.2f}$ & ${_P71[c][el['ganancia']]['rec']:.2f}$ & "
+                  f"${q['dif']:+.3f}$ [${q['ic95'][0]:+.3f}$, ${q['ic95'][1]:+.3f}$] \\\\")
+escribir("tab_justa.tex", _filas)
+
+# ---------------------------------------------------------------- plan 16: persistencia con falsas alarmas (E72)
+e72 = J("E72_persistencia_fa.json")
+_P72, _C72 = e72["P"], e72["c_P"]
+def _fa(nom, cod, mult=1, nd=3):
+    q = _P72[f"x{mult}|{nom}"]
+    macro(cod, num(q["r"], nd)); macro(cod + "CI", ic(*q["r_ic"], nd))
+_fa("oraculo", "FaOr"); _fa("adaptado_pi0.173", "FaIn"); _fa("adaptado_pi0.05", "FaInCinco")
+_fa("CoLd", "FaCold", nd=2); _fa("ViSt", "FaVist", nd=2); _fa("amplitud_pi0.173", "FaSmUno", nd=2)
+_q = _P72["x1|adaptado_pi0.173"]
+macro("FaInRat", num(_q["P_sobre_Por"], 1)); macro("FaInRatCI", ic(*_q["P_sobre_Por_ic"], 1))
+rango("FaSmAmp", [100 * _P72[f"x1|{n}"]["r"] for n in ("inst_m6_pi0.173", "inst_m12_pi0.173")])
+macro("FaCP", num(_C72["x1|adaptado_pi0.173"]["c_P"])); macro("FaCPCinco", num(_C72["x1|adaptado_pi0.05"]["c_P"]))
+macro("FaCPSm", num(_C72["x1|inst_m12_pi0.173"]["c_P"]))
+macro("FaN", num(_P72["x1|oraculo"]["n_fp"], 0))
+macro("FaDiezOr", num(_P72["x10|oraculo"]["r"], 3)); macro("FaDiezIn", num(_P72["x10|adaptado_pi0.173"]["r"], 3))
+macro("FaDiezSm", num(_P72["x10|amplitud_pi0.173"]["r"], 2))
+_filas = []
+for n, et in (("ViSt", "ViSt (no reading)"), ("CoLd", "CoLd (nobody reads)"), ("oraculo", "oracle"),
+              ("adaptado_pi0.173", "integrating, $\\pi_0=0.173$"), ("adaptado_pi0.05", "integrating, $\\pi_0=0.05$"),
+              ("amplitud_pi0.173", "memoryless $\\times1$"), ("inst_m6_pi0.173", "memoryless $\\times6$"),
+              ("inst_m12_pi0.173", "memoryless $\\times12$")):
+    q = _P72[f"x1|{n}"]
+    d = _P72.get(f"x10|{n}")
+    cp = _C72.get(f"x1|{n}", {}).get("c_P")
+    _filas.append(f"{et} & ${q['r']:.3f}$ [${q['r_ic'][0]:.3f}$, ${q['r_ic'][1]:.3f}$] & ${q['P_sobre_Por']:.1f}$ & "
+                  + (f"${cp:.2f}$" if cp is not None and n not in ("oraculo",) else ("$1$" if n == "oraculo" else "---"))
+                  + " & " + (f"${d['r']:.3f}$" if d else "---") + f" & ${q['pol']:.2f}$ \\\\")
+escribir("tab_persistencia_fa.tex", _filas)
+
+# ---------------------------------------------------------------- plan 16: ventana corta con agilidad alta (E70b)
+e70b = J("E70b_ventana_agilidad.json")
+_R7b = e70b["rec"]
+macro("RbCortaCuarFz", num(100 * _R7b["a40|forzado|4"]["q"]["integrador_0.25s"]["rec"], 0))
+macro("RbCortaVeinFz", num(100 * _R7b["a20|forzado|4"]["q"]["integrador_0.5s"]["rec"], 0))
+rango("RbCorta", [100 * v["q"][v["corta"]]["rec"] for v in _R7b.values()])
+macro("RbCortaGana", str(e70b["pred"]["A1"]["gana_al_sin_memoria"]))
+rango("RbCuar", [100 * _R7b[f"a40|{c}"]["q"]["integrador_0.25s"]["rec"] for c in ("forzado|4", "maniobra|4", "maniobra|1")])
 
 with open(os.path.join(AQUI, "numeros.tex"), "w") as fh:
     fh.write("% generado por numeros.py desde resultados/*.json; no editar a mano\n")

@@ -1,0 +1,27 @@
+{
+  "figures": [
+    {
+      "file": "contrastes_principales.png",
+      "width": 2200,
+      "height": 1250,
+      "sha256": "24f65873a248bb2315344b2c9824dfc36805f61600541aeb6d0fd48e5fce7e4c",
+      "visual_pass": true
+    },
+    {
+      "file": "factorial_memoria_ganancia.png",
+      "width": 2200,
+      "height": 1100,
+      "sha256": "ac8fdc57f4a3ebb5a8a2dad632f45dab7c0b4eee0296e406524c12bba64c81d8",
+      "visual_pass": true
+    },
+    {
+      "file": "validacion_nula.png",
+      "width": 2100,
+      "height": 1000,
+      "sha256": "0729fb124b9d4d7b878615044ad1273f02d8793ad88491c7062d2d50e0754d08",
+      "visual_pass": true
+    }
+  ],
+  "all_reviewed": true,
+  "note": "Se revisaron ejes, etiquetas, intervalos y correspondencia con tablas. El factorial final filtra cada protocolo por separado."
+}

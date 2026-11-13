@@ -1,0 +1,61 @@
+{
+  "variants": [
+    {
+      "name": "matched_fpr_tau0",
+      "stat": "full",
+      "tau": 0.0,
+      "gain": 12.048,
+      "intercept": -6.816226373894886,
+      "scheme": "fpr",
+      "validation_equivalence": true
+    },
+    {
+      "name": "matched_mean_tau0",
+      "stat": "full",
+      "tau": 0.0,
+      "gain": 12.048,
+      "intercept": -0.620581349712499,
+      "scheme": "mean",
+      "validation_equivalence": true
+    },
+    {
+      "name": "matched_joint_tau0",
+      "stat": "full",
+      "tau": 0.0,
+      "gain": 1.791882177461884,
+      "intercept": -1.013767808509951,
+      "scheme": "joint",
+      "validation_equivalence": true
+    },
+    {
+      "name": "matched_fpr_tau1",
+      "stat": "full",
+      "tau": 1.0,
+      "gain": 12.048,
+      "intercept": 3.5307286826311697,
+      "scheme": "fpr",
+      "validation_equivalence": false
+    },
+    {
+      "name": "matched_mean_tau1",
+      "stat": "full",
+      "tau": 1.0,
+      "gain": 12.048,
+      "intercept": 3.3995402084818607,
+      "scheme": "mean",
+      "validation_equivalence": true
+    },
+    {
+      "name": "matched_joint_tau1",
+      "stat": "full",
+      "tau": 1.0,
+      "gain": 13.35597315978854,
+      "intercept": 3.914036978728208,
+      "scheme": "joint",
+      "validation_equivalence": false
+    }
+  ],
+  "frozen_parameters_sha256": "dacce4cb52413054dd152d776170e958afe838ded9c385be165c6367c3584cd7",
+  "calibration_file": "calibracion/calibracion_final.json",
+  "warning": "Unmatched variants remain sensitivity analyses; do not claim equal FPR/attention"
+}

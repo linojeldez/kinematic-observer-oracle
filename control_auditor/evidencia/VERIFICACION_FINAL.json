@@ -1,0 +1,27 @@
+{
+  "date_utc": "2026-11-12T18:16:41.034447+00:00",
+  "passed_numerical_checks": true,
+  "response_runs": 5760,
+  "phase_counts": {
+    "fixed": 3744,
+    "matched": 2016
+  },
+  "conditions": 50,
+  "maximum_absolute_errors": {
+    "R": 2.220446049250313e-16,
+    "R_first4": 3.3306690738754696e-16,
+    "R_tail": 2.220446049250313e-16,
+    "edge_mean_identity": 1.3322676295501878e-15,
+    "edge_leader_partition": 1.3322676295501878e-15,
+    "duration_identity": 1.7763568394002505e-15,
+    "raw_to_summary_R": 5.551115123125783e-17
+  },
+  "frozen_calibration_hash_unchanged": true,
+  "original_files": {
+    "baseline_count": 409,
+    "unchanged_count": 409,
+    "changed": [],
+    "missing": []
+  },
+  "scope": "Compara los 409 archivos preexistentes inventariados; no atribuye cambios concurrentes a un autor. Todas las escrituras de esta campaña apuntan a prioridad3."
+}

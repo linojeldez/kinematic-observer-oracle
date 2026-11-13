@@ -1,0 +1,45 @@
+=== E70 · cabecera (12 de 250, prior 12/250) con otro ruido, agilidad y k = 70; 8 réplicas ===
+ancla (celda central de E68): |Δ| máx = 0.00e+00 en 108 comparaciones
+
+--- ref: omega_max/sigma_theta = 3.46 ---
+forzado τ_W 4: ventaja 0.311 | integrador 0.886 [0.868; 0.902] | sin memoria x1 0.189 x6 0.615 x12 0.595 | integrador − sin_memoria_x6: +0.271 [+0.239; +0.304]  (n = 8)
+maniobra τ_W 4: ventaja 0.390 | integrador 0.822 [0.805; 0.836] | sin memoria x1 0.081 x6 0.255 x12 0.112 | integrador − sin_memoria_x6: +0.567 [+0.534; +0.594]  (n = 8)
+maniobra τ_W 1: ventaja 0.497 | integrador 0.880 [0.864; 0.897] | sin memoria x1 0.175 x6 0.369 x12 0.295 | integrador − sin_memoria_x6: +0.511 [+0.486; +0.536]  (n = 8)
+
+--- f0.5: omega_max/sigma_theta = 6.93 ---
+forzado τ_W 4: ventaja 0.314 | integrador 0.960 [0.937; 0.994] | sin memoria x1 0.545 x6 0.858 x12 0.841 | integrador − sin_memoria_x6: +0.102 [+0.088; +0.115]  (n = 8)
+maniobra τ_W 4: ventaja 0.398 | integrador 0.869 [0.845; 0.891] | sin memoria x1 0.414 x6 0.523 x12 0.437 | integrador − sin_memoria_x6: +0.346 [+0.333; +0.358]  (n = 8)
+maniobra τ_W 1: ventaja 0.513 | integrador 0.926 [0.915; 0.937] | sin memoria x1 0.466 x6 0.488 x12 0.431 | integrador − sin_memoria_x6: +0.438 [+0.426; +0.449]  (n = 8)
+
+--- f2: omega_max/sigma_theta = 1.72 ---
+forzado τ_W 4: ventaja 0.313 | integrador 0.426 [0.384; 0.466] | sin memoria x1 0.045 x6 0.218 x12 0.213 | integrador − sin_memoria_x6: +0.208 [+0.188; +0.227]  (n = 8)
+maniobra τ_W 4: ventaja 0.387 | integrador 0.375 [0.346; 0.405] | sin memoria x1 -0.136 x6 -0.046 x12 -0.208 | integrador − sin_memoria_x6: +0.421 [+0.393; +0.447]  (n = 8)
+maniobra τ_W 1: ventaja 0.437 | integrador 0.441 [0.427; 0.456] | sin memoria x1 -0.028 x6 0.141 x12 0.084 | integrador − sin_memoria_x6: +0.300 [+0.283; +0.316]  (n = 8)
+
+--- a5: omega_max/sigma_theta = 1.72 ---
+forzado τ_W 4: ventaja 0.285 | integrador 0.586 [0.537; 0.632] | sin memoria x1 0.068 x6 0.250 x12 0.195 | integrador − sin_memoria_x6: +0.336 [+0.306; +0.364]  (n = 8)
+maniobra τ_W 4: ventaja 0.340 | integrador 0.525 [0.498; 0.550] | sin memoria x1 -0.095 x6 0.044 x12 -0.106 | integrador − sin_memoria_x6: +0.481 [+0.464; +0.499]  (n = 8)
+maniobra τ_W 1: ventaja 0.352 | integrador 0.632 [0.616; 0.647] | sin memoria x1 0.006 x6 0.252 x12 0.191 | integrador − sin_memoria_x6: +0.379 [+0.371; +0.388]  (n = 8)
+
+--- a20: omega_max/sigma_theta = 6.93 ---
+forzado τ_W 4: ventaja 0.328 | integrador 0.655 [0.608; 0.704] | sin memoria x1 0.284 x6 0.753 x12 0.752 | integrador − sin_memoria_x6: -0.097 [-0.158; -0.044]  (n = 8)
+maniobra τ_W 4: ventaja 0.420 | integrador 0.705 [0.675; 0.734] | sin memoria x1 0.246 x6 0.418 x12 0.346 | integrador − sin_memoria_x6: +0.288 [+0.263; +0.318]  (n = 8)
+maniobra τ_W 1: ventaja 0.563 | integrador 0.771 [0.754; 0.787] | sin memoria x1 0.302 x6 0.394 x12 0.341 | integrador − sin_memoria_x6: +0.377 [+0.364; +0.392]  (n = 8)
+
+--- a40: omega_max/sigma_theta = 13.87 ---
+forzado τ_W 4: ventaja 0.334 | integrador 0.029 [0.009; 0.060] | sin memoria x1 0.287 x6 0.741 x12 0.759 | integrador − sin_memoria_x12: -0.729 [-0.766; -0.688]  (n = 8)
+maniobra τ_W 4: ventaja 0.429 | integrador 0.365 [0.340; 0.389] | sin memoria x1 0.287 x6 0.528 x12 0.511 | integrador − sin_memoria_x6: -0.164 [-0.187; -0.137]  (n = 8)
+maniobra τ_W 1: ventaja 0.580 | integrador 0.462 [0.444; 0.479] | sin memoria x1 0.333 x6 0.444 x12 0.418 | integrador − sin_memoria_x6: +0.018 [-0.001; +0.036]  (n = 8)
+
+--- k70: omega_max/sigma_theta = 3.38 ---
+forzado τ_W 4: ventaja 0.332 | integrador 0.951 [0.948; 0.955] | sin memoria x1 0.298 x6 0.789 x12 0.728 | integrador − sin_memoria_x6: +0.162 [+0.148; +0.174]  (n = 8)
+maniobra τ_W 4: ventaja 0.446 | integrador 0.912 [0.906; 0.917] | sin memoria x1 -0.104 x6 0.100 x12 -0.085 | integrador − sin_memoria_x6: +0.812 [+0.792; +0.834]  (n = 8)
+maniobra τ_W 1: ventaja 0.690 | integrador 0.871 [0.861; 0.882] | sin memoria x1 0.170 x6 0.366 x12 0.267 | integrador − sin_memoria_x6: +0.505 [+0.497; +0.512]  (n = 8)
+
+=== Predicciones ===
+G1: FALLA  {"min": 0.029395687191300427, "bajo_25": ["a40|forzado|4"], "bajo_15": ["a40|forzado|4"], "cumple": false}
+G2: FALLA  {"pares": {"forzado|4": [-0.160312168278692, 0.30421515655005416], "maniobra|4": [-0.1497365517365481, 0.1640580078387185], "maniobra|1": [-0.1905302230690294, 0.15557369092298667]}, "cumple": false}
+G3: FALLA  {"pierde": ["a20|forzado|4", "a40|forzado|4", "a40|maniobra|4"], "cumple": false}
+G4: CUMPLE  {"cociente": {"forzado|4": 1.073984048880706, "maniobra|4": 1.1098327558748708, "maniobra|1": 0.9900496930625907}, "cumple": true}
+
+7711 s

@@ -1,0 +1,153 @@
+{
+  "phase": "matched",
+  "jobs": 2016,
+  "variants": [
+    {
+      "name": "full_t0_fpr",
+      "stat": "full",
+      "tau": 0.0,
+      "gain": 12.048,
+      "intercept": -6.449839801401604,
+      "scheme": "fpr",
+      "estimand": "directed_nonself_edges",
+      "validation_seeds": [
+        911000,
+        911001,
+        911002,
+        911003,
+        911004,
+        911005,
+        911006,
+        911007
+      ],
+      "validation_equivalence": true,
+      "replicates": 8,
+      "primary": true
+    },
+    {
+      "name": "full_t0_mean",
+      "stat": "full",
+      "tau": 0.0,
+      "gain": 12.048,
+      "intercept": -0.32827606340638815,
+      "scheme": "mean",
+      "estimand": "directed_nonself_edges",
+      "validation_seeds": [
+        911000,
+        911001,
+        911002,
+        911003,
+        911004,
+        911005,
+        911006,
+        911007
+      ],
+      "validation_equivalence": true,
+      "replicates": 8,
+      "primary": true
+    },
+    {
+      "name": "full_t0_joint",
+      "stat": "full",
+      "tau": 0.0,
+      "gain": 1.821045237450166,
+      "intercept": -0.9852235824185194,
+      "scheme": "joint",
+      "estimand": "directed_nonself_edges",
+      "validation_seeds": [
+        911000,
+        911001,
+        911002,
+        911003,
+        911004,
+        911005,
+        911006,
+        911007
+      ],
+      "validation_equivalence": true,
+      "replicates": 8,
+      "primary": true
+    },
+    {
+      "name": "full_t1_fpr",
+      "stat": "full",
+      "tau": 1.0,
+      "gain": 12.048,
+      "intercept": 3.6382126771272927,
+      "scheme": "fpr",
+      "estimand": "directed_nonself_edges",
+      "validation_seeds": [
+        911000,
+        911001,
+        911002,
+        911003,
+        911004,
+        911005,
+        911006,
+        911007
+      ],
+      "validation_equivalence": true,
+      "replicates": 8,
+      "primary": true
+    },
+    {
+      "name": "full_t1_mean",
+      "stat": "full",
+      "tau": 1.0,
+      "gain": 12.048,
+      "intercept": 3.462858246154562,
+      "scheme": "mean",
+      "estimand": "directed_nonself_edges",
+      "validation_seeds": [
+        911000,
+        911001,
+        911002,
+        911003,
+        911004,
+        911005,
+        911006,
+        911007
+      ],
+      "validation_equivalence": true,
+      "replicates": 8,
+      "primary": true
+    },
+    {
+      "name": "full_t1_joint",
+      "stat": "full",
+      "tau": 1.0,
+      "gain": 13.860511515486206,
+      "intercept": 4.186899063382973,
+      "scheme": "joint",
+      "estimand": "directed_nonself_edges",
+      "validation_seeds": [
+        911000,
+        911001,
+        911002,
+        911003,
+        911004,
+        911005,
+        911006,
+        911007
+      ],
+      "validation_equivalence": true,
+      "replicates": 8,
+      "primary": true
+    }
+  ],
+  "hashes": {
+    "fuentes/flocking.py": "c86362eb7acb48fcd2bf1f64bd378e8e6f8c7b491c275d9f40944800aa283e66",
+    "scripts/motor_controles.py": "68638cff8ddcdf7c320b9df33028308c3022a9663dfe284214ef15e1b717c053"
+  },
+  "burn_rule": {
+    "use_burn24_for_tau4": false
+  },
+  "seed_rule": "920000+1000*angle+rep",
+  "replicates": 8,
+  "exploratory_replicates": 4,
+  "angles": 18,
+  "R_resolution_seconds": 0.01,
+  "diagnostic_resolution_seconds": 0.1,
+  "predeclaration_sha256": "4f8b027b833a62d2282f37518deb9b3a9239321a8319b06b18dea3eb17539478",
+  "estimand_addendum_sha256": "c08e39060e25b11f742ad44b86c1f8b1ef533c308482accd576cc1cf6c7f353f"
+}

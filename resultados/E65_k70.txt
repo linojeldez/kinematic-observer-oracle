@@ -1,0 +1,38 @@
+=== E65 · recuperación con k = 70 (N = 250, sigma^2 = 2) ===
+anchura del residuo: k = 70 0.3697, k = 30 0.3663, k = 15 (fija) 0.361 rad/s
+
+--- forzado|4: R ViSt 0.102, oráculo 0.886, integrador 0.733 (k = 70) ---
+  k70|adaptado_cal     0.804 [0.774; 0.833]  n = 16
+  k70|amplitud_cal     0.026 [0.024; 0.027]  n = 16
+  k70|adaptado_fijo    0.821 [0.786; 0.855]  n = 8
+  k70|amplitud_fijo    0.026 [0.024; 0.028]  n = 8
+  k30|adaptado_cal     0.753 [0.720; 0.789]  n = 8
+  k30|amplitud_cal     0.028 [0.026; 0.030]  n = 8
+  k15|adaptado         0.723 [0.704; 0.741]  n = 32
+  k15|amplitud         0.050 [0.048; 0.051]  n = 32
+
+--- maniobra|4: R CoLd 0.073, oráculo 0.874, integrador 0.612 (k = 70) ---
+  k70|adaptado_cal     0.673 [0.662; 0.684]  n = 16
+  k70|amplitud_cal     -0.035 [-0.036; -0.034]  n = 16
+  k70|adaptado_fijo    0.666 [0.650; 0.681]  n = 8
+  k70|amplitud_fijo    -0.035 [-0.037; -0.033]  n = 8
+  k30|adaptado_cal     0.591 [0.574; 0.607]  n = 8
+  k30|amplitud_cal     -0.035 [-0.037; -0.033]  n = 8
+  k15|adaptado         0.540 [0.533; 0.548]  n = 32
+  k15|amplitud         -0.054 [-0.056; -0.052]  n = 32
+
+--- maniobra|1: R CoLd 0.030, oráculo 0.654, integrador 0.488 (k = 70) ---
+  k70|adaptado_cal     0.733 [0.725; 0.743]  n = 16
+  k70|amplitud_cal     0.017 [0.015; 0.018]  n = 16
+  k70|adaptado_fijo    0.719 [0.710; 0.728]  n = 8
+  k70|amplitud_fijo    0.017 [0.014; 0.019]  n = 8
+  k30|adaptado_cal     0.973 [0.951; 0.994]  n = 8
+  k30|amplitud_cal     0.031 [0.027; 0.035]  n = 8
+  k15|adaptado         1.015 [1.002; 1.029]  n = 32
+  k15|amplitud         0.056 [0.052; 0.060]  n = 32
+
+=== Predicciones ===
+Q1: FALLA  {"pares": [["forzado|4", 0.8044034049409194, 0.7532518408586283], ["maniobra|4", 0.6730589536695737, 0.5909035903845653], ["maniobra|1", 0.7333756517662832, 0.9732844365957711]], "cumple": false}
+Q2: CUMPLE  {"sin_memoria": [0.02552959309390678, -0.03481602448749394, 0.016658567701566263], "cumple": true}
+
+5751 s
