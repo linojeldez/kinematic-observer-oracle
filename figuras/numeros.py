@@ -647,6 +647,7 @@ def pq(nom):
 
 frac("PeAdJa", pq("adaptado_pi0.173"))
 frac("PeAdTres", pq("adaptado_pi0.3"))
+frac("PeAdCinco", pq("adaptado_pi0.05"), 3)
 frac("PeSmSeis", pq("inst_m6_pi0.173"))
 frac("PeSmDoce", pq("inst_m12_pi0.173"))
 macro("PeViSt", num(P64["ViSt"]["P_incr"]))
@@ -722,6 +723,20 @@ rango("MfCab", [100 * R68[f"N{N}|n{n}|{c}"]["integrador"]["rec"] for c in C3 for
 rango("MfSmK", [100 * R68[f"N1000|n48|{c}"]["sin_memoria"]["rec"] for c in C3])
 rango("MfVentDoce", [A68[f"N250|n12|{c}"]["ventaja"] for c in C3], 2)
 rango("MfVentK", [A68[f"N1000|n48|{c}"]["ventaja"] for c in C3], 2)
+# responsividad absoluta: ventaja del oráculo con 25 informados, CoLd con 12 y 25, y lo que el
+# integrador suma a CoLd (R_integrador - R_CoLd) con 1, 3, 12 y 25 informados
+rango("MfVentVeinte", [A68[f"N250|n25|{c}"]["ventaja"] for c in C3], 2)
+rango("MfColdDoce", [A68[f"N250|n12|{c}"]["R_CoLd"] for c in C3], 2)
+rango("MfColdVeinte", [A68[f"N250|n25|{c}"]["R_CoLd"] for c in C3], 2)
+
+
+def gan68(c):
+    return R68[c]["integrador"]["R"] - A68[c]["R_CoLd"]
+
+
+for n, cod in ((1, "Uno"), (3, "Tres"), (12, "Doce"), (25, "Veinte")):
+    rango("MfGan" + cod, [gan68(f"N250|n{n}|{c}") for c in C3], 2)
+assert all(max((1, 3, 12, 25), key=lambda n: gan68(f"N250|n{n}|{c}")) == 12 for c in C3)   # «largest with twelve»
 for c, cod in zip(C3, ("Fz", "Mc", "Mu")):
     pct("MfDoce" + cod, R68[f"N250|n12|{c}"]["integrador"], 0)
     pct("MfK" + cod, R68[f"N1000|n48|{c}"]["integrador"], 0)
@@ -735,7 +750,8 @@ for N, n in ((250, 1), (250, 3), (250, 12), (250, 25), (1000, 48)):
         best = max(sm, key=lambda k: r[k]["rec"])
         gtxt = "" if best == "sin_memoria" else f" ($\\times{best.split('_x')[1]}$)"
         cab = f"${N}$ & ${n}$ & " if i == 0 else " & & "
-        filas.append(cab + f"{nom} & ${a['ventaja']:.3f}$ & ${r['integrador']['rec']:.2f}$ {ic(*r['integrador']['ic95'])} & "
+        filas.append(cab + f"{nom} & ${a['R_CoLd']:.3f}$ & ${a['ventaja']:.3f}$ & ${gan68(f'N{N}|n{n}|{c}'):.3f}$ & "
+                     f"${r['integrador']['rec']:.2f}$ {ic(*r['integrador']['ic95'])} & "
                      f"${r['sin_memoria']['rec']:.2f}$ & " + (f"${r[best]['rec']:.2f}${gtxt}" if len(sm) > 1 else "---") + " \\\\")
 escribir("tab_fraccion.tex", filas)
 
@@ -839,6 +855,101 @@ for _w, _et in (("cuadro", "one frame"), ("0.25", "$0.25$\\,s"), ("0.5", "$0.5$\
                   + f" & ${e73['auc_tD'][f'{_w}|tD']['auc']:.2f}$ \\\\")
 escribir("tab_entrenados.tex", _filas)
 
+# ---------------------------------------------------------------- revisión del 14-nov: peces cebra con filtros de sólo pasado (E74)
+e74 = J("E74_peces_solo_pasado.json")
+
+
+def _p74(nombre, q, nd=2):
+    macro(nombre, num(q["auc"], nd)); macro(nombre + "CI", ic(*q["ic95"], nd))
+
+
+def _d74(nombre, q, nd=3):
+    macro(nombre, num(q["dif"], nd, True)); macro(nombre + "CI", ic(*q["ic95"], nd, True))
+
+
+_n = e74["n"]
+assert _n["ensayos"] == e73["n"]["ensayos"] and _n["grupos"] == len(e73["n"]["grupos"])
+for _c, _cod in (("sp", ""), ("cen", "Cen"), ("crudo", "Cr")):
+    macro("ZsSop" + _cod, str(_n["soporte"][_c])); macro("ZsSop" + _cod + "S", num(_n["soporte"][_c] / 32))
+macro("ZsNint", str(_n["entre_ensayos"]))
+_s = e74["puntos"]["sp"]
+for _k, _cod in (("0.25|0.5", "Main"), ("valor|0.375", "ValPico"), ("0.25|1", "CuartoUno"), ("1.0|1", "UnoUno"), ("0.25|0", "Pre")):
+    _p74("Zs" + _cod, _s[_k])
+_f = e74["fuera"]["sp"]
+_p74("ZsOob", _f["global"]); macro("ZsOobFrac", num(100 * _f["frac_ventana"]["0.25"], 0))
+macro("ZsT", num(_f["t_global"]["mediana"], 1))
+assert _f["un_grupo_fuera"]["claves"] == ["0.25|0.5"] and _f["t_global"]["iqr"] == [0.5, 0.5]
+_W74 = (("valor", "Val"), ("0.25", "Cuarto"), ("0.5", "Medio"), ("1.0", "Uno"), ("2.0", "Dos"))
+for _w, _cod in _W74:
+    _p74("ZsOob" + _cod, _f["por_ventana"][_w])
+_d74("ZsDifUno", _f["0.25_menos_1s"]); _d74("ZsDifVal", _f["0.25_menos_valor"])
+_g = e74["grupos"]["sp"]
+macro("ZsGr", str(_g["sobre_0.5"])); macro("ZsGrMin", num(_g["min"])); macro("ZsGrMax", num(_g["max"]))
+_p74("ZsDentro", e74["robustez"]["dentro_de_ensayo"]); macro("ZsTandaCI", ic(*e74["robustez"]["por_tanda"]["ic95"]))
+_c = e74["control"]["sp"]
+_vi = [q["auc"] for q in _c["puntos"].values()]
+macro("ZsIntMin", num(min(_vi))); macro("ZsIntMax", num(max(_vi)))
+macro("ZsIntDesv", num(_c["max_desv_0_1.5"])); macro("ZsPreDesv", num(_c["pre_real_max_desv"]))
+_a = e74["antes"]
+macro("ZsNtd", str(_a["en_tD"]["n"])); macro("ZsNtu", str(_a["en_t1"]["n"])); macro("ZsNsin", str(_a["sin_individual"]["n"]))
+assert _a["en_tD"]["n"] == e73["posterior_dif_tD"]["n_ensayos"]
+for _cl, _cod in (("en_tD", "Td"), ("en_t1", "Tu")):
+    _q = _a[_cl]["sp"]["0"]
+    _vt = [_q[w]["auc"] for w in e74["W"]]
+    macro("Zs" + _cod + "Min", num(min(_vt))); macro("Zs" + _cod + "Max", num(max(_vt)))
+    _d74("Zs" + _cod + "Gan", _q["1s_menos_valor"])
+    # ninguna diferencia entre ventanas se resuelve con el cierre atado a la respuesta, con 0 a 0,2 s de margen
+    assert all(_a[_cl]["sp"][m]["1s_menos_valor"]["ic95"][0] < 0 < _a[_cl]["sp"][m]["1s_menos_valor"]["ic95"][1] for m in ("0", "0.1", "0.2"))
+_p74("ZsTdUno", _a["en_tD"]["sp"]["0"]["1.0"]); _p74("ZsTdVal", _a["en_tD"]["sp"]["0"]["valor"])
+_p74("ZsSin", _a["sin_individual"]["sp"]["0.25"])
+_rr = e74["resp"]
+macro("ZsTuno", num(_rr["t1_mediana"])); macro("ZsIndAntes", str(_rr["individual_antes_de_tD"])); macro("ZsNtuTot", str(_rr["n_t1"]))
+_v = e74["rapidez"]
+_p74("ZsVel", _v["0.25@0.5"]); macro("ZsVelPre", num(_v["0.25@0"]["auc"])); _d74("ZsVelDif", _v["menos_giro"], 2)
+macro("ZsEmp", num(_v["emparejado"]["frac"])); macro("ZsEmpCI", ic(*_v["emparejado"]["ic95"]))
+macro("ZsEmpRap", num(100 * _v["emparejado"]["frac_entrenado_mas_rapido"], 0)); macro("ZsEmpPares", str(_v["emparejado"]["pares"]))
+macro("ZsRhoVel", num(_v["spearman_giro_rapidez"]["no_entrenados"], 2, True))
+_p74("ZsCic", e74["variantes"]["ciclo"]["0.25@0.5"]); _p74("ZsCinco", e74["variantes"]["k5"]["0.25@0.5"])
+_fc = e74["fuera"]["crudo"]
+_p74("ZsCrOob", _fc["global"]); _p74("ZsCrVal", _fc["por_ventana"]["valor"]); _p74("ZsCrUno", _fc["por_ventana"]["1.0"])
+_d74("ZsCrDif", _fc["0.25_menos_valor"]); _d74("ZsCrDifUno", _fc["0.25_menos_1s"])
+macro("ZsCrFrac", num(100 * _fc["frac_ventana"]["0.25"], 0)); macro("ZsCrGr", str(e74["grupos"]["crudo"]["sobre_0.5"]))
+macro("ZsCrT", num(_fc["t_global"]["mediana"], 3))
+_e = e74["desde_tE"]
+macro("ZsNte", str(_e["n"]))
+assert abs(_e["cen"]["pico"]["valor"]) < 0.1          # «within 0.1 s of their response time»
+# predicciones S1-S8: seis se cumplen y dos fallan en parte (S4b y S6c), como dice el texto
+_P74 = e74["pred"]
+assert [k for k, q in _P74.items() if not q["cumple"]] == ["S4", "S6"] and len(_P74) == 8
+assert _P74["S4"]["cumple_a"] and not _P74["S4"]["cumple_b"]
+assert _P74["S6"]["cumple_a"] and _P74["S6"]["cumple_b"] and not _P74["S6"]["cumple_c"]
+# el transitorio: con cada ventana el máximo del AUC está en cierres de +0,375 a +0,625 s; a +1 s, 0,25 s bajo 0,5
+_tg = e74["TG"]
+_cu = e74["curso"]["sp"]["auc"]
+assert all(0.375 <= _tg[max(range(len(_tg)), key=lambda j: _cu[i][j] if 0 < _tg[j] <= 1.5 else 0)] <= 0.625 for i in range(5))
+assert _s["0.25|1"]["ic95"][1] < 0.5
+
+_T74 = ("-1", "0", "0.25", "0.375", "0.5", "0.75", "1", "1.5", "2", "3")
+_filas = []
+for _c, _nom in (("sp", "one-sided"), ("crudo", "no smoothing")):
+    for _i, (_w, _et) in enumerate((("valor", "one value"), ("0.25", "$0.25$\\,s"), ("0.5", "$0.5$\\,s"), ("1.0", "$1$\\,s"), ("2.0", "$2$\\,s"))):
+        _q = e74["fuera"][_c]["por_ventana"][_w]
+        _filas.append((_nom if _i == 0 else "") + " & " + _et + " & "
+                      + " & ".join(f"${e74['puntos'][_c][f'{_w}|{_t}']['auc']:.2f}$" for _t in _T74)
+                      + f" & ${_q['auc']:.2f}$ [${_q['ic95'][0]:.2f}$, ${_q['ic95'][1]:.2f}$] \\\\")
+    if _c == "sp":
+        _filas.append("\\addlinespace")
+escribir("tab_entrenados_sp.tex", _filas)
+_filas = []
+for _cl, _et in (("en_tD", "class"), ("en_t1", "first fish")):
+    for _m in ("0", "0.1", "0.2"):
+        _q = _a[_cl]["sp"][_m]
+        _filas.append(f"{_et} & ${_m}$ & ${_a[_cl]['n']}$ & " + " & ".join(f"${_q[w]['auc']:.2f}$" for w in e74["W"])
+                      + f" & ${_q['1s_menos_valor']['dif']:+.3f}$ [${_q['1s_menos_valor']['ic95'][0]:+.3f}$, ${_q['1s_menos_valor']['ic95'][1]:+.3f}$] \\\\")
+_q = _a["sin_individual"]["sp"]
+_filas.append(f"none by $+0.6$\\,s & --- & ${_a['sin_individual']['n']}$ & " + " & ".join(f"${_q[w]['auc']:.2f}$" for w in e74["W"]) + " & --- \\\\")
+escribir("tab_entrenados_resp.tex", _filas)
+
 # ---------------------------------------------------------------- plan 16: la cabecera con otro ruido, agilidad y k (E70)
 e70 = J("E70_cabecera_robustez.json")
 _R70 = e70["rec"]
@@ -912,6 +1023,8 @@ _fa("oraculo", "FaOr"); _fa("adaptado_pi0.173", "FaIn"); _fa("adaptado_pi0.05", 
 _fa("CoLd", "FaCold", nd=2); _fa("ViSt", "FaVist", nd=2); _fa("amplitud_pi0.173", "FaSmUno", nd=2)
 _q = _P72["x1|adaptado_pi0.173"]
 macro("FaInRat", num(_q["P_sobre_Por"], 1)); macro("FaInRatCI", ic(*_q["P_sobre_Por_ic"], 1))
+_q = _P72["x1|adaptado_pi0.05"]
+macro("FaInCincoRat", num(_q["P_sobre_Por"], 1)); macro("FaInCincoRatCI", ic(*_q["P_sobre_Por_ic"], 1))
 rango("FaSmAmp", [100 * _P72[f"x1|{n}"]["r"] for n in ("inst_m6_pi0.173", "inst_m12_pi0.173")])
 macro("FaCP", num(_C72["x1|adaptado_pi0.173"]["c_P"])); macro("FaCPCinco", num(_C72["x1|adaptado_pi0.05"]["c_P"]))
 macro("FaCPSm", num(_C72["x1|inst_m12_pi0.173"]["c_P"]))
@@ -939,6 +1052,150 @@ macro("RbCortaVeinFz", num(100 * _R7b["a20|forzado|4"]["q"]["integrador_0.5s"]["
 rango("RbCorta", [100 * v["q"][v["corta"]]["rec"] for v in _R7b.values()])
 macro("RbCortaGana", str(e70b["pred"]["A1"]["gana_al_sin_memoria"]))
 rango("RbCuar", [100 * _R7b[f"a40|{c}"]["q"]["integrador_0.25s"]["rec"] for c in ("forzado|4", "maniobra|4", "maniobra|1")])
+
+# ---------------------------------------------------------------- revisión del 14-nov: falsas alarmas por intervalo, exceso de difusión y cohesión (E75, E75b)
+import math
+
+e75 = J("E75_falsas_alarmas_escala.json")
+_X75, _Z75 = e75["x1"], e75["x10"]
+
+
+def _v75(nombre, q, nd=3):
+    macro(nombre, num(q["v"], nd)); macro(nombre + "CI", ic(*q["ic"], nd))
+
+
+_o75, _i75, _c75 = _X75["oraculo"], _X75["adaptado_pi0.173"], _X75["adaptado_pi0.05"]
+for _l, _cod in (("1", "Uno"), ("2", "Dos"), ("60", "Sesenta"), ("120", "Ciento")):
+    macro("FeOr" + _cod, num(_o75["r"][_l]["v"], 3)); macro("FeIn" + _cod, num(_i75["r"][_l]["v"], 3))
+macro("FeOrCambio", num(_o75["r"]["1"]["v"] / _o75["r"]["120"]["v"], 1))            # veces que cambia P del oráculo de 1 a 120 s
+macro("FeOrCambioDiez", num(_o75["r"]["10"]["v"] / _o75["r"]["120"]["v"], 1))
+_v75("FeRatDos", _i75["r_or"]["2"], 1); _v75("FeRatSesenta", _i75["r_or"]["60"], 1)
+rango("FeRatLargo", [_i75["r_or"][k]["v"] for k in ("10", "20", "60", "120")], 1)
+_v75("FeCD", _i75["cD"]["10"], 2); _v75("FeCDCinco", _c75["cD"]["10"], 2)
+rango("FeCDLargo", [_i75["cD"][k]["v"] for k in ("10", "20", "60", "120")], 2)
+macro("FeCPSesenta", num(_i75["cP"]["60"]["v"]))
+macro("FeCDSm", num(_X75["inst_m12_pi0.173"]["cD"]["10"]["v"], 3))
+_v75("FeColdOr", _o75["r_cold"]["10"], 3); _v75("FeColdIn", _i75["r_cold"]["10"], 2)
+macro("FeColdInCinco", num(_c75["r_cold"]["10"]["v"], 2))
+_v75("FeGiroOr", _o75["delta_rms"], 2); _v75("FeGiroIn", _i75["delta_rms"], 2)
+macro("FeGiroOrGrad", num(math.degrees(_o75["delta_rms"]["v"]), 0)); macro("FeGiroInGrad", num(math.degrees(_i75["delta_rms"]["v"]), 0))
+macro("FeGiroCold", num(_X75["CoLd"]["delta_rms"]["v"], 2))
+macro("FeNrun", str(_o75["n"]))
+for _n, _cod in (("oraculo", "Or"), ("adaptado_pi0.173", "In"), ("adaptado_pi0.05", "InCinco"), ("CoLd", "Cold")):
+    macro("FeParte" + _cod, str(_X75[_n]["parten"]))
+macro("FePolOr", num(_o75["pol"])); macro("FePolIn", num(_i75["pol"])); macro("FePolInCinco", num(_c75["pol"]))
+macro("FeEnteraOr", num(_o75["r_enteras"]["v"], 3)); macro("FeEnteraOrN", str(_o75["r_enteras"]["n"]))
+macro("FeEnteraIn", num(_i75["r_enteras"]["v"], 3)); macro("FeEnteraInN", str(_i75["r_enteras"]["n"]))
+macro("FeSubeOr", num(e75["meseta"]["oraculo"]["sube"], 1)); macro("FeSubeIn", num(e75["meseta"]["adaptado_pi0.173"]["sube"], 1))
+rango("FeDeriva", [100 * (e75["meseta"][n]["v"] - 1) for n in ("oraculo", "adaptado_pi0.173")])
+macro("FeRhoAl", num(e75["spearman_alarmas_cohesion"]["rho"], 2))
+_s75 = e75["sin_alarmas"]["adaptado_pi0.173"]
+_v75("FeSinDos", _s75["r"]["2"], 3); _v75("FeSinSesenta", _s75["r"]["60"], 3)
+macro("FeSinParte", str(_s75["finales_partidas"])); macro("FeSinN", str(_s75["n_corridas"]))
+macro("FeDiezParte", str(_Z75["oraculo"]["parten"])); macro("FeDiezN", str(_Z75["oraculo"]["n"]))
+assert all(v["cumple"] for v in e75["pred"].values())                               # F1-F6
+assert all(_i75["r_or"][k]["ic"][0] > 1 for k in ("2", "5", "10", "20", "60"))       # «3 times the oracle's» con IC sobre 1
+assert all(_X75[n]["parten"] == 0 for n in ("ViSt", "amplitud_pi0.173", "inst_m6_pi0.173", "inst_m12_pi0.173"))
+assert all(_Z75[n]["parten"] == _Z75[n]["n"] for n in ("oraculo", "adaptado_pi0.173", "adaptado_pi0.05"))
+assert all(e75["sin_alarmas"][n]["finales_partidas"] == 0 for n in ("ViSt", "adaptado_pi0.05", "amplitud_pi0.173"))
+assert abs(_o75["r"]["10"]["v"] - _P72["x1|oraculo"]["r"]) < 1e-9 and abs(_i75["r"]["10"]["v"] - _P72["x1|adaptado_pi0.173"]["r"]) < 1e-9
+_filas = []
+for n, et in (("ViSt", "ViSt (no reading)"), ("CoLd", "CoLd (nobody reads)"), ("oraculo", "oracle"),
+              ("adaptado_pi0.173", "integrating, $\\pi_0=0.173$"), ("adaptado_pi0.05", "integrating, $\\pi_0=0.05$"),
+              ("amplitud_pi0.173", "memoryless $\\times1$"), ("inst_m6_pi0.173", "memoryless $\\times6$"),
+              ("inst_m12_pi0.173", "memoryless $\\times12$")):
+    q = _X75[n]
+    rc = "$1$" if n == "CoLd" else f"${q['r_cold']['10']['v']:.2f}$ [${q['r_cold']['10']['ic'][0]:.2f}$, ${q['r_cold']['10']['ic'][1]:.2f}$]"
+    cd = "$1$" if n == "oraculo" else f"${q['cD']['10']['v']:.3f}$ [${q['cD']['10']['ic'][0]:.3f}$, ${q['cD']['10']['ic'][1]:.3f}$]"
+    gi = f"${q['delta_rms']['v']:.2f}$" if "delta_rms" in q else "---"
+    _filas.append(f"{et} & " + " & ".join(f"${q['r'][k]['v']:.3f}$" for k in ("2", "10", "60")) + f" & {rc} & {cd} & {gi} & "
+                  f"${q['parten']}$ & ${q['coh_min_mediana']:.2f}$ \\\\")
+escribir("tab_fa_escala.tex", _filas)
+
+e75b = J("E75b_cohesion_sin_alarmas.json")
+_B75 = e75b["cond"]
+for _n, _cod, _nd in (("ViSt", "Vist", 1), ("adaptado_pi0.05", "Cinco", 1), ("adaptado_pi0.173", "Ja", 1), ("adaptado_pi0.3", "Tres", 1),
+                      ("amplitud_pi0.173", "SmUno", 1), ("inst_m6_pi0.173", "SmSeis", 0)):
+    macro("Fb" + _cod, num(_B75[_n]["dstar_max_tras_350"], _nd))
+macro("FbBase", num(_B75["ViSt"]["dstar_mediana_antes_300"], 1))
+macro("FbT", num(_B75["ViSt"]["t_dstar_max_tras_350"], 0))
+macro("FbFracCinco", num(100 * _B75["adaptado_pi0.05"]["frac_tiempo_bajo_0.9"], 0))
+macro("FbFracJa", num(100 * _B75["adaptado_pi0.173"]["frac_tiempo_bajo_0.9"], 0))
+macro("FbLadoMenor", str(_B75["ViSt"]["lado_menor_en_ese_max"])); macro("FbLadoMayor", str(250 - _B75["ViSt"]["lado_menor_en_ese_max"]))
+assert e75b["pred"]["F8"]["cumple"] and not e75b["pred"]["F7"]["cumple"]
+assert all(q["max_dif_rumbo"] == 0 for q in _B75.values())                           # la repetición reproduce el rumbo guardado
+assert _B75["ViSt"]["dstar_max_tras_350"] < 2.5 < _B75["adaptado_pi0.05"]["dstar_max_tras_350"] < _B75["adaptado_pi0.173"]["dstar_max_tras_350"]
+
+# ---------------------------------------------------------------- revisión del 14-nov: muestras efectivas del observador (E76)
+e76 = J("E76_muestras_efectivas.json")
+_u76 = e76["por_ventana"]["1"]
+macro("EfQ", num(_u76["q"])); macro("EfQcero", num(_u76["q0"]))
+macro("EfN", num(_u76["n_ef"], 0)); macro("EfNsup", num(_u76["n_supuesto"], 0))
+rango("EfCoc", [e76["por_ventana"][k]["cociente"] for k in ("0.25", "1", "4")], 1)
+macro("EfTau", num(_u76["tau_I"])); macro("EfAcf", num(_u76["acf_I"]["0.05"]))
+macro("EfPost", num(_u76["post"]["0.173"]["media"], 3)); macro("EfPostFr", num(_u76["post"]["0.048"]["media"], 3))
+assert max(_u76["post"][pi]["sobre_0.5"] for pi in ("0.048", "0.173")) == 0          # ventana de 1 s, 4 corridas de 60 s
+macro("PeFpJaMillon", num(1e6 * P64["adaptado_pi0.173"]["fpr"], 0))                 # pesos sobre 1/2 por millón, 16 corridas de 600 s (E64)
+assert P64["adaptado_pi0.05"]["fpr"] == 0 and 0 < P64["adaptado_pi0.173"]["fpr"] < 1e-5
+
+# ---------------------------------------------------------------- revisión del 14-nov: tablas del cuerpo (regímenes y comparación en réplicas nuevas)
+def _rg(vals, nd=0, k=100.0):
+    f = lambda x: f"{0.0 if round(x, nd) == 0 else x:.{nd}f}"
+    return f"${f(k * min(vals))}$--${f(k * max(vals))}$"
+
+
+_filas = []
+_E48 = e48["celdas"]
+
+
+def _varios(N, n, reps, k="15", corte=False):
+    cs = [f"N{N}|n{n}|{c}" for c in C3]
+    if N == 250:
+        sm = _rg([_P71[c][e71["eleccion"][c]["ganancia"]]["rec"] for c in cs]) + "\\textsuperscript{a}"
+    else:
+        sm = _rg([e71["N1000"][c]["rec"][e71["N1000"][c]["g_max"]]["rec"] for c in C3]) + "\\textsuperscript{b}"
+    _filas.append(f"${n}$ at random & ${N}$ & ${n}/{N}$ & ${k}$ & {_rg([A68[c]['ventaja'] for c in cs], 2, 1.0)} & "
+                  f"{_rg([R68[c]['integrador']['rec'] for c in cs])} & {sm} & ${reps}$ \\\\" + ("\n\\addlinespace" if corte else ""))
+
+
+_varios(250, 12, 32)
+_varios(1000, 48, 8)
+_filas.append("$12$ at random & $250$ & $12/250$ & $70$ & " + _rg([e70["rec"][f"k70|{c}"]["_abs"]["ventaja"] for c in C3], 2, 1.0)
+              + " & " + _rg(_ri("k70"), 0, 1.0) + " & " + _rg(_rsm("k70"), 0, 1.0) + "\\textsuperscript{b} & $8$ \\\\\n\\addlinespace")
+_varios(250, 1, 8); _varios(250, 3, 8); _varios(250, 25, 8, corte=True)
+for N, w in ((250, "15.8"), (1000, "31.6")):
+    cs = [f"forzado|{N}|4|{w}", f"maniobra|{N}|4|{w}", f"maniobra|{N}|1|{w}"]
+    _filas.append(f"leader at the centre & ${N}$ & $0.173$ & $15$ & {_rg([_E48[c]['adaptado']['32']['ventaja'] for c in cs], 2, 1.0)} & "
+                  f"{_rg([_E48[c]['adaptado']['32']['rec'] for c in cs])} & {_rg([_E48[c]['amplitud']['32']['rec'] for c in cs])}\\textsuperscript{{c}} & $32$ \\\\")
+_filas.append("leader at the centre & $250$ & $1/250$ & $15$ & " + _rg([e62["rec"][c]["0.004"]["ventaja"] for c in C3], 2, 1.0) + " & "
+              + _rg([e62["rec"][c]["0.004"]["rec"] for c in C3]) + " & --- & $8$ \\\\")
+_filas.append("leader at the centre & $250$ & $0.173$ & $70$ & " + _rg([e65["abs"][c]["ventaja"] for c in C3], 2, 1.0) + " & "
+              + _rg([e65["rec"][c]["k70|adaptado_cal"]["rec"] for c in C3]) + " & "
+              + _rg([e65["rec"][c]["k70|amplitud_cal"]["rec"] for c in C3]) + "\\textsuperscript{c} & $16$ \\\\")
+escribir("tab_regimenes.tex", _filas)
+macro("DfSetentaViSt", num(abs(100 * D67["base"]["ViSt|70"]), 0)); macro("DfSetentaWiSt", num(abs(100 * D67["base"]["WiSt|70"]), 0))
+assert abs(D67["base"]["ViSt|70"]) < 0.015 and abs(D67["base"]["WiSt|70"]) < 0.015   # «within 1 %» a k = 70 (redondeado)
+
+_filas = []
+for c in _D71:
+    N_, n_, etq, tw = c.split("|")
+    et = {"forzado": "driven", "maniobra": "manoeuvre"}[etq] + f", $\\tauW={tw}$\\,s"
+    q, el = _D71[c]["int1_vs_gstar"], e71["eleccion"][c]
+    g = "1" if el["ganancia"] == "sin_memoria" else el["ganancia"].split("_x")[1]
+    cab = f"${n_[1:]}$ of $250$" if etq == "forzado" else ""
+    _filas.append(f"{cab} & {et} & ${_P71[c]['integrador']['rec']:.2f}$ & ${_P71[c][el['ganancia']]['rec']:.2f}$ ($\\times{g}$) & "
+                  f"${q['dif']:+.2f}$ [${q['ic95'][0]:+.2f}$, ${q['ic95'][1]:+.2f}$] \\\\")
+_filas.append("\\addlinespace")
+for c in C3:
+    v = e71["N1000"][c]
+    etq, tw = c.split("|")
+    et = {"forzado": "driven", "maniobra": "manoeuvre"}[etq] + f", $\\tauW={tw}$\\,s"
+    g = "1" if v["g_max"] == "sin_memoria" else v["g_max"].split("_x")[1]
+    cab = "$48$ of $1000$" if etq == "forzado" else ""
+    q = v["int_vs_gmax"]
+    _filas.append(f"{cab} & {et} & ${v['rec']['integrador']['rec']:.2f}$ & ${v['rec'][v['g_max']]['rec']:.2f}$ ($\\times{g}$)$^{{\\dagger}}$ & "
+                  f"${q['dif']:+.2f}$ [${q['ic95'][0]:+.2f}$, ${q['ic95'][1]:+.2f}$] \\\\")
+escribir("tab_justa_cuerpo.tex", _filas)
 
 with open(os.path.join(AQUI, "numeros.tex"), "w") as fh:
     fh.write("% generado por numeros.py desde resultados/*.json; no editar a mano\n")

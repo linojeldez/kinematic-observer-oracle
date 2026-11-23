@@ -402,45 +402,45 @@ def fig_dos_etapas():
 
 
 def fig_entrenados():
-    """E73/E73b: peces cebra con cinco entrenados. (a) AUC entrenado frente a desensibilizado contra
-    el tiempo desde el encendido, con un cuadro y con 1 s, y el control con encendidos ficticios;
-    (b) AUC con ventanas que terminan cuando responden los desensibilizados, contra la ventana."""
-    e73, e73b = cargar("E73_peces_entrenados.json"), cargar("E73b_variantes.json")
+    """E74: peces cebra con cinco entrenados, filtros de sólo pasado. (a) AUC entrenado frente a
+    desensibilizado contra el instante en que termina la ventana, con un valor, 0,25 s y 1 s, y el
+    control con encendidos ficticios; (b) AUC contra la ventana: en los grupos que quedan fuera de
+    la elección del cierre y con ventanas que terminan cuando responden los desensibilizados."""
+    e73, e74 = cargar("E73_peces_entrenados.json"), cargar("E74_peces_solo_pasado.json")
     fig, (a1, a2) = plt.subplots(1, 2, figsize=(3.45, 1.95), width_ratios=[1.35, 1])
     fig.subplots_adjust(wspace=0.42)
-    TF = (-1.0, 0.0, 0.5, 1.0, 1.5, 2.0, 3.0)
-    for w, col, mk, lab in (("cuadro", GRIS, "x", "one frame"), ("1.0", AZUL, "o", "1 s window")):
-        y = [e73["auc"][f"{w}|{t:g}"] for t in TF]
-        lo = [e73["ic"][f"{w}|{t:g}"][0] for t in TF]
-        hi = [e73["ic"][f"{w}|{t:g}"][1] for t in TF]
-        a1.fill_between(TF, lo, hi, color=col, alpha=0.18, lw=0)
-        a1.plot(TF, y, color=col, marker=mk, ms=2.8, lw=1.0, label=lab)
-    yc = [e73["control_intertrial"][f"1.0|{t:g}"]["auc"] for t in TF]
-    a1.plot(TF, yc, color="0.55", lw=0.8, ls=(0, (3, 2)), label="1 s, no stimulus")
+    T = np.array(e74["TG"])
+    iw = {w: i for i, w in enumerate(e74["W"])}
+    c = e74["curso"]["sp"]
+    for w, col, lw, lab in (("valor", GRIS, 0.8, "one value"), ("1.0", VERDE, 0.9, "1 s window"),
+                            ("0.25", AZUL, 1.1, "0.25 s window")):
+        i = iw[w]
+        a1.fill_between(T, c["lo"][i], c["hi"][i], color=col, alpha=0.16, lw=0)
+        a1.plot(T, c["auc"][i], color=col, lw=lw, label=lab)
+    a1.plot(T, e74["control"]["sp"]["auc"][iw["0.25"]], color="0.45", lw=0.7, ls=(0, (3, 2)), label="0.25 s, no stimulus")
     a1.axvline(0, color="0.75", lw=0.6, zorder=0)
     a1.axhline(0.5, color="0.8", lw=0.5, zorder=0)
     r = e73["resp"]
     a1.axvspan(r["tD_iqr"][0], r["tD_iqr"][1], color=NARANJA, alpha=0.10, lw=0, zorder=0)
-    a1.text(r["tD_mediana"], 0.425, "untrained\nrespond", fontsize=4.8, color=NARANJA, ha="center", va="bottom")
-    a1.set_xlabel("time from light onset (s)", fontsize=7)
+    a1.text(r["tD_mediana"] + 0.35, 0.405, "untrained\nrespond", fontsize=4.8, color=NARANJA, ha="center", va="bottom")
+    a1.set_xlabel("end of window, from light onset (s)", fontsize=6.6)
     a1.set_ylabel("AUC, trained vs untrained", fontsize=7)
-    a1.set_ylim(0.42, 0.72)
+    a1.set_xlim(-1, 3); a1.set_ylim(0.40, 0.77)
     a1.legend(loc="upper left", fontsize=4.6, borderaxespad=0.1, labelspacing=0.12, handlelength=1.4)
-    W = ("cuadro", "0.25", "0.5", "1.0", "2.0")
-    xs = [0, 1, 2, 3, 4]
-    y = [e73["auc_tD"][f"{w}|tD"]["auc"] for w in W]
-    lo = [e73["auc_tD"][f"{w}|tD"]["ic95"][0] for w in W]
-    hi = [e73["auc_tD"][f"{w}|tD"]["ic95"][1] for w in W]
-    a2.fill_between(xs, lo, hi, color=AZUL, alpha=0.18, lw=0)
-    a2.plot(xs, y, color=AZUL, marker="o", ms=2.8, lw=1.0, label="turn rate")
-    sp = e73b["rapidez"]["auc_tD"]
-    a2.plot([0, 3], [sp["cuadro|tD"], sp["1.0|tD"]], color=ROJO, marker="s", ms=2.8, lw=0.9, ls=(0, (3, 2)),
-            label="speed")
+    W = e74["W"]
+    xs = list(range(len(W)))
+    f = e74["fuera"]["sp"]["por_ventana"]
+    a2.fill_between(xs, [f[w]["ic95"][0] for w in W], [f[w]["ic95"][1] for w in W], color=AZUL, alpha=0.18, lw=0)
+    a2.plot(xs, [f[w]["auc"] for w in W], color=AZUL, marker="o", ms=2.8, lw=1.0, label="left-out groups")
+    q = e74["antes"]["en_tD"]["sp"]["0"]
+    a2.fill_between(xs, [q[w]["ic95"][0] for w in W], [q[w]["ic95"][1] for w in W], color=NARANJA, alpha=0.13, lw=0)
+    a2.plot(xs, [q[w]["auc"] for w in W], color=NARANJA, marker="s", ms=2.6, lw=0.9, ls=(0, (3, 2)),
+            label="ending at their\nresponse")
     a2.axhline(0.5, color="0.8", lw=0.5, zorder=0)
-    a2.set_xticks(xs); a2.set_xticklabels(["1 fr.", ".25", ".5", "1", "2"])
-    a2.set_xlabel("window (s) before\ntheir response", fontsize=7)
-    a2.set_ylim(0.42, 0.88)
-    a2.legend(loc="upper left", fontsize=4.8, borderaxespad=0.1, labelspacing=0.15)
+    a2.set_xticks(xs); a2.set_xticklabels(["val.", ".25", ".5", "1", "2"], fontsize=7)
+    a2.set_xlabel("window (s)", fontsize=7)
+    a2.set_ylim(0.46, 0.75)
+    a2.legend(loc="upper right", fontsize=4.6, borderaxespad=0.1, labelspacing=0.2, handlelength=1.6)
     fig.savefig(os.path.join(FIG, "f_entrenados.pdf"))
     plt.close(fig)
 

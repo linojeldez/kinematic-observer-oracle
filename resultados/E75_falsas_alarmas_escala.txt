@@ -1,0 +1,45 @@
+=== E75 · falsas alarmas: intervalo, exceso de difusión, contraste con CoLd y cohesión ===
+series de E64 y E72 (600 s, rumbo cada 0,5 s); bootstrap pareado de réplicas, 2000 remuestreos
+
+--- lambda x1 (16 réplicas; falsas alarmas por corrida: 13.2) ---
+D_ViSt sin alarmas por intervalo: 1 s 1.367e-04  2 s 1.392e-04  5 s 1.415e-04  10 s 1.431e-04  20 s 1.425e-04  60 s 1.293e-04  120 s 1.213e-04
+oraculo            1s 0.061  2s 0.043  5s 0.028  10s 0.022  20s 0.019  60s 0.016  120s 0.014 | 10 s: P/P_ViSt 0.022 [0.014; 0.036]  P/P_CoLd 0.040 [0.026; 0.066] | parten 13/16  coh_min med 0.35  pol 0.747  sin las partidas 0.050 (n = 3)  delta_rms 0.59 rad
+adaptado_pi0.173   1s 0.133  2s 0.114  5s 0.087  10s 0.074  20s 0.066  60s 0.057  120s 0.047 | 10 s: P/P_ViSt 0.074 [0.052; 0.108]  P/P_CoLd 0.135 [0.090; 0.197]  c_P 0.947  c_D 0.279 [0.152; 0.496] | parten 6/16  coh_min med 0.52  pol 0.868  sin las partidas 0.088 (n = 10)  delta_rms 0.31 rad
+adaptado_pi0.05    1s 0.127  2s 0.100  5s 0.073  10s 0.064  20s 0.071  60s 0.071  120s 0.059 | 10 s: P/P_ViSt 0.064 [0.038; 0.111]  P/P_CoLd 0.117 [0.068; 0.198]  c_P 0.956  c_D 0.324 [0.151; 0.650] | parten 8/16  coh_min med 0.48  pol 0.817  sin las partidas 0.102 (n = 8)  delta_rms 0.28 rad
+amplitud_pi0.173   1s 0.960  2s 0.935  5s 0.864  10s 0.801  20s 0.740  60s 0.667  120s 0.708 | 10 s: P/P_ViSt 0.801 [0.731; 0.869]  P/P_CoLd 1.462 [1.372; 1.549]  c_P 0.204  c_D 0.006 [0.003; 0.010] | parten 0/16  coh_min med 1.00  pol 0.997  sin las partidas 0.801 (n = 16)  delta_rms 0.05 rad
+inst_m6_pi0.173    1s 0.790  2s 0.743  5s 0.663  10s 0.605  20s 0.551  60s 0.482  120s 0.468 | 10 s: P/P_ViSt 0.605 [0.548; 0.668]  P/P_CoLd 1.104 [1.017; 1.193]  c_P 0.404  c_D 0.015 [0.009; 0.026] | parten 0/16  coh_min med 1.00  pol 0.997  sin las partidas 0.605 (n = 16)  delta_rms 0.08 rad
+inst_m12_pi0.173   1s 0.786  2s 0.748  5s 0.682  10s 0.630  20s 0.577  60s 0.508  120s 0.499 | 10 s: P/P_ViSt 0.630 [0.570; 0.699]  P/P_CoLd 1.151 [1.065; 1.240]  c_P 0.378  c_D 0.013 [0.008; 0.023] | parten 0/16  coh_min med 1.00  pol 0.997  sin las partidas 0.630 (n = 16)  delta_rms 0.08 rad
+ViSt               1s 1.004  2s 1.002  5s 0.966  10s 0.928  20s 0.900  60s 0.831  120s 0.940 | 10 s: P/P_ViSt 0.928 [0.844; 1.009]  P/P_CoLd 1.695 [1.531; 1.855]  c_P 0.073  c_D 0.002 [-0.000; 0.005] | parten 0/16  coh_min med 1.00  pol 0.997  sin las partidas 0.928 (n = 16)
+CoLd               1s 0.864  2s 0.780  5s 0.638  10s 0.548  20s 0.483  60s 0.410  120s 0.421 | 10 s: P/P_ViSt 0.548 [0.478; 0.622]  P/P_CoLd 1.000 [1.000; 1.000]  c_P 0.462  c_D 0.018 [0.011; 0.031] | parten 1/16  coh_min med 0.89  pol 0.990  sin las partidas 0.544 (n = 15)  delta_rms 0.09 rad
+  oraculo: P/P_or por intervalo 1s 1.00 [1.00; 1.00]  2s 1.00 [1.00; 1.00]  5s 1.00 [1.00; 1.00]  10s 1.00 [1.00; 1.00]  20s 1.00 [1.00; 1.00]  60s 1.00 [1.00; 1.00]  120s 1.00 [1.00; 1.00]
+  adaptado_pi0.173: P/P_or por intervalo 1s 2.18 [0.91; 6.84]  2s 2.64 [1.24; 6.31]  5s 3.09 [1.66; 5.89]  10s 3.39 [1.95; 6.01]  20s 3.50 [2.10; 5.98]  60s 3.53 [2.12; 6.02]  120s 3.43 [1.75; 6.86] | c_D 1s 0.42  2s 0.35  5s 0.30  10s 0.28  20s 0.27  60s 0.27  120s 0.28
+  adaptado_pi0.05: P/P_or por intervalo 1s 2.08 [0.91; 5.61]  2s 2.31 [1.09; 5.51]  5s 2.61 [1.31; 5.65]  10s 2.96 [1.51; 6.08]  20s 3.75 [2.17; 6.41]  60s 4.38 [2.62; 6.75]  120s 4.35 [2.31; 7.52] | c_D 1s 0.45  2s 0.41  5s 0.37  10s 0.32  20s 0.25  60s 0.22  120s 0.22
+
+--- lambda x10 (8 réplicas; falsas alarmas por corrida: 132.6) ---
+D_ViSt sin alarmas por intervalo: 1 s 1.374e-04  2 s 1.378e-04  5 s 1.412e-04  10 s 1.439e-04  20 s 1.441e-04  60 s 1.291e-04  120 s 1.023e-04
+oraculo            1s 0.004  2s 0.003  5s 0.003  10s 0.002  20s 0.002  60s 0.002  120s 0.002 | 10 s: P/P_ViSt 0.002 [0.002; 0.003]  P/P_CoLd 0.026 [0.021; 0.032] | parten 8/8  coh_min med 0.16  pol 0.435  delta_rms 0.52 rad
+adaptado_pi0.173   1s 0.008  2s 0.006  5s 0.005  10s 0.005  20s 0.004  60s 0.004  120s 0.003 | 10 s: P/P_ViSt 0.005 [0.003; 0.007]  P/P_CoLd 0.050 [0.036; 0.070]  c_P 0.998  c_D 0.527 [0.389; 0.654] | parten 8/8  coh_min med 0.23  pol 0.526  delta_rms 0.39 rad
+adaptado_pi0.05    1s 0.007  2s 0.005  5s 0.004  10s 0.004  20s 0.003  60s 0.002  120s 0.002 | 10 s: P/P_ViSt 0.004 [0.003; 0.005]  P/P_CoLd 0.040 [0.025; 0.071]  c_P 0.999  c_D 0.655 [0.428; 0.898] | parten 8/8  coh_min med 0.24  pol 0.511  delta_rms 0.48 rad
+amplitud_pi0.173   1s 0.728  2s 0.598  5s 0.460  10s 0.391  20s 0.346  60s 0.274  120s 0.166 | 10 s: P/P_ViSt 0.391 [0.336; 0.467]  P/P_CoLd 4.339 [3.559; 5.314]  c_P 0.611  c_D 0.004 [0.003; 0.005] | parten 0/8  coh_min med 0.72  pol 0.991  sin las partidas 0.391 (n = 8)  delta_rms 0.04 rad
+inst_m12_pi0.173   1s 0.495  2s 0.383  5s 0.276  10s 0.232  20s 0.206  60s 0.159  120s 0.102 | 10 s: P/P_ViSt 0.232 [0.193; 0.288]  P/P_CoLd 2.580 [2.088; 3.131]  c_P 0.769  c_D 0.008 [0.006; 0.011] | parten 4/8  coh_min med 0.59  pol 0.964  sin las partidas 0.276 (n = 4)  delta_rms 0.06 rad
+CoLd               1s 0.312  2s 0.207  5s 0.123  10s 0.090  20s 0.071  60s 0.051  120s 0.037 | 10 s: P/P_ViSt 0.090 [0.070; 0.115]  P/P_CoLd 1.000 [1.000; 1.000]  c_P 0.912  c_D 0.024 [0.019; 0.030] | parten 6/8  coh_min med 0.39  pol 0.876  delta_rms 0.10 rad
+  oraculo: P/P_or por intervalo 1s 1.00 [1.00; 1.00]  2s 1.00 [1.00; 1.00]  5s 1.00 [1.00; 1.00]  10s 1.00 [1.00; 1.00]  20s 1.00 [1.00; 1.00]  60s 1.00 [1.00; 1.00]  120s 1.00 [1.00; 1.00]
+  adaptado_pi0.173: P/P_or por intervalo 1s 2.05 [1.45; 3.35]  2s 2.03 [1.51; 3.14]  5s 1.98 [1.53; 2.85]  10s 1.89 [1.53; 2.56]  20s 1.86 [1.47; 2.52]  60s 1.84 [1.27; 2.71]  120s 2.04 [1.42; 2.81] | c_D 1s 0.49  2s 0.49  5s 0.50  10s 0.53  20s 0.54  60s 0.54  120s 0.49
+  adaptado_pi0.05: P/P_or por intervalo 1s 1.75 [1.20; 2.95]  2s 1.65 [1.18; 2.65]  5s 1.59 [1.16; 2.44]  10s 1.52 [1.11; 2.33]  20s 1.41 [0.94; 2.28]  60s 1.17 [0.67; 2.29]  120s 1.25 [0.67; 2.56] | c_D 1s 0.57  2s 0.60  5s 0.63  10s 0.66  20s 0.71  60s 0.86  120s 0.80
+
+--- sin falsas alarmas (E64): P/P_ViSt por intervalo ---
+ViSt               n 16  2s 1.000 [1.000; 1.000]  10s 1.000 [1.000; 1.000]  60s 1.000 [1.000; 1.000]  cohesión final media 1.000 (mín 1.00; partidas al final 0/16)
+adaptado_pi0.173   n 16  2s 0.986 [0.982; 0.990]  10s 0.982 [0.970; 0.992]  60s 0.972 [0.942; 1.007]  cohesión final media 0.972 (mín 0.56; partidas al final 1/16)
+adaptado_pi0.05    n 16  2s 1.000 [0.998; 1.001]  10s 0.997 [0.993; 1.001]  60s 0.993 [0.984; 1.005]  cohesión final media 1.000 (mín 1.00; partidas al final 0/16)
+adaptado_pi0.3     n 16  2s 0.965 [0.958; 0.973]  10s 0.958 [0.939; 0.978]  60s 0.948 [0.897; 1.012]  cohesión final media 0.972 (mín 0.56; partidas al final 1/16)
+amplitud_pi0.173   n 16  2s 0.986 [0.980; 0.992]  10s 0.988 [0.976; 1.001]  60s 0.984 [0.955; 1.015]  cohesión final media 1.000 (mín 1.00; partidas al final 0/16)
+inst_m6_pi0.173    n  8  2s 0.827 [0.800; 0.846]  10s 0.820 [0.759; 0.878]  60s 0.818 [0.712; 0.953]  cohesión final media 0.945 (mín 0.56; partidas al final 1/8)
+inst_m12_pi0.173   n  8  2s 0.807 [0.783; 0.825]  10s 0.804 [0.751; 0.853]  60s 0.808 [0.712; 0.933]  cohesión final media 0.945 (mín 0.56; partidas al final 1/8)
+
+=== Predicciones ===
+F1: CUMPLE  {"D120_sobre_D20": {"oraculo": 1.178018166075307, "adaptado_pi0.173": 1.2022727161878433, "adaptado_pi0.05": 1.0174410656062443}, "D20_sobre_D1": {"oraculo": 3.3643877135961637, "adaptado_pi0.173": 2.098083614302659, "adaptado_pi0.05": 1.8628456331646952}, "ViSt_D120_sobre_D10": 0.8477974486368312, "a": true, "b": true, "cumple": true}
+F2: CUMPLE  {"P_int_sobre_P_or": {"1": 2.1826764306117576, "2": 2.6368841051039147, "5": 3.0865509376427167, "10": 3.393858956774497, "20": 3.5000367553734733, "60": 3.527553848875273, "120": 3.42942730401031}, "a": true, "b": true, "cumple": true}
+F3: CUMPLE  {"oraculo": {"v": 0.039738869695236816, "ic": [0.025527270254250917, 0.06574033515989584]}, "integrador": {"v": 0.1348681188472741, "ic": [0.08990111624918314, 0.1965692311122919]}, "a": true, "b": true, "cumple": true}
+F4: CUMPLE  {"cD_0.173": {"5": 0.3043986452531352, "20": 0.2719397914504346, "120": 0.28177217842379504}, "cD_0.05": {"5": 0.3655656276316742, "20": 0.25231631775781593, "120": 0.21946388596138328}, "a": true, "b": true, "cumple": true}
+F5: CUMPLE  {"rho": -0.5847598849186123, "p": 0.017352146785351227, "n": 16, "a": true, "cumple": true}
+F6: CUMPLE  {"r": {"2": {"v": 0.9861405407932619, "ic": [0.9820608725719528, 0.9902842600308541]}, "10": {"v": 0.9816211539290788, "ic": [0.9698780313030472, 0.9918444538708852]}, "60": {"v": 0.9719878847773841, "ic": [0.9419229961277923, 1.0071550997882281]}}, "a": true, "cumple": true}

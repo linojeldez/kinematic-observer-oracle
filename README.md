@@ -18,7 +18,7 @@ reported in the supplement, and the scripts that turn those outputs into the pap
 figures and numbers.
 
 > **Resumen en español.** Código y resultados del Paper A: el motor de simulación, los
-> scripts de las etapas que usa el paper (E30, E35 y E42 a E73), sus salidas archivadas, el
+> scripts de las etapas que usa el paper (E30, E35 y E42 a E76), sus salidas archivadas, el
 > control independiente del suplemento y los generadores de figuras y cifras. Los
 > comentarios del código están en español.
 
@@ -50,16 +50,28 @@ python figuras/figuras_corto.py           # figures -> figuras/fig/
 python codigo/e71_comparacion_justa.py    # any stage: writes resultados/E71_*
 ```
 
-`figuras/numeros.py` reads only `resultados/` and `control_auditor/resultados/`, and
-reproduces the paper's macros and tables exactly. The simulations use fixed seeds (in the
+There are three levels of reproduction, from seconds to hours:
+
+1. **Numbers, tables and figures from the archived outputs** (seconds; no simulation and no
+   animal data). `figuras/numeros.py` reads only `resultados/` and
+   `control_auditor/resultados/` and writes the 803 macros and 31 table bodies, 26 of which
+   the manuscript includes; `figuras/figuras_corto.py` draws the figures from the same files
+   (the footprint figure simulates its sixteen short runs when it is drawn).
+2. **Analyses that reread archived raw runs** (seconds to minutes; no new simulation). E75
+   reads the heading series of E64 and E72, E71 its raw runs and those of E68, and E42,
+   E44, E48 and E49 admit `E42_SOLO_ANALISIS=1` (and the like).
+3. **Full simulations and animal analyses** (minutes to about three hours per stage with
+   five processes). The animal stages need the third-party data in `datos/`.
+
+`figuras/numeros.py` reproduces the paper's macros and tables exactly; the section *From
+archived results to the paper* below maps every table and figure to the stages it comes
+from. The simulations use fixed seeds (in the
 common harness, `7 + 1000·i_phi + replicate`; informed agents chosen with `5000 +
 replicate`), so a rerun reproduces the archived values. Most simulation stages simulate
-again when they are run (from a few minutes to about three hours with five processes, set
-with `FASE4_W`) and keep partial results in a `.parcial` file so that an interrupted run
-resumes; E42, E44, E48 and E49 admit `E42_SOLO_ANALISIS=1` (and the like) to redo only the
-analysis, and E71 reuses its archived raw runs and those of E68. The raw runs of every
-stage are in `resultados/*_crudo.json`. The stages with animal data need the data in
-`datos/` first.
+again when they are run (the number of processes is set with `FASE4_W`) and keep partial
+results in a `.parcial` file so that an interrupted run resumes. The raw runs of the
+simulation stages are in `resultados/*_crudo.json`; E75b and E76 keep their per-run values
+in their own JSON.
 
 Some scripts compare their results with archived values from earlier stages of the
 project ("anclas"); the files they read for that (`E9`, `E15`, `E16`, `E22`, `E27`, `E28`,
@@ -101,12 +113,16 @@ lists its predictions and whether they held.
 | E70, E70b | `e70_cabecera_robustez.py`, `e70b_ventana_agilidad.py` | The headline regime (12 of 250 informed) under other noise, agility and k; a window matched to the agility |
 | E71 | `e71_comparacion_justa.py` | Integrating against memoryless observer with the same tuning budget, evaluated on new seeds; window from 0.1 to 8 s |
 | E72 | `e72_persistencia_fa.py` | Persistence with false alarms at the rate measured in fish |
+| E75 | `e75_falsas_alarmas_escala.py` | The same runs by measurement interval, as excess heading diffusion, against CoLd with the same false alarms, and their cohesion (reads the heading series of E64 and E72; no simulation) |
+| E75b | `e75b_cohesion_sin_alarmas.py` | Cohesion in time in one persistence run without false alarms (repeats replicate 0 of E64 in six conditions, recording the largest connected group and the longest edge of the minimum spanning tree) |
+| E76 | `e76_muestras_efectivas.py` | Calibration of the integrating observer's weight without informed agents: exceedance rate and effective number of independent samples of the duty cycle |
 
 **Animal data.**
 
 | Stage | Script | Data | What it measures |
 |---|---|---|---|
-| E73, E73b | `e73_peces_entrenados.py`, `e73b_variantes.py` | Zebrafish with trained individuals | Turn-rate signature of the informed fish, known in advance, before and after the light cue; duty cycle, k = 5 and speed |
+| E73, E73b | `e73_peces_entrenados.py`, `e73b_variantes.py` | Zebrafish with trained individuals | Turn-rate signature of the informed fish, known in advance, before and after the light cue; duty cycle, k = 5 and speed (centred filters, the analysis declared beforehand) |
+| E74 | `e74_peces_solo_pasado.py` | Zebrafish with trained individuals | The same with filters that read only past frames, the response of the first untrained fish, and the window and its end chosen inside the resampling and evaluated on the groups left out |
 | E51, E51b | `e51_huella_aves.py`, `e51b_inyeccion.py` | Jackdaws, turning events | Footprint without a fixed threshold; known-truth injection control |
 | E52, E52b | `e52_auc_ventana_aves.py`, `e52b_aves_por_grabacion.py` | Jackdaws, turning events | Initiator/follower AUC against the window; recording as resampling unit |
 | E53 | `e53_agilidad_calibracion.py` | Jackdaws, continuous recordings | Agility and calibration of the observer |
@@ -115,14 +131,69 @@ lists its predictions and whether they held.
 | E35 | `e35_espinosos.py` | Sticklebacks | AUC against the window and footprint |
 | E30 | `e30_palomas.py` | Homing pigeons pursued by a robotic falcon | AUC against the window |
 
-**Shared modules.** `flocking.py` (2D engine: ViSt, CoLd, CaSp, WiSt with an oracle or a
-Bayesian observer), `parametros.py` (reference parameters `P0` and the compared mechanisms),
+**Shared modules.** `flocking.py` (2D engine: ViSt, CoLd, CaSp, WiSt with an oracle or an
+approximate Bayesian observer), `parametros.py` (reference parameters `P0` and the compared mechanisms),
 `fase4.py` (common harness: runs, pairing, recovery and intervals), `plan16_comun.py`
 (harness of E70 to E72), `e15_helpers.py` (footprint in the model), `e16_helpers.py`
 (kinematic residual on real tracks), `turns.py`, `jackdaws3d.py`, `e27_tetras.py` and
 `watts_palomas.py` (data loaders), and `carga_segura.py`, which reads the zebrafish
 trajectory files (pickled Python objects) admitting only the numpy classes they contain,
 so that no third-party code is executed.
+
+## From archived results to the paper
+
+Table and figure numbers are those of the manuscript of 15 November 2026 (the manuscript
+itself is not in this repository). Every number quoted in its text is a macro written by
+`figuras/numeros.py`; each table body is a file `figuras/gen/<name>.tex` written by the same
+script from the stage outputs listed here.
+
+| Paper | Body written by `numeros.py` | Stage outputs read |
+|---|---|---|
+| Table 1, regimes and recovery | `tab_regimenes` | E68, E71, E70, E48, E62, E65 |
+| Table 2, the two observers on new replicates | `tab_justa_cuerpo` | E71 |
+| Footprint table in the text | `tab_huella` | E47, E51 |
+| S1, parameters | written by hand | `codigo/flocking.py`, `codigo/parametros.py` |
+| S2, engine against the published responsivities | written by hand | validation runs; E67 recomputes k = 5, 15 and 70 |
+| S3, footprint against the model parameters | written by hand | E47 |
+| S4, components of the footprint | `tab_componentes` | E59 |
+| S5, single leader by group size | `tab_cabecera` | E48, E46 |
+| S6, single manoeuvre by decay time | `tab_tauW` | E46, E48 |
+| S7, absolute responsivities | `tab_absolutos` | `absolutos_E48` |
+| S8, interventions on what neighbours read | written by hand | E44 |
+| S9, persistence without false alarms | `tab_persistencia` | E64 |
+| S10, neighbourhood size and noise | `tab_malla` | E49 |
+| S11, observer that estimates its noise floor | `tab_auto` | E49 |
+| S12, what each agent can compute | `tab_receptor` | E60 |
+| S13, twelve informed agents, three priors | `tab_multi` | E63 |
+| S14, recovery against the number of informed agents | `tab_fraccion` | E68 |
+| S15, persistence with false alarms | `tab_persistencia_fa` | E72 |
+| S16, false alarms by interval, cost of reading, cohesion | `tab_fa_escala` | E75 (raw runs of E64 and E72) |
+| S17, comparison with the same tuning budget | `tab_justa` | E71 |
+| S18, window in the headline regime | `tab_ventana_cabecera` | E71 |
+| S19, other noise, agility and neighbourhood size | `tab_robustez` | E70 |
+| S20, memory and weight of the evidence | `tab_ganancia` | E58 |
+| S21, value of reading the leader | `tab_lectura` | E69 |
+| S22, agility of the agents | `tab_agilidad` | E55, E66 |
+| S23, window with the weight fixed | `tab_peso_fijo` | E61, E66, E55, E56 |
+| S24, outcomes declared beforehand | written by hand | the report of each stage, `resultados/E*.txt` |
+| S25, calibration from jackdaw recordings | `tab_calib` | E53 |
+| S26, zebrafish, centred filters | `tab_entrenados` | E73 |
+| S27, zebrafish, past-only filters | `tab_entrenados_sp` | E74 |
+| S28, zebrafish, windows tied to the response | `tab_entrenados_resp` | E74 |
+
+`numeros.py` also writes five table bodies that the manuscript does not include
+(`tab_cruz`, `tab_deteccion`, `tab_especies`, `tab_ruido_ventana`, `tab_tetraN`). The
+cohesion run without false alarms (E75b), the calibration of the observer's weight (E76) and
+the separate control enter the text as macros only.
+
+| Figure | File in `figuras/fig/` | Stage outputs read |
+|---|---|---|
+| 1, the two ingredients of the measurement | `f_esquema.pdf` | none (drawing) |
+| 2, residual of an agent with a sustained intention | `f2_footprint.pdf` | none: sixteen short runs simulated when it is drawn |
+| 3, recovery, robustness and persistence | `f_frontera.pdf` | E68, E70, E70b, E64, E72 |
+| 4, recovery against window, group size and decay time | `f_escalera.pdf` | E46, E66 |
+| 5, zebrafish with trained individuals | `f_entrenados.pdf` | E74, E73 |
+| 6, initiators and followers against the window | `f_especies.pdf` | E52b, E54, E54b |
 
 ## Separate control
 
