@@ -1,0 +1,20 @@
+=== E77 · peces cebra: sensibilidad del AUC condicional al criterio de respuesta individual ===
+159 ensayos, 20 grupos; ventana 0,25 s con cierre a +0,5 s (sólo pasado); ensayos sin respuesta individual de ningún no entrenado antes de +0.6 s
+todos los ensayos: AUC 0.6408 [0.609; 0.670]
+umbral (DE) | sostenido (s) | ensayos | grupos | AUC [IC95]
+2 | 0.125 | 41 | 16 | 0.6697 [0.616; 0.720]
+2 | 0.25 | 66 | 20 | 0.6486 [0.606; 0.691]
+2 | 0.5 | 96 | 20 | 0.6456 [0.608; 0.680]
+3 | 0.125 | 96 | 20 | 0.6366 [0.600; 0.674]
+3 | 0.25 | 118 | 20 | 0.6405 [0.606; 0.676]
+3 | 0.5 | 133 | 20 | 0.6363 [0.602; 0.673]   <- criterio de E73 y E74
+4 | 0.125 | 135 | 20 | 0.6389 [0.605; 0.673]
+4 | 0.25 | 142 | 20 | 0.6398 [0.605; 0.674]
+4 | 0.5 | 149 | 20 | 0.6383 [0.607; 0.671]
+
+AUC entre 0.636 y 0.670; ensayos elegibles entre 41 y 149; menor extremo inferior de los intervalos 0.600
+R1: CUMPLE  {"n": 133, "auc": 0.6363095709197807, "ic95": [0.6015685655557518, 0.6727980097997363], "e74": {"auc": 0.6363095709197807, "ic95": [0.6015685655557518, 0.6727980097997363]}, "n_e74": 133}
+R2: CUMPLE  {"auc_min": 0.6363095709197807, "auc_max": 0.6697323022010708, "n_min": 41, "n_max": 149, "ic_inf_min": 0.6004857435475915}
+R3: CUMPLE  {"n_laxa": 41, "n_estricta": 149, "auc_laxa": 0.6697323022010708, "auc_ref": 0.6363095709197807}
+
+5 s

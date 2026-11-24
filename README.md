@@ -18,7 +18,7 @@ reported in the supplement, and the scripts that turn those outputs into the pap
 figures and numbers.
 
 > **Resumen en español.** Código y resultados del Paper A: el motor de simulación, los
-> scripts de las etapas que usa el paper (E30, E35 y E42 a E76), sus salidas archivadas, el
+> scripts de las etapas que usa el paper (E30, E35 y E42 a E77), sus salidas archivadas, el
 > control independiente del suplemento y los generadores de figuras y cifras. Los
 > comentarios del código están en español.
 
@@ -54,7 +54,7 @@ There are three levels of reproduction, from seconds to hours:
 
 1. **Numbers, tables and figures from the archived outputs** (seconds; no simulation and no
    animal data). `figuras/numeros.py` reads only `resultados/` and
-   `control_auditor/resultados/` and writes the 803 macros and 31 table bodies, 26 of which
+   `control_auditor/resultados/` and writes the 813 macros and 31 table bodies, 26 of which
    the manuscript includes; `figuras/figuras_corto.py` draws the figures from the same files
    (the footprint figure simulates its sixteen short runs when it is drawn).
 2. **Analyses that reread archived raw runs** (seconds to minutes; no new simulation). E75
@@ -123,6 +123,7 @@ lists its predictions and whether they held.
 |---|---|---|---|
 | E73, E73b | `e73_peces_entrenados.py`, `e73b_variantes.py` | Zebrafish with trained individuals | Turn-rate signature of the informed fish, known in advance, before and after the light cue; duty cycle, k = 5 and speed (centred filters, the analysis declared beforehand) |
 | E74 | `e74_peces_solo_pasado.py` | Zebrafish with trained individuals | The same with filters that read only past frames, the response of the first untrained fish, and the window and its end chosen inside the resampling and evaluated on the groups left out |
+| E77 | `e77_peces_criterio_respuesta.py` | Zebrafish with trained individuals | Sensitivity of the AUC in the trials without an individual response of the untrained fish to the response criterion (threshold of two to four standard deviations held for 0.125 to 0.5 s) |
 | E51, E51b | `e51_huella_aves.py`, `e51b_inyeccion.py` | Jackdaws, turning events | Footprint without a fixed threshold; known-truth injection control |
 | E52, E52b | `e52_auc_ventana_aves.py`, `e52b_aves_por_grabacion.py` | Jackdaws, turning events | Initiator/follower AUC against the window; recording as resampling unit |
 | E53 | `e53_agilidad_calibracion.py` | Jackdaws, continuous recordings | Agility and calibration of the observer |
@@ -142,7 +143,7 @@ so that no third-party code is executed.
 
 ## From archived results to the paper
 
-Table and figure numbers are those of the manuscript of 15 November 2026 (the manuscript
+Table and figure numbers are those of the manuscript of 23 November 2026 (the manuscript
 itself is not in this repository). Every number quoted in its text is a macro written by
 `figuras/numeros.py`; each table body is a file `figuras/gen/<name>.tex` written by the same
 script from the stage outputs listed here.
@@ -183,8 +184,9 @@ script from the stage outputs listed here.
 
 `numeros.py` also writes five table bodies that the manuscript does not include
 (`tab_cruz`, `tab_deteccion`, `tab_especies`, `tab_ruido_ventana`, `tab_tetraN`). The
-cohesion run without false alarms (E75b), the calibration of the observer's weight (E76) and
-the separate control enter the text as macros only.
+cohesion run without false alarms (E75b), the calibration of the observer's weight (E76), the
+sensitivity to the response criterion of the zebrafish (E77) and the separate control enter
+the text as macros only.
 
 | Figure | File in `figuras/fig/` | Stage outputs read |
 |---|---|---|

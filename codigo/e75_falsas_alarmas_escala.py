@@ -8,7 +8,10 @@ No corre el motor.
   D(L) = <dPhi^2>/L, todos los orígenes;  r = P/P_ViSt = D_ViSt(sin alarmas)/D_x
   c_P = (1 - r_x)/(1 - r_or)   (fracción de la pérdida de P del oráculo; la de E72)
   c_D = (D_x - D_ViSt)/(D_or - D_ViSt)   (fracción del exceso de difusión del oráculo)
-  delta_rms = sqrt((D_x - D_ViSt) T / n_FA)   (giro cuadrático medio del rumbo por falsa alarma)
+  delta_rms = sqrt((D_x - D_ViSt) T / n_FA)   (giro cuadrático medio EQUIVALENTE por falsa alarma:
+      el que daría ese exceso de difusión, a 60 s, si las alarmas actuaran por separado y sus
+      giros se sumaran; no se mide alrededor de cada alarma. Su intervalo remuestrea las
+      réplicas con su número de alarmas)
 
 Diseño y predicciones F1-F6 en docs/bitacora/resultados_E66-E75.md («E75»).
 
@@ -98,8 +101,11 @@ if __name__ == "__main__":
                 q["r_enteras"] = {"v": D(Vn, L_MAIN) / D(A[nom][ok], L_MAIN), "n": int(ok.sum())}
             ex, exb = Dx[nom][k(L_LARGO)] - Dv[k(L_LARGO)], Db[nom][k(L_LARGO)] - Dvb[k(L_LARGO)]
             if nfp.mean() > 0 and nom != "ViSt":
+                # giro equivalente: el intervalo remuestrea también las alarmas de cada réplica
                 q["delta_rms"] = {"v": float(np.sqrt(max(ex, 0) * T / nfp.mean())),
-                                  "ic": ic(np.sqrt(np.clip(exb, 0, None) * T / nfp.mean()))}
+                                  "ic": ic(np.sqrt(np.clip(exb, 0, None) * T / nfp[B].mean(axis=1))),
+                                  "ic_alarmas_fijas": ic(np.sqrt(np.clip(exb, 0, None) * T / nfp.mean())),
+                                  "n_fp_min": float(nfp.min()), "n_fp_max": float(nfp.max())}
             out[f"x{mult}"][nom] = q
             L.append(f"{nom:18s} " + "  ".join(f"{l:g}s {q['r'][k(l)]['v']:.3f}" for l in LAGS)
                      + f" | 10 s: P/P_ViSt {q['r']['10']['v']:.3f} [{q['r']['10']['ic'][0]:.3f}; {q['r']['10']['ic'][1]:.3f}]"

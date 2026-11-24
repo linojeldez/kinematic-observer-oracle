@@ -1080,6 +1080,9 @@ macro("FeColdInCinco", num(_c75["r_cold"]["10"]["v"], 2))
 _v75("FeGiroOr", _o75["delta_rms"], 2); _v75("FeGiroIn", _i75["delta_rms"], 2)
 macro("FeGiroOrGrad", num(math.degrees(_o75["delta_rms"]["v"]), 0)); macro("FeGiroInGrad", num(math.degrees(_i75["delta_rms"]["v"]), 0))
 macro("FeGiroCold", num(_X75["CoLd"]["delta_rms"]["v"], 2))
+assert "ic_alarmas_fijas" in _o75["delta_rms"]                                      # el intervalo remuestrea las alarmas
+macro("FeGiroFaMin", num(_o75["delta_rms"]["n_fp_min"], 0)); macro("FeGiroFaMax", num(_o75["delta_rms"]["n_fp_max"], 0))
+macro("FeGiroOrDiez", num(_Z75["oraculo"]["delta_rms"]["v"], 2)); macro("FeGiroInDiez", num(_Z75["adaptado_pi0.173"]["delta_rms"]["v"], 2))
 macro("FeNrun", str(_o75["n"]))
 for _n, _cod in (("oraculo", "Or"), ("adaptado_pi0.173", "In"), ("adaptado_pi0.05", "InCinco"), ("CoLd", "Cold")):
     macro("FeParte" + _cod, str(_X75[_n]["parten"]))
@@ -1196,6 +1199,15 @@ for c in C3:
     _filas.append(f"{cab} & {et} & ${v['rec']['integrador']['rec']:.2f}$ & ${v['rec'][v['g_max']]['rec']:.2f}$ ($\\times{g}$)$^{{\\dagger}}$ & "
                   f"${q['dif']:+.2f}$ [${q['ic95'][0]:+.2f}$, ${q['ic95'][1]:+.2f}$] \\\\")
 escribir("tab_justa_cuerpo.tex", _filas)
+
+# ---------------------------------------------------------------- peces cebra: criterio de respuesta (E77)
+e77 = J("E77_peces_criterio_respuesta.json")
+_r77 = e77["resumen"]
+macro("ZrAucMin", num(_r77["auc_min"], 2)); macro("ZrAucMax", num(_r77["auc_max"], 2))
+macro("ZrNmin", str(_r77["n_min"])); macro("ZrNmax", str(_r77["n_max"]))
+macro("ZrIcMin", num(_r77["ic_inf_min"], 2)); macro("ZrNvar", str(len(e77["variantes"])))
+assert all(v["cumple"] for v in e77["pred"].values())                               # R1-R3
+assert e77["variantes"][e77["ref"]]["n"] == e74["antes"]["sin_individual"]["n"]     # la referencia es la de E74
 
 with open(os.path.join(AQUI, "numeros.tex"), "w") as fh:
     fh.write("% generado por numeros.py desde resultados/*.json; no editar a mano\n")
