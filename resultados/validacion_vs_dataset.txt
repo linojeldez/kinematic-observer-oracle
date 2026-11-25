@@ -1,0 +1,10 @@
+=== Validación del motor contra el conjunto de datos publicado (N = 250, sigma^2 = 1, t_R = 15.8 s, 3 réplicas por ángulo, 54 corridas por modelo y k) ===
+   k | ViSt motor ViSt publ.    desvío | WiSt motor WiSt publ.    desvío
+   5 |   0.070361   0.093536   -24.78 % |   0.145447   0.176761   -17.72 %
+  15 |   0.081136   0.104166   -22.11 % |   0.377538   0.443307   -14.84 %
+  30 |   0.085961   0.099906   -13.96 % |   0.666562   0.719913    -7.41 %
+  70 |   0.099651   0.098652    +1.01 % |   0.886687   0.898947    -1.36 %
+
+valores publicados comprobados contra el fichero: |Δ| máx = 0.00e+00
+
+240 s

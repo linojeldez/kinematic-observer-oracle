@@ -54,7 +54,7 @@ There are three levels of reproduction, from seconds to hours:
 
 1. **Numbers, tables and figures from the archived outputs** (seconds; no simulation and no
    animal data). `figuras/numeros.py` reads only `resultados/` and
-   `control_auditor/resultados/` and writes the 813 macros and 31 table bodies, 26 of which
+   `control_auditor/resultados/` and writes the 816 macros and 32 table bodies, 27 of which
    the manuscript includes; `figuras/figuras_corto.py` draws the figures from the same files
    (the footprint figure simulates its sixteen short runs when it is drawn).
 2. **Analyses that reread archived raw runs** (seconds to minutes; no new simulation). E75
@@ -107,7 +107,8 @@ lists its predictions and whether they held.
 | E64 | `e64_persistencia.py` | Persistence without informed agents and without false alarms |
 | E65 | `e65_k70.py` | Recovery at k = 70, where the engine matches the published responsivities |
 | E66 | `e66_replicas.py` | 16 replicates in the window, agility, noise and fixed-weight sweeps |
-| E67 | `e67_deficit.py` | Choices that the reference paper leaves open and the engine's deficit at small k |
+| — | `validar_vs_dataset.py` | The engine against the responsivities published with the reference model (N = 250, k = 5, 15, 30 and 70; 18 turn angles with 3 replicates each); writes `resultados/validacion_vs_dataset.*` with the unrounded values. The published values are in the script and are checked against the file of the data set when it is in `datos/` |
+| E67 | `e67_deficit.py` | Choices that the reference paper leaves open and the engine's deficit at small k (8 replicates; k = 5, 15 and 70) |
 | E68 | `e68_fraccion_informados.py` | Recovery against the fraction of informed agents (1 to 48 informed; N = 250 and 1000) |
 | E69 | `e69_dos_etapas.py` | Value of reading the leader for a time and at a fraction of its state; a two-stage law (failed) |
 | E70, E70b | `e70_cabecera_robustez.py`, `e70b_ventana_agilidad.py` | The headline regime (12 of 250 informed) under other noise, agility and k; a window matched to the agility |
@@ -143,7 +144,7 @@ so that no third-party code is executed.
 
 ## From archived results to the paper
 
-Table and figure numbers are those of the manuscript of 23 November 2026 (the manuscript
+Table and figure numbers are those of the manuscript of 25 November 2026 (the manuscript
 itself is not in this repository). Every number quoted in its text is a macro written by
 `figuras/numeros.py`; each table body is a file `figuras/gen/<name>.tex` written by the same
 script from the stage outputs listed here.
@@ -154,7 +155,7 @@ script from the stage outputs listed here.
 | Table 2, the two observers on new replicates | `tab_justa_cuerpo` | E71 |
 | Footprint table in the text | `tab_huella` | E47, E51 |
 | S1, parameters | written by hand | `codigo/flocking.py`, `codigo/parametros.py` |
-| S2, engine against the published responsivities | written by hand | validation runs; E67 recomputes k = 5, 15 and 70 |
+| S2, engine against the published responsivities | `tab_validacion` | `validacion_vs_dataset` (from `codigo/validar_vs_dataset.py`) |
 | S3, footprint against the model parameters | written by hand | E47 |
 | S4, components of the footprint | `tab_componentes` | E59 |
 | S5, single leader by group size | `tab_cabecera` | E48, E46 |

@@ -19,4 +19,6 @@ rather than with `numpy.load(..., allow_pickle=True)`. Their repository states n
 
 The parameters of the reference model come from Balázs, Vásárhelyi & Vicsek (2020) and
 Mendeley `10.17632/3brbybg4nk.1`; they are written in `codigo/flocking.py` and
-`codigo/parametros.py`, so that data set is not needed to run the code.
+`codigo/parametros.py`, so that data set is not needed to run the code. `codigo/validar_vs_dataset.py`
+carries the published responsivities of its file `v-w-resp-kscan-250A-sqrttime.p` and, when the
+data set is unpacked in `datos/persistence-responsivity trade off/`, checks them against it.

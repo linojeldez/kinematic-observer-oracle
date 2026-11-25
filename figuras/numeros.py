@@ -947,7 +947,7 @@ for _cl, _et in (("en_tD", "class"), ("en_t1", "first fish")):
         _filas.append(f"{_et} & ${_m}$ & ${_a[_cl]['n']}$ & " + " & ".join(f"${_q[w]['auc']:.2f}$" for w in e74["W"])
                       + f" & ${_q['1s_menos_valor']['dif']:+.3f}$ [${_q['1s_menos_valor']['ic95'][0]:+.3f}$, ${_q['1s_menos_valor']['ic95'][1]:+.3f}$] \\\\")
 _q = _a["sin_individual"]["sp"]
-_filas.append(f"none by $+0.6$\\,s & --- & ${_a['sin_individual']['n']}$ & " + " & ".join(f"${_q[w]['auc']:.2f}$" for w in e74["W"]) + " & --- \\\\")
+_filas.append(f"none before $+0.6$\\,s & --- & ${_a['sin_individual']['n']}$ & " + " & ".join(f"${_q[w]['auc']:.2f}$" for w in e74["W"]) + " & --- \\\\")
 escribir("tab_entrenados_resp.tex", _filas)
 
 # ---------------------------------------------------------------- plan 16: la cabecera con otro ruido, agilidad y k (E70)
@@ -967,6 +967,10 @@ _g2 = e70["pred"]["G2"]["pares"]
 rango("RbColDos", [-100 * _g2[c][0] for c in _C3])
 rango("RbColSeis", [100 * _g2[c][1] for c in _C3])
 macro("RbMinResto", num(min(min(_ri(v)) for v in ("f0.5", "f2", "a5", "a20", "k70")), 0))
+_min70 = min(((v, c) for v in ("f0.5", "f2", "a5", "a20", "k70") for c in _C3),
+             key=lambda vc: _R70[f"{vc[0]}|{vc[1]}"]["integrador"]["rec"])
+assert _min70 == ("f2", "maniobra|4"), _min70          # el texto nombra esa celda
+macro("RbMinRestoCI", ic(*_R70["f2|maniobra|4"]["integrador"]["ic95"], 0, k=100))
 macro("RbPierde", str(len(e70["pred"]["G3"]["pierde"])))
 _om = e70["omega_sobre_sigma"]
 _filas = []
@@ -1208,6 +1212,23 @@ macro("ZrNmin", str(_r77["n_min"])); macro("ZrNmax", str(_r77["n_max"]))
 macro("ZrIcMin", num(_r77["ic_inf_min"], 2)); macro("ZrNvar", str(len(e77["variantes"])))
 assert all(v["cumple"] for v in e77["pred"].values())                               # R1-R3
 assert e77["variantes"][e77["ref"]]["n"] == e74["antes"]["sin_individual"]["n"]     # la referencia es la de E74
+
+# ---------------------------------------------------------------- validación del motor contra el conjunto de datos publicado (tabla S2)
+val = J("validacion_vs_dataset.json")
+_pv = val["protocolo"]
+assert (_pv["N"], _pv["sigma_xi"], _pv["t_R"], _pv["d_phi_grados"]) == (250, 1.0, 15.8, 10.0)
+assert len({q["corridas"] for q in val["R"].values()}) == 1
+macro("ValRep", str(_pv["replicas"])); macro("ValCorridas", str(val["R"]["ViSt|5"]["corridas"]))
+def _dv(x):
+    s = f"{100 * x:+.0f}"
+    return "0" if s in ("+0", "-0") else s
+_filas = []
+for _k in _pv["k"]:
+    _v, _w = f"ViSt|{_k}", f"WiSt|{_k}"
+    _filas.append(f"${_k}$ & ${val['R'][_v]['R']:.3f}$ / ${val['referencia'][_v]:.3f}$ & "
+                  f"${val['R'][_w]['R']:.3f}$ / ${val['referencia'][_w]:.3f}$ & "
+                  f"${_dv(val['desvio'][_v])}\\,\\%$ / ${_dv(val['desvio'][_w])}\\,\\%$ \\\\")
+escribir("tab_validacion.tex", _filas)
 
 with open(os.path.join(AQUI, "numeros.tex"), "w") as fh:
     fh.write("% generado por numeros.py desde resultados/*.json; no editar a mano\n")
